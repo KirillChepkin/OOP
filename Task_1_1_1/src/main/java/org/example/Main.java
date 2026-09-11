@@ -4,7 +4,7 @@ package org.example;
 import java.util.Arrays;
 
 /**
-* Main class contains all other functions
+* Main class contains all other functions.
  */
 public class Main {
     static void main() {
@@ -14,8 +14,8 @@ public class Main {
     }
 
     /**
-    * method sifts arr[idx] element down the heap if it's smaller than any of its descendents
-    * designed to be used in Main.heapsort(int[] arr) method
+    * method sifts arr[idx] element down the heap if it's smaller than any of its descendents.
+    * designed to be used in Main.heapsort(int[] arr) method.
      */
     static void sift(int[] arr, int size, int idx) {
         // an element gets sifted down as long as it's the smallest
@@ -31,15 +31,13 @@ public class Main {
                 buf = arr[idx];
                 arr[idx] = arr[li];
                 arr[li] = buf;
-                idx = li;
-            }
+                idx = li;}
             else if (ri < size && arr[idx] < arr[ri] && arr[ri] >= arr[li]) {
                 // swapping the element with its right descendent
                 buf = arr[idx];
                 arr[idx] = arr[ri];
                 arr[ri] = buf;
-                idx = ri;
-            }
+                idx = ri;}
             else {
                 break;
             }
@@ -47,8 +45,10 @@ public class Main {
     }
 
     /**
-    * takes an array of integers and sorts it in ascending order with the use of the heapsort algorithm.
+    * takes an array of integers and sorts it in ascending
+     * order with the use of the heapsort algorithm.
     * Invokes Main.sift method.
+     *
      * @param arr - an array that has to be sorted.
      */
     public static void heapsort(int[] arr) {

@@ -1,10 +1,8 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-
-import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import org.junit.jupiter.api.Test;
 
 class MainTest {
     @Test
@@ -18,9 +16,9 @@ class MainTest {
 
     @Test
     void try_empty() {
-        int[] array_init = {};
-        Main.heapsort(array_init);
-        int[] array_desired = {};
-        assertArrayEquals(array_desired, array_init);
+        int[] arrayInit = {};
+        Main.heapsort(arrayInit);
+        int[] arrayDesired = {};
+        assertArrayEquals(arrayDesired, arrayInit);
     }
 }
