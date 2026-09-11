@@ -7,11 +7,11 @@ import org.junit.jupiter.api.Test;
 class MainTest {
     @Test
     void try_array() {
-        int[] array_init = {1, 2, 3, 4, 7, 9, 11, 23, 44, 0, -1};
-        Main.heapsort(array_init);
-        int[] array_desired = {-1, 0, 1, 2, 3, 4, 7, 9, 11, 23, 44};
-        assertArrayEquals(array_desired, array_init,
-                "failed with result: " + Arrays.toString(array_init) + "\n");
+        int[] arrayInit = {1, 2, 3, 4, 7, 9, 11, 23, 44, 0, -1};
+        Main.heapsort(arrayInit);
+        int[] arrayDesired = {-1, 0, 1, 2, 3, 4, 7, 9, 11, 23, 44};
+        assertArrayEquals(arrayDesired, arrayInit,
+                "failed with result: " + Arrays.toString(arrayInit) + "\n");
     }
 
     @Test

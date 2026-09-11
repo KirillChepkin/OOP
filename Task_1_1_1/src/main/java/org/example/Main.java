@@ -17,22 +17,22 @@ public class Main {
     * method sifts arr[idx] element down the heap if it's smaller than any of its descendents.
     * designed to be used in Main.heapsort(int[] arr) method.
      */
-    static void sift(int[] arr, int size, int idx) {
+    static void sift(int[] arr, int arr_size, int idx) {
         // an element gets sifted down as long as it's the smallest
-        // size <= arr.length is not necessarily equal to arr.length
+        // arr_size <= arr.length is not necessarily equal to arr.length
         int li;
         int ri;
         int buf;
         while (true) {
             li = 2 * idx + 1;
             ri = 2 * idx + 2;
-            if (li < size && arr[idx] < arr[li] && (ri >= size || arr[li] >= arr[ri])) {
+            if (li < arr_size && arr[idx] < arr[li] && (ri >= arr_size || arr[li] >= arr[ri])) {
                 // swapping the element with its left descendent
                 buf = arr[idx];
                 arr[idx] = arr[li];
                 arr[li] = buf;
                 idx = li;}
-            else if (ri < size && arr[idx] < arr[ri] && arr[ri] >= arr[li]) {
+            else if (ri < arr_size && arr[idx] < arr[ri] && arr[ri] >= arr[li]) {
                 // swapping the element with its right descendent
                 buf = arr[idx];
                 arr[idx] = arr[ri];
