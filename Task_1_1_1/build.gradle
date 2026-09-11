@@ -1,6 +1,8 @@
 plugins {
     id 'java'
     id 'jacoco'
+    id 'application'
+    id 'org.barfuin.gradle.jacocolog' version '3.1.0'
 }
 
 group = 'org.example'
@@ -11,9 +13,17 @@ repositories {
 }
 
 jacocoTestReport {
+    dependsOn test
+
     reports {
         xml.required = true
+        html.required = true
     }
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
 }
 
 dependencies {
@@ -24,4 +34,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+application {
+    mainClass = 'org.example.Main'
 }
