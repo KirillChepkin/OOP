@@ -52,4 +52,10 @@ class MainTest {
         int[] expected = {-20, -10, -1, 5, 6, 10, 44};
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void coverMain() {
+        String[] arg = {};
+        Main.main(arg);
+    }
 }
