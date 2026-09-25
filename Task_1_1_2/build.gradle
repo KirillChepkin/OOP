@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'jacoco'
 }
 
 group = 'org.example'
@@ -17,4 +19,17 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+jacocoTestReport {
+    dependsOn test
+
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}
+
+application {
+    mainClass = 'org.example.Main'
 }

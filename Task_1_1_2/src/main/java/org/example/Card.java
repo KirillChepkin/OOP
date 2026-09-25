@@ -9,6 +9,7 @@ package org.example;
 public class Card {
     public static String defaultName;
     public static int defaultValue;
+
     public String name;
     public int value = 0;
     public boolean isAce;
@@ -51,5 +52,10 @@ public class Card {
             return defaultValue;
         }
         return this.value;
+    }
+
+    @Override
+    public String toString() {
+        return "Card(" + this.name + ")";
     }
 }

@@ -9,7 +9,8 @@ package org.example;
  * 5) reveal appropriate cards
  */
 public class Main {
-    static void main() {
-
+    public static void main(String[] args) {
+        Deck deck = new Deck();
+        System.out.println(deck.cards);
     }
 }
