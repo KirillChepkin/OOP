@@ -13,7 +13,9 @@ public class Card {
 
     /**
      * Sets card value according to its suit and its name.
+     *
      * @param suit of the card.
+     *
      * @param card name of the card.
      */
     Card(SuitCode suit, CardCode card) {
@@ -42,7 +44,9 @@ public class Card {
 
     /**
      * Method for testing.
+     *
      * @param obj   the reference object with which to compare.
+     *
      * @return whether card, suit and revealed attributes are identical.
      */
     @Override
@@ -53,6 +57,7 @@ public class Card {
 
     /**
      * Method for testing.
+     *
      * @return integer hash of card, suit and revealed attributes.
      */
     @Override

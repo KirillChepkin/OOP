@@ -1,7 +1,7 @@
 package org.view;
 
 /**
- * Contains string representations for all possible card suits
+ * Contains string representations for all possible card suits.
  */
 public enum SuitRep {
     SPADES(1, "Пики"),

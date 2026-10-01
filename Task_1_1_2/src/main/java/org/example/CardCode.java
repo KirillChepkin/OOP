@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Elements of this enum class represent all possible card names.
+ */
 public enum CardCode {
     TWO(2),
     THREE(3),

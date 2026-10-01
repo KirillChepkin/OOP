@@ -1,12 +1,12 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.example.Card;
-import org.example.CardCode;
-import org.example.SuitCode;
-
+/**
+ * Tests for the Deck class.
+ */
 public class DeckTest {
     @Test
     void testDeckCreation() {

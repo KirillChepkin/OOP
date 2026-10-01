@@ -3,7 +3,7 @@ package org.example;
 import org.view.ConsoleView;
 
 /**
- * Only creates instances and calls game starting method.
+ * Only creates basic instances and calls game starting method.
  */
 public class Main {
     public static void main(String[] args) {

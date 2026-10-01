@@ -1,5 +1,8 @@
 package org.example;
 
+/**
+ * Elements of this enum class represent all possible card suits.
+ */
 public enum SuitCode {
     SPADES(1),
     HEARTS(2),

@@ -3,6 +3,8 @@ package org.example;
 import org.view.View;
 
 /**
+ * This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
+ * victory conditions and displaying game state in view.
  *
  * @param <T> type of the view object that should be used for IO. Object must belong to a subclass
  *          of View and support its abstract methods.
@@ -15,6 +17,7 @@ public class Game<T extends View> {
 
     /**
      * Creates deck, user and dealer objects and configures them.
+     *
      * @param view view object to be used for IO.
      */
     Game(T view) {
