@@ -107,7 +107,8 @@ public class ConsoleView extends View {
     }
 
     public void displayDealerDraw() {
-        System.out.println("Дилер взял карту: " + getCardRep(this.dealer.cards.getLast()) + ". " +
+        System.out.println("Дилер взял карту: " +
+                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". " +
                 "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
@@ -115,7 +116,8 @@ public class ConsoleView extends View {
     }
 
     public void displayDealerReveal() {
-        System.out.println("Дилер открыл карту: " + getCardRep(this.dealer.cards.getLast()) + ". " +
+        System.out.println("Дилер открыл карту: " +
+                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". " +
                 "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
