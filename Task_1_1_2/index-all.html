@@ -66,7 +66,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Represents a single card with some value.</div>
 </dd>
 <dt><a href="org/example/CardCode.html" class="type-name-link" title="enum class in org.example">CardCode</a> - Enum Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Elements of this enum class represent all possible card names.</div>
+</dd>
 <dt><a href="org/view/CardRep.html" class="type-name-link" title="enum class in org.view">CardRep</a> - Enum Class in <a href="org/view/package-summary.html">org.view</a></dt>
 <dd>
 <div class="block">Contains string representations for all possible card names.</div>
@@ -85,8 +87,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/SuitCode.html#code" class="member-name-link">code</a> - Variable in enum class org.example.<a href="org/example/SuitCode.html" title="enum class in org.example">SuitCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#code" class="member-name-link">code</a> - Variable in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#code" class="member-name-link">code</a> - Variable in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/SuitRep.html#code" class="member-name-link">code</a> - Variable in enum class org.view.<a href="org/view/SuitRep.html" title="enum class in org.view">SuitRep</a></dt>
@@ -98,7 +98,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/view/ConsoleView.html#%3Cinit%3E()" class="member-name-link">ConsoleView()</a> - Constructor for class org.view.<a href="org/view/ConsoleView.html" title="class in org.view">ConsoleView</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Player.html#countAces()" class="member-name-link">countAces()</a> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Getter method for this.aces parameter.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
@@ -170,11 +172,7 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="org/example/CardCode.html#EIGHT" class="member-name-link">EIGHT</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#EIGHT" class="member-name-link">EIGHT</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#EIGHT" class="member-name-link">EIGHT</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#ELEVEN" class="member-name-link">ELEVEN</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Card.html#equals(java.lang.Object)" class="member-name-link">equals(Object)</a> - Method in class org.example.<a href="org/example/Card.html" title="class in org.example">Card</a></dt>
 <dd>
@@ -185,13 +183,9 @@ loadScripts(document, 'script');</script>
 <dl class="index">
 <dt><a href="org/example/CardCode.html#FIVE" class="member-name-link">FIVE</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#FIVE" class="member-name-link">FIVE</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#FIVE" class="member-name-link">FIVE</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/CardCode.html#FOUR" class="member-name-link">FOUR</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#FOUR" class="member-name-link">FOUR</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#FOUR" class="member-name-link">FOUR</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
@@ -199,7 +193,10 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
 <dt><a href="org/example/Game.html" class="type-name-link" title="class in org.example">Game</a>&lt;<a href="org/example/Game.html" title="type parameter in Game">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt; - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
+ victory conditions and displaying game state in view.</div>
+</dd>
 <dt><a href="org/view/ConsoleView.html#getUserDecision()" class="member-name-link">getUserDecision()</a> - Method in class org.view.<a href="org/view/ConsoleView.html" title="class in org.view">ConsoleView</a></dt>
 <dd>
 <div class="block">Offers a user to decide whether to continue taking cards.</div>
@@ -246,7 +243,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Main.html" class="type-name-link" title="class in org.example">Main</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
 <dd>
-<div class="block">Only creates instances and calls game starting method.</div>
+<div class="block">Only creates basic instances and calls game starting method.</div>
 </dd>
 <dt><a href="org/example/Main.html#%3Cinit%3E()" class="member-name-link">Main()</a> - Constructor for class org.example.<a href="org/example/Main.html" title="class in org.example">Main</a></dt>
 <dd>&nbsp;</dd>
@@ -254,8 +251,6 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:N">N</h2>
 <dl class="index">
 <dt><a href="org/example/CardCode.html#NINE" class="member-name-link">NINE</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#NINE" class="member-name-link">NINE</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#NINE" class="member-name-link">NINE</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
@@ -315,10 +310,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Player.html#setDeck(org.example.Deck)" class="member-name-link">setDeck(Deck)</a> - Static method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Player.html#setView(T)" class="member-name-link">setView(T)</a> - Method in class org.example.<a href="org/example/Player.html" title="class in org.example">Player</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Provides an object belonging to a subclass of View to be used for IO.</div>
+</dd>
 <dt><a href="org/example/CardCode.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#SEVEN" class="member-name-link">SEVEN</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
@@ -327,8 +322,6 @@ loadScripts(document, 'script');</script>
 <div class="block">shuffles all the cards in the deck</div>
 </dd>
 <dt><a href="org/example/CardCode.html#SIX" class="member-name-link">SIX</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#SIX" class="member-name-link">SIX</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#SIX" class="member-name-link">SIX</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
@@ -349,10 +342,12 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/example/Card.html#suit" class="member-name-link">suit</a> - Variable in class org.example.<a href="org/example/Card.html" title="class in org.example">Card</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/SuitCode.html" class="type-name-link" title="enum class in org.example">SuitCode</a> - Enum Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Elements of this enum class represent all possible card suits.</div>
+</dd>
 <dt><a href="org/view/SuitRep.html" class="type-name-link" title="enum class in org.view">SuitRep</a> - Enum Class in <a href="org/view/package-summary.html">org.view</a></dt>
 <dd>
-<div class="block">Contains string representations for all possible card suits</div>
+<div class="block">Contains string representations for all possible card suits.</div>
 </dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
@@ -363,21 +358,15 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/example/CardCode.html#TEN" class="member-name-link">TEN</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#TEN" class="member-name-link">TEN</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#TEN" class="member-name-link">TEN</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/CardCode.html#THREE" class="member-name-link">THREE</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#THREE" class="member-name-link">THREE</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#THREE" class="member-name-link">THREE</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/Card.html#toString()" class="member-name-link">toString()</a> - Method in class org.example.<a href="org/example/Card.html" title="class in org.example">Card</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/example/CardCode.html#TWO" class="member-name-link">TWO</a> - Enum constant in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="org/example/Value.html#TWO" class="member-name-link">TWO</a> - Enum constant in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/view/CardRep.html#TWO" class="member-name-link">TWO</a> - Enum constant in enum class org.view.<a href="org/view/CardRep.html" title="enum class in org.view">CardRep</a></dt>
 <dd>&nbsp;</dd>
@@ -402,17 +391,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Value does not include Aces.</div>
 </dd>
-<dt><a href="org/example/Value.html" class="type-name-link" title="enum class in org.example">Value</a> - Enum Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="org/example/CardCode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class org.example.<a href="org/example/CardCode.html" title="enum class in org.example">CardCode</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
 <dt><a href="org/example/SuitCode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class org.example.<a href="org/example/SuitCode.html" title="enum class in org.example">SuitCode</a></dt>
-<dd>
-<div class="block">Returns the enum constant of this class with the specified name.</div>
-</dd>
-<dt><a href="org/example/Value.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
@@ -430,11 +413,6 @@ loadScripts(document, 'script');</script>
 the order they are declared.</div>
 </dd>
 <dt><a href="org/example/SuitCode.html#values()" class="member-name-link">values()</a> - Static method in enum class org.example.<a href="org/example/SuitCode.html" title="enum class in org.example">SuitCode</a></dt>
-<dd>
-<div class="block">Returns an array containing the constants of this enum class, in
-the order they are declared.</div>
-</dd>
-<dt><a href="org/example/Value.html#values()" class="member-name-link">values()</a> - Static method in enum class org.example.<a href="org/example/Value.html" title="enum class in org.example">Value</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
