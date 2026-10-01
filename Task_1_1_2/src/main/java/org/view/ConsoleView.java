@@ -40,6 +40,9 @@ public class ConsoleView extends View {
         }
     }
 
+    /**
+     * Displays cards given to players by printing them into the console.
+     */
     public void displayStart() {
         printSeparator();
         System.out.println("Ваши карты:");
@@ -94,6 +97,9 @@ public class ConsoleView extends View {
         }
     }
 
+    /**
+     * Prints all cards at user's disposal and the last drawn card.
+     */
     public void displayUserDraw() {
         System.out.println("Вы взяли карту: "
                 + getCardRep(this.user.cards.get(this.user.cards.size() - 1))
@@ -103,18 +109,24 @@ public class ConsoleView extends View {
         printSeparator();
     }
 
+    /**
+     * Prints all cards at dealer's disposal and the last drawn card.
+     */
     public void displayDealerDraw() {
-        System.out.println("Дилер взял карту: " +
-                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". "
+        System.out.println("Дилер взял карту: "
+                + getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". "
                 + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
         printSeparator();
     }
 
+    /**
+     * Prints all cards at dealer's disposal and a revealed card.
+     */
     public void displayDealerReveal() {
-        System.out.println("Дилер открыл карту: " +
-                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1))
+        System.out.println("Дилер открыл карту: "
+                + getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1))
                 + ". " + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);

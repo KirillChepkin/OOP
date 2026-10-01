@@ -36,8 +36,8 @@ public class Card {
 
     @Override
     public String toString() {
-        return "Card(" + this.card.toString() + " of " + this.suit.toString() + ", Value: " +
-                this.value + ", Revealed: " + this.revealed + ")";
+        return "Card(" + this.card.toString() + " of " + this.suit.toString() + ", Value: "
+                + this.value + ", Revealed: " + this.revealed + ")";
     }
 
     /**
