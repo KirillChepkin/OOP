@@ -2,6 +2,11 @@ package org.example;
 
 import org.view.View;
 
+/**
+ * Class that represents dealer throughout the game.
+ *
+ * @param <T> type of the view object used for IO.
+ */
 public class Dealer<T extends View> extends Player<T> {
     /**
      * At the beginning Dealer reveals their hidden card. Then they take card after card until the

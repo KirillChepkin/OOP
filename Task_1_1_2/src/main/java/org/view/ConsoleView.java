@@ -4,8 +4,6 @@ import org.example.Card;
 import org.example.CardCode;
 import org.example.Player;
 import org.example.SuitCode;
-
-import java.lang.Number;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -87,20 +85,18 @@ public class ConsoleView extends View {
             response = scanner.nextLine();
             if (response.equals("0")) {
                 return false;
-            }
-            else if (response.equals("1")) {
+            } else if (response.equals("1")) {
                 return true;
-            }
-            else {
+            } else {
                 System.out.println("Недопустимый ввод, попробуйте еще раз.");
             }
         }
     }
 
     public void displayUserDraw() {
-        System.out.println("Вы взяли карту: " + getCardRep(this.user.cards.get(this.user.cards.size() - 1)) +
-                ". Всего " +
-                "очков: " + this.user.getValue());
+        System.out.println("Вы взяли карту: "
+                + getCardRep(this.user.cards.get(this.user.cards.size() - 1))
+                + ". Всего " + "очков: " + this.user.getValue());
         System.out.println("Ваши карты: ");
         printCardsList(this.user);
         printSeparator();
@@ -108,8 +104,8 @@ public class ConsoleView extends View {
 
     public void displayDealerDraw() {
         System.out.println("Дилер взял карту: " +
-                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". " +
-                "Очков у Дилера: " + this.dealer.getValue());
+                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". "
+                + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
         printSeparator();
@@ -117,8 +113,8 @@ public class ConsoleView extends View {
 
     public void displayDealerReveal() {
         System.out.println("Дилер открыл карту: " +
-                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". " +
-                "Очков у Дилера: " + this.dealer.getValue());
+                getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1))
+                + ". " + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
         printSeparator();

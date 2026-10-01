@@ -24,10 +24,12 @@ public abstract class Player<T extends View> {
     protected T view;
 
     abstract void start();
+
     abstract void play();
 
     /**
      * Provides an object belonging to a subclass of View to be used for IO.
+     *
      * @param view View object that should be used for IO.
      */
     public void setView(T view) {
@@ -51,6 +53,7 @@ public abstract class Player<T extends View> {
 
     /**
      * Getter method for this.aces parameter.
+     *
      * @return number of Aces at Player's disposal.
      */
     protected int countAces() {

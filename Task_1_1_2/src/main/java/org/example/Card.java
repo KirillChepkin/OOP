@@ -23,11 +23,9 @@ public class Card {
         this.card = card;
         if (this.card.code <= 10) {
             this.value = this.card.code;
-        }
-        else if (this.card == CardCode.ACE) {
+        } else if (this.card == CardCode.ACE) {
             this.value = 11;
-        }
-        else {
+        } else {
             this.value = 10;
         }
     }
@@ -51,8 +49,8 @@ public class Card {
      */
     @Override
     public boolean equals(Object obj) {
-        return (obj instanceof Card card) && (card.card.equals(this.card)) &&
-                (card.suit.equals(this.suit)) && (card.revealed == this.revealed);
+        return (obj instanceof Card card) && (card.card.equals(this.card))
+                && (card.suit.equals(this.suit)) && (card.revealed == this.revealed);
     }
 
     /**

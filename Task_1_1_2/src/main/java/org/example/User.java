@@ -4,6 +4,7 @@ import org.view.View;
 
 /**
  * Unlike Dealer, this class waits for user to make a decision when playing.
+ *
  * @param <T> IO type.
  */
 public class User<T extends View> extends Player<T> {

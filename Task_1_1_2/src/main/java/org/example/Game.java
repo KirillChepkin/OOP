@@ -77,11 +77,9 @@ public class Game<T extends View> {
 
         if (this.user.getValue() > this.dealer.getValue()) {
             this.view.displayUserVictory();
-        }
-        else if (this.dealer.getValue() > this.user.getValue()) {
+        } else if (this.dealer.getValue() > this.user.getValue()) {
             this.view.displayDealerVictory();
-        }
-        else {
+        } else {
             this.view.displayDraw();
         }
     }
