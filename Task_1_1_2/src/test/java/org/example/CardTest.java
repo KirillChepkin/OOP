@@ -38,4 +38,17 @@ public class CardTest {
         card1.revealed = true;
         assertFalse(card1.equals(card2));
     }
+
+    @Test
+    public void testHashCode() {
+        Card card1 = new Card(SuitCode.CLUBS, CardCode.EIGHT);
+        Card card2 = new Card(SuitCode.CLUBS, CardCode.EIGHT);
+        Card card3 = new Card(SuitCode.HEARTS, CardCode.EIGHT);
+        Card card4 = new Card(SuitCode.CLUBS, CardCode.FIVE);
+        assertTrue(card1.hashCode() == card2.hashCode());
+        assertFalse(card1.hashCode() == card3.hashCode());
+        assertFalse(card1.hashCode() == card4.hashCode());
+        card1.revealed = true;
+        assertFalse(card1.hashCode() == card2.hashCode());
+    }
 }
