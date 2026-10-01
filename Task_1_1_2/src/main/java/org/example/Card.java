@@ -1,61 +1,62 @@
 package org.example;
 
+import java.util.Objects;
+
 /**
- * This class represents a card in the game.
- * A card is hidden by default and can be revealed via the method.
- * A card has a default value according to its name.
- * But this value can be reset in case of an ace (this.value == 11).
+ * Represents a single card with some value.
  */
 public class Card {
-    public static String defaultName;
-    public static int defaultValue;
-
-    public String name;
-    public int value = 0;
-    public boolean isAce;
-    private boolean revealed = false;
-
-    public static void setDefault(String name, int value) {
-        defaultName = name;
-        defaultValue = value;
-    }
-
-    public Card(String name, int value, boolean isAce) {
-        this.name = name;
-        this.value = value;
-        this.isAce = isAce;
-    }
-
-    public void reveal() {
-        this.revealed = true;
-    }
+    public SuitCode suit;
+    public CardCode card;
+    private final int value;
+    public boolean revealed = false;
 
     /**
-     * sets card's value to 1 if it is an ace and currently revealed.
-     *
+     * Sets card value according to its suit and its name.
+     * @param suit of the card.
+     * @param card name of the card.
      */
-    public void resetAceValue() {
-        if (this.revealed && this.isAce) {
-            this.value = 1;
+    Card(SuitCode suit, CardCode card) {
+        this.suit = suit;
+        this.card = card;
+        if (this.card.code <= 10) {
+            this.value = this.card.code;
         }
-    }
-
-    public String getName() {
-        if (!this.revealed) {
-            return defaultName;
+        else if (this.card == CardCode.ACE) {
+            this.value = 11;
         }
-        return this.name;
+        else {
+            this.value = 10;
+        }
     }
 
     public int getValue() {
-        if (!this.revealed) {
-            return defaultValue;
-        }
         return this.value;
     }
 
     @Override
     public String toString() {
-        return "Card(" + this.name + ")";
+        return "Card(" + this.card.toString() + " of " + this.suit.toString() + ", Value: " +
+                this.value + ", Revealed: " + this.revealed + ")";
+    }
+
+    /**
+     * Method for testing.
+     * @param obj   the reference object with which to compare.
+     * @return whether card, suit and revealed attributes are identical.
+     */
+    @Override
+    public boolean equals(Object obj) {
+        return (obj instanceof Card card) && (card.card.equals(this.card)) &&
+                (card.suit.equals(this.suit)) && (card.revealed == this.revealed);
+    }
+
+    /**
+     * Method for testing.
+     * @return integer hash of card, suit and revealed attributes.
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.card, this.suit, this.revealed);
     }
 }

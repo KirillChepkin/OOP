@@ -3,15 +3,28 @@ package org.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.example.Card;
+import org.example.CardCode;
+import org.example.SuitCode;
+
 public class DeckTest {
     @Test
     void testDeckCreation() {
         Deck deck = new Deck();
-        assertEquals("Двойка Пики", deck.cards.get(0).name);
-        assertEquals("Бубновая Дама", deck.cards.get(50).name);
-        assertEquals("Тройка Червы", deck.cards.get(10).name);
-        assertEquals(5, deck.cards.get(3).value);
-        assertEquals(3, deck.cards.get(10).value);
-        assertEquals(10, deck.cards.get(50).value);
+        assertEquals(new Card(SuitCode.SPADES, CardCode.TWO), deck.cards.getFirst());
+        assertEquals(new Card(SuitCode.HEARTS, CardCode.FOUR), deck.cards.get(15));
+        assertEquals(new Card(SuitCode.HEARTS, CardCode.QUEEN), deck.cards.get(23));
+        assertEquals(new Card(SuitCode.DIAMONDS, CardCode.NINE), deck.cards.get(33));
+        assertEquals(new Card(SuitCode.CLUBS, CardCode.FOUR), deck.cards.get(41));
+        assertEquals(new Card(SuitCode.CLUBS, CardCode.ACE), deck.cards.get(51));
+    }
+
+    void testDeckShuffle() {
+        Deck deck = new Deck();
+        int len = deck.cards.size();
+        assertEquals(52, len);
+        deck.shuffle();
+        deck.drawCard();
+        assertEquals(len - 1, deck.cards.size());
     }
 }

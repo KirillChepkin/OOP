@@ -1,16 +1,19 @@
 package org.example;
 
-/*
- * The algorithm is:
- * 1) create a deck
- * 2) shuffle the deck
- * 3) create each side (player and dealer).
- * 4) hand each one two cards
- * 5) reveal appropriate cards
+import org.view.ConsoleView;
+
+/**
+ * Only creates instances and calls game starting method.
  */
 public class Main {
     public static void main(String[] args) {
+        ConsoleView view  = new ConsoleView();
+        Game<ConsoleView> game = new Game<>(view);
+        game.play();
+
         Deck deck = new Deck();
-        System.out.println(deck.cards);
+        for (int i = 0; i < deck.cards.size(); i++) {
+            System.out.println(i + ") " + deck.cards.get(i));
+        }
     }
 }
