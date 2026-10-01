@@ -25,6 +25,7 @@ public class DeckTest {
         int len = deck.cards.size();
         assertEquals(52, len);
         deck.shuffle();
+        deck.drawCard();
         assertEquals(len - 1, deck.cards.size());
     }
 }
