@@ -28,6 +28,6 @@ public class Deck {
 
     /** fetches one card from the deck */
     public Card drawCard() {
-        return this.cards.removeLast();
+        return this.cards.remove(this.cards.size() - 1);
     }
 }

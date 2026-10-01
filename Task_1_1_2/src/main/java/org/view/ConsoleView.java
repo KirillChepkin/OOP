@@ -98,7 +98,8 @@ public class ConsoleView extends View {
     }
 
     public void displayUserDraw() {
-        System.out.println("Вы взяли карту: " + getCardRep(this.user.cards.getLast()) + ". Всего " +
+        System.out.println("Вы взяли карту: " + getCardRep(this.user.cards.get(this.user.cards.size() - 1)) +
+                ". Всего " +
                 "очков: " + this.user.getValue());
         System.out.println("Ваши карты: ");
         printCardsList(this.user);
