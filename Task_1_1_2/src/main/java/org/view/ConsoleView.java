@@ -48,14 +48,14 @@ public class ConsoleView extends View {
         printSeparator();
         System.out.println("Карты Дилера:");
         printCardsList(this.dealer);
-        System.out.println("Всего: " +
-                (this.dealer.getValue() - this.dealer.cards.get(1).getValue()));
+        System.out.println("Всего: "
+                + (this.dealer.getValue() - this.dealer.cards.get(1).getValue()));
         printSeparator();
     }
 
     private static void printCardsList(Player<?> player) {
         int i = 0;
-        for (Card card: player.cards) {
+        for (Card card : player.cards) {
             i++;
             System.out.println(i + ") " + getCardRep(card));
         }
@@ -75,6 +75,7 @@ public class ConsoleView extends View {
     /**
      * Offers a user to decide whether to continue taking cards. Expects 0 or 1 and retries
      * otherwise.
+     *
      * @return whether a user typed 0 or 1 into the console.
      */
     public boolean getUserDecision() {
