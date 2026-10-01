@@ -1,10 +1,12 @@
 package org.example;
 
 import org.view.ConsoleView;
+import javax.annotation.processing.Generated;
 
 /**
  * Only creates basic instances and calls game starting method.
  */
+@Generated("manual-exclusion")
 public class Main {
     /**
      * A standard main method.
