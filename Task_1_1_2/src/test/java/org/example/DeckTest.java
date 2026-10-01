@@ -19,12 +19,12 @@ public class DeckTest {
         assertEquals(new Card(SuitCode.CLUBS, CardCode.ACE), deck.cards.get(51));
     }
 
+    @Test
     void testDeckShuffle() {
         Deck deck = new Deck();
         int len = deck.cards.size();
         assertEquals(52, len);
         deck.shuffle();
-        deck.drawCard();
         assertEquals(len - 1, deck.cards.size());
     }
 }
