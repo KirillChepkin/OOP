@@ -2,6 +2,8 @@ package org.example;
 
 import org.view.View;
 
+import java.util.Objects;
+
 /**
  * This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
  * victory conditions and displaying game state in view.
@@ -10,10 +12,12 @@ import org.view.View;
  *          of View and support its abstract methods.
  */
 public class Game<T extends View> {
-    Deck deck;
-    User<T> user;
-    Dealer<T> dealer;
-    T view;
+    private Deck deck;
+    private User<T> user;
+    private Dealer<T> dealer;
+    private final T view;
+
+    private Result result;
 
     /**
      * Creates deck, user and dealer objects and configures them.
@@ -21,14 +25,24 @@ public class Game<T extends View> {
      * @param view view object to be used for IO.
      */
     Game(T view) {
+//        System.out.println(this.deck);
+
         this.view = view;
-        this.deck = new Deck();
-        this.user = new User<>();
         this.dealer = new Dealer<>();
-        this.view.setContext(user, dealer, deck);
+        this.user = new User<>();
+        this.deck = new Deck();
         this.user.setView(view);
         this.dealer.setView(view);
-        Player.setDeck(this.deck);
+
+        this.view.setContext(this.user, this.dealer, this.deck);
+        this.user.setView(view);
+        this.dealer.setView(view);
+        this.user.setDeck(this.deck);
+        this.dealer.setDeck(this.deck);
+    }
+
+    public Result getResult() {
+        return this.result;
     }
 
     /**
@@ -37,23 +51,23 @@ public class Game<T extends View> {
     public void play() {
         this.deck.shuffle();
 
-        this.dealer.start();
         this.user.start();
+        this.dealer.start();
 
         this.view.displayStart();
 
         if (this.user.getValue() == 21) {
-            this.view.displayUserBlackJack();
+            this.result = Result.USER_BLACK_JACK;
             return;
         }
         if (this.dealer.getValue() == 21) {
-            this.view.displayDealerBlackJack();
+            this.result = Result.DEALER_BLACK_JACK;
             return;
         }
 
         this.user.play();
         if (user.getValue() > 21) {
-            this.view.displayDealerVictory();
+            this.result = Result.DEALER_VICTORY;
             return;
         }
         this.dealer.play();
@@ -67,20 +81,40 @@ public class Game<T extends View> {
      */
     private void determineVictory() {
         if (this.user.getValue() > 21) {
-            this.view.displayDealerVictory();
+            this.result = Result.DEALER_VICTORY;
             return;
         }
         if (this.dealer.getValue() > 21) {
-            this.view.displayUserVictory();
+            this.result = Result.USER_VICTORY;
             return;
         }
 
         if (this.user.getValue() > this.dealer.getValue()) {
-            this.view.displayUserVictory();
+            this.result = Result.USER_VICTORY;
         } else if (this.dealer.getValue() > this.user.getValue()) {
-            this.view.displayDealerVictory();
+            this.result = Result.DEALER_VICTORY;
         } else {
-            this.view.displayDraw();
+            this.result = Result.DRAW;
+        }
+    }
+
+    public void declareResult() {
+        switch (this.result) {
+            case Result.DRAW:
+                this.view.displayDraw();
+                break;
+            case Result.DEALER_VICTORY:
+                this.view.displayDealerVictory();
+                break;
+            case Result.USER_VICTORY:
+                this.view.displayUserVictory();
+                break;
+            case Result.USER_BLACK_JACK:
+                this.view.displayUserBlackJack();
+                break;
+            case Result.DEALER_BLACK_JACK:
+                this.view.displayDealerBlackJack();
+                break;
         }
     }
 }

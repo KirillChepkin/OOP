@@ -8,10 +8,10 @@ import org.view.View;
  * Implements common methods for User and Dealer.
  */
 public abstract class Player<T extends View> {
-    protected static Deck deck;
+    protected Deck deck;
 
-    public static void setDeck(Deck deckParam) {
-        deck = deckParam;
+    public void setDeck(Deck deckParam) {
+        this.deck = deckParam;
     }
 
     public List<Card> cards = new ArrayList<>();

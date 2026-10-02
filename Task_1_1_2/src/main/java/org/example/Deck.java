@@ -14,9 +14,9 @@ public class Deck {
     public List<Card> cards = new ArrayList<>();
 
     /**
-     * Creates cards for the deck.
+     * Fills the deck with cards.
      */
-    public Deck() {
+    Deck() {
         for (SuitCode suit : SuitCode.values()) {
             for (CardCode card : CardCode.values()) {
                 cards.add(new Card(suit, card));
