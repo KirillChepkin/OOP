@@ -44,14 +44,14 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
-<li>Constr&nbsp;|&nbsp;</li>
+<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
 </div>
@@ -81,24 +81,19 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
-<!-- =========== FIELD SUMMARY =========== -->
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
-<section class="field-summary" id="field-summary">
-<h2>Field Summary</h2>
-<div class="caption"><span>Fields</span></div>
-<div class="summary-table three-column-summary">
-<div class="table-header col-first">Modifier and Type</div>
-<div class="table-header col-second">Field</div>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code><a href="CardCode.html" title="enum class in org.example">CardCode</a></code></div>
-<div class="col-second even-row-color"><code><a href="#card" class="member-name-link">card</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>boolean</code></div>
-<div class="col-second odd-row-color"><code><a href="#revealed" class="member-name-link">revealed</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code><a href="SuitCode.html" title="enum class in org.example">SuitCode</a></code></div>
-<div class="col-second even-row-color"><code><a href="#suit" class="member-name-link">suit</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.example.SuitCode,org.example.CardCode)" class="member-name-link">Card</a><wbr>(<a href="SuitCode.html" title="enum class in org.example">SuitCode</a>&nbsp;suit,
+ <a href="CardCode.html" title="enum class in org.example">CardCode</a>&nbsp;card)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Sets card value according to its suit and its name.</div>
+</div>
 </div>
 </section>
 </li>
@@ -118,6 +113,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Method for testing.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CardCode.html" title="enum class in org.example">CardCode</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCard()" class="member-name-link">getCard</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SuitCode.html" title="enum class in org.example">SuitCode</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSuit()" class="member-name-link">getSuit</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue()" class="member-name-link">getValue</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -126,6 +127,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Method for testing.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRevealed()" class="member-name-link">isRevealed</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRevealed(boolean)" class="member-name-link">setRevealed</a><wbr>(boolean&nbsp;revealed)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -141,27 +148,22 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
-<!-- ============ FIELD DETAIL =========== -->
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
-<section class="field-details" id="field-detail">
-<h2>Field Details</h2>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="suit">
-<h3>suit</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SuitCode.html" title="enum class in org.example">SuitCode</a></span>&nbsp;<span class="element-name">suit</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="card">
-<h3>card</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CardCode.html" title="enum class in org.example">CardCode</a></span>&nbsp;<span class="element-name">card</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="revealed">
-<h3>revealed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">revealed</span></div>
+<section class="detail" id="&lt;init&gt;(org.example.SuitCode,org.example.CardCode)">
+<h3>Card</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Card</span><wbr><span class="parameters">(<a href="SuitCode.html" title="enum class in org.example">SuitCode</a>&nbsp;suit,
+ <a href="CardCode.html" title="enum class in org.example">CardCode</a>&nbsp;card)</span></div>
+<div class="block">Sets card value according to its suit and its name.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>suit</code> - of the card.</dd>
+<dd><code>card</code> - name of the card.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -172,6 +174,30 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="setRevealed(boolean)">
+<h3>setRevealed</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRevealed</span><wbr><span class="parameters">(boolean&nbsp;revealed)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="isRevealed()">
+<h3>isRevealed</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isRevealed</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSuit()">
+<h3>getSuit</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SuitCode.html" title="enum class in org.example">SuitCode</a></span>&nbsp;<span class="element-name">getSuit</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCard()">
+<h3>getCard</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CardCode.html" title="enum class in org.example">CardCode</a></span>&nbsp;<span class="element-name">getCard</span>()</div>
+</section>
+</li>
 <li>
 <section class="detail" id="getValue()">
 <h3>getValue</h3>

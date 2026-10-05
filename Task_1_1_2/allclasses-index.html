@@ -79,37 +79,39 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Class that represents dealer throughout the game.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Deck.html" title="class in org.example">Deck</a></div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Game.html" title="class in org.example">Game</a>&lt;<a href="org/example/Game.html" title="type parameter in Game">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
 <div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
-<div class="block">Represents a deck of cards.</div>
-</div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Game.html" title="class in org.example">Game</a>&lt;<a href="org/example/Game.html" title="type parameter in Game">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
  victory conditions and displaying game state in view.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Main.html" title="class in org.example">Main</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Main.html" title="class in org.example">Main</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Only creates basic instances and calls game starting method.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Player.html" title="class in org.example">Player</a>&lt;<a href="org/example/Player.html" title="type parameter in Player">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Player.html" title="class in org.example">Player</a>&lt;<a href="org/example/Player.html" title="type parameter in Player">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Implements common methods for User and Dealer.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org/example/SuitCode.html" title="enum class in org.example">SuitCode</a></div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org/example/Result.html" title="enum class in org.example">Result</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/Shoe.html" title="class in org.example">Shoe</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="block">Represents a Shoe which contains cards from several decks.</div>
+</div>
+<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org/example/SuitCode.html" title="enum class in org.example">SuitCode</a></div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Elements of this enum class represent all possible card suits.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab3"><a href="org/view/SuitRep.html" title="enum class in org.view">SuitRep</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab3">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab3"><a href="org/view/SuitRep.html" title="enum class in org.view">SuitRep</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab3">
 <div class="block">Contains string representations for all possible card suits.</div>
 </div>
-<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/example/User.html" title="class in org.example">User</a>&lt;<a href="org/example/User.html" title="type parameter in User">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
-<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org/example/User.html" title="class in org.example">User</a>&lt;<a href="org/example/User.html" title="type parameter in User">T</a> extends <a href="org/view/View.html" title="class in org.view">View</a>&gt;</div>
+<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Unlike Dealer, this class waits for user to make a decision when playing.</div>
 </div>
-<div class="col-first even-row-color all-classes-table all-classes-table-tab2"><a href="org/view/View.html" title="class in org.view">View</a></div>
-<div class="col-last even-row-color all-classes-table all-classes-table-tab2">
+<div class="col-first odd-row-color all-classes-table all-classes-table-tab2"><a href="org/view/View.html" title="class in org.view">View</a></div>
+<div class="col-last odd-row-color all-classes-table all-classes-table-tab2">
 <div class="block">Declares actions that internal game logic can signal to UI (Dealer card draws and reveals,
  game start and end, victory, etc.)  and user actions that UI can signal to game logic
  (user's decision to stop taking cards).</div>
