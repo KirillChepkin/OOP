@@ -12,7 +12,7 @@ import java.util.Objects;
  *          of View and support its abstract methods.
  */
 public class Game<T extends View> {
-    private Deck deck;
+    private Shoe shoe;
     private User<T> user;
     private Dealer<T> dealer;
     private final T view;
@@ -24,21 +24,21 @@ public class Game<T extends View> {
      *
      * @param view view object to be used for IO.
      */
-    Game(T view) {
+    public Game(T view) {
 //        System.out.println(this.deck);
 
         this.view = view;
         this.dealer = new Dealer<>();
         this.user = new User<>();
-        this.deck = new Deck();
+        this.shoe = new Shoe(6);
         this.user.setView(view);
         this.dealer.setView(view);
 
-        this.view.setContext(this.user, this.dealer, this.deck);
+        this.view.setContext(this.user, this.dealer, this.shoe);
         this.user.setView(view);
         this.dealer.setView(view);
-        this.user.setDeck(this.deck);
-        this.dealer.setDeck(this.deck);
+        this.user.setShoe(this.shoe);
+        this.dealer.setShoe(this.shoe);
     }
 
     public Result getResult() {
@@ -46,10 +46,10 @@ public class Game<T extends View> {
     }
 
     /**
-     * Orchestrates the game by calling User's, Dealer's and deck methods, checks for blackjack.
+     * Orchestrates the game by calling User's, Dealer's and shoe methods, checks for blackjack.
      */
-    public void play() {
-        this.deck.shuffle();
+    public void playRound() {
+        this.shoe.shuffle();
 
         this.user.start();
         this.dealer.start();

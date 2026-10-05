@@ -35,7 +35,7 @@ public class CardTest {
         assertTrue(card1.equals(card2));
         assertFalse(card1.equals(card3));
         assertFalse(card1.equals(card3));
-        card1.revealed = true;
+        card1.setRevealed(true);
         assertFalse(card1.equals(card2));
     }
 
@@ -48,7 +48,7 @@ public class CardTest {
         assertTrue(card1.hashCode() == card2.hashCode());
         assertFalse(card1.hashCode() == card3.hashCode());
         assertFalse(card1.hashCode() == card4.hashCode());
-        card1.revealed = true;
+        card1.setRevealed(true);
         assertFalse(card1.hashCode() == card2.hashCode());
     }
 }

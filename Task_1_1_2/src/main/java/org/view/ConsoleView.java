@@ -1,9 +1,6 @@
 package org.view;
 
-import org.example.Card;
-import org.example.CardCode;
-import org.example.Player;
-import org.example.SuitCode;
+import org.example.*;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
@@ -52,21 +49,21 @@ public class ConsoleView extends View {
         System.out.println("Карты Дилера:");
         printCardsList(this.dealer);
         System.out.println("Всего: "
-                + (this.dealer.getValue() - this.dealer.cards.get(1).getValue()));
+                + (this.dealer.getValue() - this.dealer.getCards().get(1).getValue()));
         printSeparator();
     }
 
     private static void printCardsList(Player<?> player) {
         int i = 0;
-        for (Card card : player.cards) {
+        for (Card card : player.getCards()) {
             i++;
             System.out.println(i + ") " + getCardRep(card));
         }
     }
 
     private static String getCardRep(Card cardArg) {
-        if (cardArg.revealed) {
-            return "<" + card.get(cardArg.card).rep + " " + suit.get(cardArg.suit).rep + ">";
+        if (cardArg.isRevealed()) {
+            return "<" + card.get(cardArg.getCard()).rep + " " + suit.get(cardArg.getSuit()).rep + ">";
         }
         return "<Скрытая карта>";
     }
@@ -102,7 +99,7 @@ public class ConsoleView extends View {
      */
     public void displayUserDraw() {
         System.out.println("Вы взяли карту: "
-                + getCardRep(this.user.cards.get(this.user.cards.size() - 1))
+                + getCardRep(this.user.getCards().get(this.user.getCards().size() - 1))
                 + ". Всего " + "очков: " + this.user.getValue());
         System.out.println("Ваши карты: ");
         printCardsList(this.user);
@@ -114,7 +111,7 @@ public class ConsoleView extends View {
      */
     public void displayDealerDraw() {
         System.out.println("Дилер взял карту: "
-                + getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1)) + ". "
+                + getCardRep(this.dealer.getCards().get(this.dealer.getCards().size() - 1)) + ". "
                 + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);
@@ -126,7 +123,7 @@ public class ConsoleView extends View {
      */
     public void displayDealerReveal() {
         System.out.println("Дилер открыл карту: "
-                + getCardRep(this.dealer.cards.get(this.dealer.cards.size() - 1))
+                + getCardRep(this.dealer.getCards().get(this.dealer.getCards().size() - 1))
                 + ". " + "Очков у Дилера: " + this.dealer.getValue());
         System.out.println("Карты Дилера: ");
         printCardsList(this.dealer);

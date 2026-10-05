@@ -14,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         ConsoleView view  = new ConsoleView();
         Game<ConsoleView> game = new Game<>(view);
-        game.play();
+        game.playRound();
         game.declareResult();
     }
 }

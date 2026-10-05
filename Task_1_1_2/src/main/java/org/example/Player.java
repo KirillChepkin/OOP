@@ -8,13 +8,18 @@ import org.view.View;
  * Implements common methods for User and Dealer.
  */
 public abstract class Player<T extends View> {
-    protected Deck deck;
+    protected Shoe deck;
 
-    public void setDeck(Deck deckParam) {
+    public void setShoe(Shoe deckParam) {
         this.deck = deckParam;
     }
 
-    public List<Card> cards = new ArrayList<>();
+    protected List<Card> cards = new ArrayList<>();
+
+    public List<Card> getCards() {
+        return this.cards;
+    }
+
     /**
      * Value does not include Aces.
      */
@@ -42,9 +47,9 @@ public abstract class Player<T extends View> {
     protected void takeCard(Card card, boolean reveal) {
         cards.add(card);
         if (reveal) {
-            card.revealed = true;
+            card.setRevealed(true);
         }
-        if (card.card == CardCode.ACE) {
+        if (card.getCard() == CardCode.ACE) {
             this.aces++;
             return;
         }
@@ -64,9 +69,9 @@ public abstract class Player<T extends View> {
      * Returns player's total value including Aces.
      * */
     public int getValue() {
-        int value = this.value + this.aces * 11;
-        if (value > 21) {
-            return value - this.aces * 10;
+        int value = this.value + this.aces;
+        if (value <= 11 && this.aces > 0) {
+            value += 10;
         }
         return value;
     }

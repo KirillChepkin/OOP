@@ -6,10 +6,26 @@ import java.util.Objects;
  * Represents a single card with some value.
  */
 public class Card {
-    public SuitCode suit;
-    public CardCode card;
+    private final SuitCode suit;
+    private final CardCode card;
     private final int value;
-    public boolean revealed = false;
+    private boolean revealed = false;
+
+    public void setRevealed(boolean revealed) {
+        this.revealed = revealed;
+    }
+
+    public boolean isRevealed() {
+        return this.revealed;
+    }
+
+    public SuitCode getSuit() {
+        return this.suit;
+    }
+
+    public CardCode getCard() {
+        return this.card;
+    }
 
     /**
      * Sets card value according to its suit and its name.
@@ -18,7 +34,7 @@ public class Card {
      *
      * @param card name of the card.
      */
-    Card(SuitCode suit, CardCode card) {
+    public Card(SuitCode suit, CardCode card) {
         this.suit = suit;
         this.card = card;
         if (this.card.code <= 10) {

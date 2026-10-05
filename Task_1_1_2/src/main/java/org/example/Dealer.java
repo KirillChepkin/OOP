@@ -13,7 +13,7 @@ public class Dealer<T extends View> extends Player<T> {
      * total sum is >= 17. Method must be called only if no player had a blackjack combination.
      */
     public void play() {
-        this.cards.get(1).revealed = true;
+        this.cards.get(1).setRevealed(true);
         Card card;
         this.view.displayDealerReveal();
         while (this.getValue() < 17) {

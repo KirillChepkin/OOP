@@ -1,6 +1,6 @@
 package org.view;
 
-import org.example.Deck;
+import org.example.Shoe;
 import org.example.Player;
 
 /**
@@ -15,7 +15,7 @@ public abstract class View {
      */
     protected Player<?> dealer;
     protected Player<?> user;
-    protected Deck deck;
+    protected Shoe deck;
 
     /**
      * Context includes objects that contain information about cards they dispose. It is used for
@@ -27,7 +27,7 @@ public abstract class View {
      *
      * @param deck deck object.
      */
-    public void setContext(Player<?> user, Player<?> dealer, Deck deck) {
+    public void setContext(Player<?> user, Player<?> dealer, Shoe deck) {
         this.user = user;
         this.dealer = dealer;
         this.deck = deck;
