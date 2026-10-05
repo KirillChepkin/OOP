@@ -2,8 +2,6 @@ package org.example;
 
 import org.view.View;
 
-import java.util.Objects;
-
 /**
  * This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
  * victory conditions and displaying game state in view.
@@ -25,8 +23,6 @@ public class Game<T extends View> {
      * @param view view object to be used for IO.
      */
     public Game(T view) {
-//        System.out.println(this.deck);
-
         this.view = view;
         this.dealer = new Dealer<>();
         this.user = new User<>();
