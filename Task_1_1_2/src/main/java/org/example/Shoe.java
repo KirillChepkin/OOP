@@ -1,8 +1,8 @@
 package org.example;
 
-import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 /**
  * Represents a Shoe which contains cards from several decks.

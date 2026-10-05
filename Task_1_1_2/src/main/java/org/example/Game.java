@@ -94,6 +94,9 @@ public class Game<T extends View> {
         }
     }
 
+    /**
+     * Calls view methods to display result of the game appropriately.
+     */
     public void declareResult() {
         switch (this.result) {
             case DRAW:
@@ -110,6 +113,8 @@ public class Game<T extends View> {
                 break;
             case DEALER_BLACK_JACK:
                 this.view.displayDealerBlackJack();
+                break;
+            default:
                 break;
         }
     }

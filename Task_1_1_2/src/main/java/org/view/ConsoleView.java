@@ -1,9 +1,12 @@
 package org.view;
 
-import org.example.*;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Scanner;
+import org.example.Card;
+import org.example.CardCode;
+import org.example.Player;
+import org.example.SuitCode;
 
 /**
  * A subclass of View that specifically implements the Command line IO.
@@ -63,7 +66,8 @@ public class ConsoleView extends View {
 
     private static String getCardRep(Card cardArg) {
         if (cardArg.isRevealed()) {
-            return "<" + card.get(cardArg.getCard()).rep + " " + suit.get(cardArg.getSuit()).rep + ">";
+            return "<" + card.get(cardArg.getCard()).rep
+                    + " " + suit.get(cardArg.getSuit()).rep + ">";
         }
         return "<Скрытая карта>";
     }
