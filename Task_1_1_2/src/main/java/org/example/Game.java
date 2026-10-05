@@ -100,19 +100,19 @@ public class Game<T extends View> {
 
     public void declareResult() {
         switch (this.result) {
-            case Result.DRAW:
+            case DRAW:
                 this.view.displayDraw();
                 break;
-            case Result.DEALER_VICTORY:
+            case DEALER_VICTORY:
                 this.view.displayDealerVictory();
                 break;
-            case Result.USER_VICTORY:
+            case USER_VICTORY:
                 this.view.displayUserVictory();
                 break;
-            case Result.USER_BLACK_JACK:
+            case USER_BLACK_JACK:
                 this.view.displayUserBlackJack();
                 break;
-            case Result.DEALER_BLACK_JACK:
+            case DEALER_BLACK_JACK:
                 this.view.displayDealerBlackJack();
                 break;
         }
