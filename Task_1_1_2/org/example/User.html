@@ -136,7 +136,7 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-org.example.Player">Methods inherited from class&nbsp;org.example.<a href="Player.html" title="class in org.example">Player</a></h3>
-<code><a href="Player.html#countAces()">countAces</a>, <a href="Player.html#getCards()">getCards</a>, <a href="Player.html#getValue()">getValue</a>, <a href="Player.html#setShoe(org.example.Shoe)">setShoe</a>, <a href="Player.html#setView(T)">setView</a>, <a href="Player.html#takeCard(org.example.Card,boolean)">takeCard</a></code></div>
+<code><a href="Player.html#addVictory()">addVictory</a>, <a href="Player.html#countAces()">countAces</a>, <a href="Player.html#getCards()">getCards</a>, <a href="Player.html#getValue()">getValue</a>, <a href="Player.html#getVictories()">getVictories</a>, <a href="Player.html#resetPlayer()">resetPlayer</a>, <a href="Player.html#setShoe(org.example.Shoe)">setShoe</a>, <a href="Player.html#setView(T)">setView</a>, <a href="Player.html#takeCard(org.example.Card,boolean)">takeCard</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -171,6 +171,10 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">play</span>()</div>
 <div class="block">Asks for user input and, according to it, draws or stops drawing cards from a deck. Calls
  IO methods to display drawn cards.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Player.html#play()">play</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a>&lt;<a href="User.html" title="type parameter in User">T</a> extends <a href="../view/View.html" title="class in org.view">View</a>&gt;</code></dd>
+</dl>
 </section>
 </li>
 <li>
@@ -179,6 +183,10 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">start</span>()</div>
 <div class="block">Draws two initial cards from a deck and, unlike dealer's implementation, reveales both of
  them.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Player.html#start()">start</a></code>&nbsp;in class&nbsp;<code><a href="Player.html" title="class in org.example">Player</a>&lt;<a href="User.html" title="type parameter in User">T</a> extends <a href="../view/View.html" title="class in org.view">View</a>&gt;</code></dd>
+</dl>
 </section>
 </li>
 </ul>
