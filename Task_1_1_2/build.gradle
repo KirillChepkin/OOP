@@ -23,7 +23,6 @@ dependencies {
 
 test {
     useJUnitPlatform()
-    exclude '**/Abstract*'
     testLogging {
         // Show standard out and standard error logs in the console
         showStandardStreams = true
@@ -39,6 +38,7 @@ jacocoTestReport {
     }
     classDirectories.setFrom(files(classDirectories.files.collect {
         fileTree(dir: it, exclude: [
+                '**/Abstract*.class',
                 'org/example/Main.class'
         ])
     }))
