@@ -1,6 +1,14 @@
 package org.view;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.example.Card;
+import org.example.CardCode;
+import org.example.Dealer;
+import org.example.Shoe;
+import org.example.SuitCode;
+import org.example.User;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
@@ -8,12 +16,6 @@ import java.io.PrintStream;
 import java.nio.charset.StandardCharsets;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
-import org.example.Card;
-import org.example.CardCode;
-import org.example.Dealer;
-import org.example.Shoe;
-import org.example.SuitCode;
-import org.example.User;
 
 class ConsoleViewTest {
     private final InputStream originalIn = System.in;
@@ -69,10 +71,10 @@ class ConsoleViewTest {
         ByteArrayOutputStream output = new ByteArrayOutputStream();
         System.setOut(new PrintStream(output));
 
-        ConsoleView view = new ConsoleView();
-        User<ConsoleView> user = new User<>();
-        Dealer<ConsoleView> dealer = new Dealer<>();
+        final User<ConsoleView> user = new User<>();
+        final Dealer<ConsoleView> dealer = new Dealer<>();
         Shoe shoe = new Shoe(0);
+        final ConsoleView view = new ConsoleView();
 
         Card userCard = new Card(SuitCode.HEARTS, CardCode.ACE);
         userCard.setRevealed(true);
