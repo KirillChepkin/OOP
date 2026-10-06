@@ -23,6 +23,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    exclude '**/Abstract*'
     testLogging {
         // Show standard out and standard error logs in the console
         showStandardStreams = true

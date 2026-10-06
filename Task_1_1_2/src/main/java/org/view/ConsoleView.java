@@ -156,7 +156,7 @@ public class ConsoleView extends View {
     }
 
     public void displayUserBlackJack() {
-        System.out.println("У вас блэкдлек!");
+        System.out.println("У вас блэкджек!");
     }
 
     public void displayDealerBlackJack() {
