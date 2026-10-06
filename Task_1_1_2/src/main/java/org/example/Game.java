@@ -2,6 +2,9 @@ package org.example;
 
 import org.view.View;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
  * victory conditions and displaying game state in view.
@@ -10,12 +13,22 @@ import org.view.View;
  *          of View and support its abstract methods.
  */
 public class Game<T extends View> {
-    private Shoe shoe;
-    private User<T> user;
-    private Dealer<T> dealer;
+
+    /**
+     * Determines how many decks are mixed in the shoe.
+     */
+    private final int decks = 6;
+
+    private Shoe shoe = new Shoe(decks);
+    private User<T> user = new User<>();
+    private Dealer<T> dealer = new Dealer<>();
     private final T view;
 
+    /**
+     * Stores result of the last round.
+     */
     private Result result;
+    private int totalRounds = 0;
 
     /**
      * Creates deck, user and dealer objects and configures them.
@@ -26,15 +39,11 @@ public class Game<T extends View> {
         this.view = view;
         this.dealer = new Dealer<>();
         this.user = new User<>();
-        this.shoe = new Shoe(6);
-        this.user.setView(view);
-        this.dealer.setView(view);
-
-        this.view.setContext(this.user, this.dealer, this.shoe);
-        this.user.setView(view);
-        this.dealer.setView(view);
+        this.user.setView(this.view);
+        this.dealer.setView(this.view);
         this.user.setShoe(this.shoe);
         this.dealer.setShoe(this.shoe);
+        this.view.setContext(this.user, this.dealer, this.shoe);
     }
 
     public Result getResult() {
@@ -42,11 +51,41 @@ public class Game<T extends View> {
     }
 
     /**
+     * Plays round by round asking user if they desire to continue each time.
+     */
+    public void play() {
+        this.shoe.shuffle();
+        while (true) {
+            this.totalRounds++;
+            this.resetPlayers();
+            this.playRound();
+            if (this.result == Result.DEALER_BLACK_JACK || this.result == Result.DEALER_VICTORY) {
+                this.dealer.addVictory();
+            }
+            else if (this.result == Result.USER_BLACK_JACK || this.result == Result.USER_VICTORY) {
+                this.user.addVictory();
+            }
+            this.totalRounds++;
+            this.declareRoundResult();
+            if (!this.view.askToContinue()) {
+                break;
+            }
+            if (this.shoe.getCards().size() < 60) {
+                this.shoe.refill(decks);
+            }
+        }
+    }
+
+    public void resetPlayers() {
+        this.dealer.resetPlayer();
+        this.user.resetPlayer();
+    }
+
+    /**
      * Orchestrates the game by calling User's, Dealer's and shoe methods, checks for blackjack.
+     * Checks victory conditions and sets the result of the game.
      */
     public void playRound() {
-        this.shoe.shuffle();
-
         this.user.start();
         this.dealer.start();
 
@@ -67,19 +106,6 @@ public class Game<T extends View> {
             return;
         }
         this.dealer.play();
-
-        this.determineVictory();
-    }
-
-    /**
-     * Contains logic determining User's or Dealer's victory in case if nobody had gotten Black
-     * Jack. Does not return anything, only calls IO methods to display game results.
-     */
-    private void determineVictory() {
-        if (this.user.getValue() > 21) {
-            this.result = Result.DEALER_VICTORY;
-            return;
-        }
         if (this.dealer.getValue() > 21) {
             this.result = Result.USER_VICTORY;
             return;
@@ -97,7 +123,7 @@ public class Game<T extends View> {
     /**
      * Calls view methods to display result of the game appropriately.
      */
-    public void declareResult() {
+    public void declareRoundResult() {
         switch (this.result) {
             case DRAW:
                 this.view.displayDraw();

@@ -23,10 +23,14 @@ public class Shoe {
      * @param decks number of decks to put to the shoe.
      */
     public Shoe(int decks) {
+        this.refill(decks);
+    }
+
+    public void refill(int decks) {
         for (int i = 0; i < decks; i++) {
             for (SuitCode suit : SuitCode.values()) {
                 for (CardCode card : CardCode.values()) {
-                    cards.add(new Card(suit, card));
+                    this.cards.add(new Card(suit, card));
                 }
             }
         }

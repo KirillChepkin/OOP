@@ -12,6 +12,7 @@ import org.example.SuitCode;
  * A subclass of View that specifically implements the Command line IO.
  */
 public class ConsoleView extends View {
+    private Scanner scanner = new Scanner(System.in);
     /**
      * These two attributes map internal card representations to IO card representations.
      */
@@ -84,10 +85,30 @@ public class ConsoleView extends View {
      */
     public boolean getUserDecision() {
         System.out.println("Хотите продолжить брать карты?(0 - нет/1 - да)");
+        String response;
+        while (true) {
+            response = this.scanner.nextLine();
+            if (response.equals("0")) {
+                return false;
+            } else if (response.equals("1")) {
+                return true;
+            } else {
+                System.out.println("Недопустимый ввод, попробуйте еще раз.");
+            }
+        }
+    }
+
+    /**
+     * Asks whether a user wants to play one more round of the game.
+     *
+     * @return true - continue, false - stop.
+     */
+    public boolean askToContinue() {
+        System.out.println("Хотите сыграть еще раунд?(0 - нет/1 - да)");
         Scanner scanner = new Scanner(System.in);
         String response;
         while (true) {
-            response = scanner.nextLine();
+            response = this.scanner.nextLine();
             if (response.equals("0")) {
                 return false;
             } else if (response.equals("1")) {

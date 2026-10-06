@@ -8,6 +8,16 @@ import org.view.View;
  * Implements common methods for User and Dealer.
  */
 public abstract class Player<T extends View> {
+    private int victories = 0;
+
+    public void addVictory() {
+        this.victories++;
+    }
+
+    public int getVictories() {
+        return this.victories;
+    }
+
     protected Shoe deck;
 
     public void setShoe(Shoe deckParam) {
@@ -28,9 +38,15 @@ public abstract class Player<T extends View> {
 
     protected T view;
 
-    abstract void start();
+    public abstract void start();
 
-    abstract void play();
+    public abstract void play();
+
+    public void resetPlayer() {
+        this.cards = new ArrayList<>();
+        this.value = 0;
+        this.aces = 0;
+    }
 
     /**
      * Provides an object belonging to a subclass of View to be used for IO.

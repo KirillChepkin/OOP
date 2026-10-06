@@ -14,8 +14,22 @@ public abstract class View {
      * access their cards.
      */
     protected Player<?> dealer;
+
+    public Player<?> getDealer() {
+        return this.dealer;
+    }
+
     protected Player<?> user;
+
+    public Player<?> getUser() {
+        return this.user;
+    }
+
     protected Shoe deck;
+
+    public Shoe getDeck() {
+        return this.deck;
+    }
 
     /**
      * Context includes objects that contain information about cards they dispose. It is used for
@@ -39,6 +53,8 @@ public abstract class View {
      * @return whether user decided to continue taking cards or not.
      */
     public abstract boolean getUserDecision();
+
+    public abstract boolean askToContinue();
 
     public abstract void displayUserDraw();
 
