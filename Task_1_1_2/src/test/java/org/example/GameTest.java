@@ -1,11 +1,11 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import org.junit.jupiter.api.Test;
-import org.view.View;
+//import static org.junit.jupiter.api.Assertions.*;
+//import java.lang.reflect.Field;
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import org.junit.jupiter.api.Test;
+//import org.view.View;
 
 class GameTest {
 //    private static class TestView extends View {

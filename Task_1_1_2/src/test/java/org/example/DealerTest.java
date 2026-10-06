@@ -1,9 +1,9 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
-import java.util.Arrays;
-import org.junit.jupiter.api.Test;
-import org.view.View;
+//import static org.junit.jupiter.api.Assertions.*;
+//import java.util.Arrays;
+//import org.junit.jupiter.api.Test;
+//import org.view.View;
 
 class DealerTest {
 //    private static class TestView extends View {
