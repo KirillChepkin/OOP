@@ -38,8 +38,7 @@ jacocoTestReport {
     }
     classDirectories.setFrom(files(classDirectories.files.collect {
         fileTree(dir: it, exclude: [
-                '**/Abstract*.class',
-                '**/*Base.class',
+                'org/view/View.class',
                 'org/example/Main.class'
         ])
     }))
