@@ -131,43 +131,59 @@ class PlayerTest {
     }
 
     private static class TestView extends View {
-        @Override public boolean getUserDecision() {
-            return false; }
-        @Override public boolean askToContinue() {
-            return false; }
-        @Override public void displayUserDraw() {
+
+        @Override
+        public boolean getUserDecision() {
+            return false;
+        }
+
+        @Override
+        public boolean askToContinue() {
+            return false;
+        }
+
+        @Override
+        public void displayUserDraw() {
 
         }
 
-        @Override public void displayStart() {
+        @Override
+        public void displayStart() {
 
         }
 
-        @Override public void displayDealerDraw() {
+        @Override
+        public void displayDealerDraw() {
 
         }
 
-        @Override public void displayDealerReveal() {
+        @Override
+        public void displayDealerReveal() {
 
         }
 
-        @Override public void displayUserBlackJack() {
+        @Override
+        public void displayUserBlackJack() {
 
         }
 
-        @Override public void displayDealerBlackJack() {
+        @Override
+        public void displayDealerBlackJack() {
 
         }
 
-        @Override public void displayUserVictory() {
+        @Override
+        public void displayUserVictory() {
 
         }
 
-        @Override public void displayDealerVictory() {
+        @Override
+        public void displayDealerVictory() {
 
         }
 
-        @Override public void displayDraw() {
+        @Override
+        public void displayDraw() {
 
         }
     }

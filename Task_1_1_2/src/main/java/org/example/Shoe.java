@@ -28,6 +28,7 @@ public class Shoe {
 
     /**
      * Fills the shoe with newly shuffled decks.
+     *
      * @param decks how many decks to mix inside the shoe.
      */
     public void refill(int decks) {
