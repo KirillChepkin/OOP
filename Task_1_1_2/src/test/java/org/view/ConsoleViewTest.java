@@ -101,7 +101,7 @@ class ConsoleViewTest {
         assertTrue(text.contains("Дилера"));
         assertTrue(text.contains("Туз"));
         assertTrue(text.contains("Скрытая карта"));
-        assertTrue(text.contains("У вас блэкдлек!"));
+        assertTrue(text.contains("У вас блэкджек!"));
         assertTrue(text.contains("Вы победили"));
         assertTrue(text.contains("Ничья"));
     }
