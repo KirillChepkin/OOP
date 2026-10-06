@@ -1,16 +1,25 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertSame;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+
 import org.junit.jupiter.api.Test;
 import org.view.View;
 
 class PlayerTest {
     private static class TestPlayer extends Player<View> {
         @Override
-        public void start() { }
+        public void start() {
+
+        }
 
         @Override
-        public void play() { }
+        public void play() {
+
+        }
 
         void give(Card card, boolean reveal) {
             takeCard(card, reveal);
@@ -122,16 +131,44 @@ class PlayerTest {
     }
 
     private static class TestView extends View {
-        @Override public boolean getUserDecision() { return false; }
-        @Override public boolean askToContinue() { return false; }
-        @Override public void displayUserDraw() { }
-        @Override public void displayStart() { }
-        @Override public void displayDealerDraw() { }
-        @Override public void displayDealerReveal() { }
-        @Override public void displayUserBlackJack() { }
-        @Override public void displayDealerBlackJack() { }
-        @Override public void displayUserVictory() { }
-        @Override public void displayDealerVictory() { }
-        @Override public void displayDraw() { }
+        @Override public boolean getUserDecision() {
+            return false; }
+        @Override public boolean askToContinue() {
+            return false; }
+        @Override public void displayUserDraw() {
+
+        }
+
+        @Override public void displayStart() {
+
+        }
+
+        @Override public void displayDealerDraw() {
+
+        }
+
+        @Override public void displayDealerReveal() {
+
+        }
+
+        @Override public void displayUserBlackJack() {
+
+        }
+
+        @Override public void displayDealerBlackJack() {
+
+        }
+
+        @Override public void displayUserVictory() {
+
+        }
+
+        @Override public void displayDealerVictory() {
+
+        }
+
+        @Override public void displayDraw() {
+
+        }
     }
 }

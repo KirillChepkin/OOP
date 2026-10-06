@@ -1,8 +1,8 @@
 package org.example;
 
+import java.util.Collections;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
 
 /**
  * Represents a Shoe which contains cards from several decks.
@@ -26,7 +26,12 @@ public class Shoe {
         this.refill(decks);
     }
 
+    /**
+     * Fills the shoe with newly shuffled decks.
+     * @param decks how many decks to mix inside the shoe.
+     */
     public void refill(int decks) {
+        this.cards.clear();
         for (int i = 0; i < decks; i++) {
             for (SuitCode suit : SuitCode.values()) {
                 for (CardCode card : CardCode.values()) {

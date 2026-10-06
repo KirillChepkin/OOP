@@ -1,7 +1,7 @@
 package org.view;
 
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 import org.example.Card;
 import org.example.CardCode;

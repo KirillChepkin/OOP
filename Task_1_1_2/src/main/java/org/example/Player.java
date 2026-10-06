@@ -42,6 +42,9 @@ public abstract class Player<T extends View> {
 
     public abstract void play();
 
+    /**
+     * Prepares a player for new round.
+     */
     public void resetPlayer() {
         this.cards = new ArrayList<>();
         this.value = 0;

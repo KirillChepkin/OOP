@@ -2,9 +2,6 @@ package org.example;
 
 import org.view.View;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * This class contains all game logic: dealing cards, checking Black Jacks, playing, checking
  * victory conditions and displaying game state in view.
@@ -59,10 +56,11 @@ public class Game<T extends View> {
             this.totalRounds++;
             this.resetPlayers();
             this.playRound();
-            if (this.result == Result.DEALER_BLACK_JACK || this.result == Result.DEALER_VICTORY) {
+            if (this.result == Result.DEALER_BLACK_JACK
+                    || this.result == Result.DEALER_VICTORY) {
                 this.dealer.addVictory();
-            }
-            else if (this.result == Result.USER_BLACK_JACK || this.result == Result.USER_VICTORY) {
+            } else if (this.result == Result.USER_BLACK_JACK
+                    || this.result == Result.USER_VICTORY) {
                 this.user.addVictory();
             }
             this.totalRounds++;
