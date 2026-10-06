@@ -26,17 +26,60 @@ class GameTest {
             this.userDecision = userDecision;
         }
 
-        @Override public boolean getUserDecision() { return userDecision; }
-        @Override public boolean askToContinue() { return continuePlaying; }
-        @Override public void displayUserDraw() { userDraw++; }
-        @Override public void displayStart() { start++; }
-        @Override public void displayDealerDraw() { dealerDraw++; }
-        @Override public void displayDealerReveal() { dealerReveal++; }
-        @Override public void displayUserBlackJack() { userBlackJack++; }
-        @Override public void displayDealerBlackJack() { dealerBlackJack++; }
-        @Override public void displayUserVictory() { userVictory++; }
-        @Override public void displayDealerVictory() { dealerVictory++; }
-        @Override public void displayDraw() { draw++; }
+        @Override
+        public boolean getUserDecision() {
+            return userDecision;
+        }
+
+        @Override
+        public boolean askToContinue() {
+            return continuePlaying;
+        }
+
+        @Override
+        public void displayUserDraw() {
+            userDraw++;
+        }
+
+        @Override
+        public void displayStart() {
+            start++;
+        }
+
+        @Override
+        public void displayDealerDraw() {
+            dealerDraw++;
+        }
+
+        @Override
+        public void displayDealerReveal() {
+            dealerReveal++;
+        }
+
+        @Override
+        public void displayUserBlackJack() {
+            userBlackJack++;
+        }
+
+        @Override
+        public void displayDealerBlackJack() {
+            dealerBlackJack++;
+        }
+
+        @Override
+        public void displayUserVictory() {
+            userVictory++;
+        }
+
+        @Override
+        public void displayDealerVictory() {
+            dealerVictory++;
+        }
+
+        @Override
+        public void displayDraw() {
+            draw++;
+        }
     }
 
     private static Shoe controlledShoe(Card... cards) {
