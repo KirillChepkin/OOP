@@ -64,9 +64,17 @@ class ViewTest {
 
         }
 
-        Player<?> getUserContext() { return user; }
-        Player<?> getDealerContext() { return dealer; }
-        Shoe getDeckContext() { return deck; }
+        Player<?> getUserContext() {
+            return user;
+        }
+
+        Player<?> getDealerContext() {
+            return dealer;
+        }
+
+        Shoe getDeckContext() {
+            return deck;
+        }
     }
 
     @Test
