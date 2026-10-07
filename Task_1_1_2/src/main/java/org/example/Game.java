@@ -17,8 +17,35 @@ public class Game<T extends View> {
     private final int decks = 6;
 
     private Shoe shoe = new Shoe(decks);
+
+    public Shoe getShoe() {
+        return this.shoe;
+    }
+
+    public void setShoe(Shoe shoe) {
+        this.shoe = shoe;
+    }
+
     private User<T> user = new User<>();
+
+    public User<T> getUser() {
+        return this.user;
+    }
+
+    public void setUser(User<T> user) {
+        this.user = user;
+    }
+
     private Dealer<T> dealer = new Dealer<>();
+
+    public Dealer<T> getDealer() {
+        return this.dealer;
+    }
+
+    public void setDealer(Dealer<T> dealer) {
+        this.dealer = dealer;
+    }
+
     private final T view;
 
     /**

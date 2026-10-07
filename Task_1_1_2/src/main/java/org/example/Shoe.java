@@ -13,6 +13,10 @@ public class Shoe {
      */
     private List<Card> cards = new ArrayList<>();
 
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
     public List<Card> getCards() {
         return this.cards;
     }
