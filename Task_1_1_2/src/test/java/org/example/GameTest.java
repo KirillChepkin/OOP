@@ -346,54 +346,54 @@ class GameTest {
         assertEquals(0, game.getDealer().getValue());
     }
 
-//    @Test
-//    void declareRoundResultDisplaysDraw() {
-//        TestView view = new TestView(false, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        game.playRoundWithResult(Result.DRAW);
-//
-//        game.declareRoundResult();
-//
-//        assertEquals(1, view.drawCalls);
-//    }
-//
-//    @Test
-//    void declareRoundResultDisplaysUserVictory() {
-//        TestView view = new TestView(false, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        game.playRoundWithResult(Result.USER_VICTORY);
-//
-//        game.declareRoundResult();
-//
-//        assertEquals(1, view.userVictoryCalls);
-//    }
-//
-//    @Test
-//    void declareRoundResultDisplaysDealerVictory() {
-//        TestView view = new TestView(false, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        game.playRoundWithResult(Result.DEALER_VICTORY);
-//
-//        game.declareRoundResult();
-//
-//        assertEquals(1, view.dealerVictoryCalls);
-//    }
-//
-//    @Test
-//    void declareRoundResultDisplaysUserBlackJack() {
-//        TestView view = new TestView(false, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        game.playRoundWithResult(Result.USER_BLACK_JACK);
-//
-//        game.declareRoundResult();
-//
-//        assertEquals(1, view.userBlackJackCalls);
-//    }
-//
+    @Test
+    void declareRoundResultDisplaysDraw() {
+        TestView view = new TestView(false, false);
+        Game<TestView> game = new Game<>(view);
+
+        game.setResult(Result.DRAW);
+
+        game.declareRoundResult();
+
+        assertEquals(1, view.drawCalls);
+    }
+
+    @Test
+    void declareRoundResultDisplaysUserVictory() {
+        TestView view = new TestView(false, false);
+        Game<TestView> game = new Game<>(view);
+
+        game.setResult(Result.USER_VICTORY);
+
+        game.declareRoundResult();
+
+        assertEquals(1, view.userVictoryCalls);
+    }
+
+    @Test
+    void declareRoundResultDisplaysDealerVictory() {
+        TestView view = new TestView(false, false);
+        Game<TestView> game = new Game<>(view);
+
+        game.setResult(Result.DEALER_VICTORY);
+
+        game.declareRoundResult();
+
+        assertEquals(1, view.dealerVictoryCalls);
+    }
+
+    @Test
+    void declareRoundResultDisplaysUserBlackJack() {
+        TestView view = new TestView(false, false);
+        Game<TestView> game = new Game<>(view);
+
+        game.setResult(Result.USER_BLACK_JACK);
+
+        game.declareRoundResult();
+
+        assertEquals(1, view.userBlackJackCalls);
+    }
+
     @Test
     void declareRoundResultDisplaysDealerBlackJack() {
         TestView view = new TestView(false, false);
