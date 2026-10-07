@@ -394,17 +394,17 @@ class GameTest {
 //        assertEquals(1, view.userBlackJackCalls);
 //    }
 //
-//    @Test
-//    void declareRoundResultDisplaysDealerBlackJack() {
-//        TestView view = new TestView(false, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        game.playRoundWithResult(Result.DEALER_BLACK_JACK);
-//
-//        game.declareRoundResult();
-//
-//        assertEquals(1, view.dealerBlackJackCalls);
-//    }
+    @Test
+    void declareRoundResultDisplaysDealerBlackJack() {
+        TestView view = new TestView(false, false);
+        Game<TestView> game = new Game<>(view);
+
+        game.setResult(Result.DEALER_BLACK_JACK);
+
+        game.declareRoundResult();
+
+        assertEquals(1, view.dealerBlackJackCalls);
+    }
 
     @Test
     void playStopsWhenViewSaysNotToContinue() {

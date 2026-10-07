@@ -52,6 +52,15 @@ public class Game<T extends View> {
      * Stores result of the last round.
      */
     private Result result;
+
+    public void setResult(Result result) {
+        this.result = result;
+    }
+
+    public Result getResult() {
+        return this.result;
+    }
+
     private int totalRounds = 0;
 
     /**
@@ -68,10 +77,6 @@ public class Game<T extends View> {
         this.user.setShoe(this.shoe);
         this.dealer.setShoe(this.shoe);
         this.view.setContext(this.user, this.dealer, this.shoe);
-    }
-
-    public Result getResult() {
-        return this.result;
     }
 
     /**
