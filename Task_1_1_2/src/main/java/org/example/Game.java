@@ -95,7 +95,6 @@ public class Game<T extends View> {
                     || this.result == Result.USER_VICTORY) {
                 this.user.addVictory();
             }
-            this.totalRounds++;
             this.declareRoundResult();
             if (!this.view.askToContinue()) {
                 break;
