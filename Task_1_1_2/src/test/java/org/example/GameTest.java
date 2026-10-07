@@ -189,8 +189,8 @@ class GameTest {
         Card dealerAce = new Card(SuitCode.CLUBS, CardCode.ACE);
         Card dealerTen = new Card(SuitCode.DIAMONDS, CardCode.TEN);
 
-        System.out.println("dealer value before round: " + game.getDealer().getValue());
-        System.out.println("dealer cards before round: " + game.getDealer().getCards());
+//        System.out.println("dealer value before round: " + game.getDealer().getValue());
+//        System.out.println("dealer cards before round: " + game.getDealer().getCards());
 
         Shoe newShoe = createShoe(
                 userFive,
@@ -202,42 +202,45 @@ class GameTest {
         game.getUser().setShoe(newShoe);
         game.getDealer().setShoe(newShoe);
 
-        System.out.println("cards inside the shoe: " + newShoe.getCards());
-        System.out.println("cards inside the game shoe: " + game.getShoe().getCards());
+//        System.out.println("cards inside the shoe: " + newShoe.getCards());
+//        System.out.println("cards inside the game shoe: " + game.getShoe().getCards());
 
         game.playRound();
 
-        System.out.println("user's cards: " + game.getUser().getCards());
-        System.out.println("dealer's cards: " + game.getDealer().getCards());
-        System.out.println("result of the game: " + game.getResult());
+//        System.out.println("user's cards: " + game.getUser().getCards());
+//        System.out.println("dealer's cards: " + game.getDealer().getCards());
+//        System.out.println("result of the game: " + game.getResult());
 
         assertEquals(Result.DEALER_BLACK_JACK, game.getResult());
     }
 
-//    @Test
-//    void playRoundDetectsUserBust() {
-//        TestView view = new TestView(true, false);
-//        Game<TestView> game = new Game<>(view);
-//
-//        Card userTen = new Card(SuitCode.SPADES, CardCode.TEN);
-//        Card userNine = new Card(SuitCode.HEARTS, CardCode.NINE);
-//        Card userFive = new Card(SuitCode.CLUBS, CardCode.FIVE);
-//
-//        Card dealerTwo = new Card(SuitCode.DIAMONDS, CardCode.TWO);
-//        Card dealerThree = new Card(SuitCode.SPADES, CardCode.THREE);
-//
-//        game.setShoe(createShoe(
-//                userTen,
-//                dealerTwo,
-//                userNine,
-//                dealerThree,
-//                userFive));
-//
-//        game.playRound();
-//
-//        assertEquals(Result.DEALER_VICTORY, game.getResult());
-//        assertEquals(1, view.userDrawCalls);
-//    }
+    @Test
+    void playRoundDetectsUserBust() {
+        TestView view = new TestView(true, false);
+        Game<TestView> game = new Game<>(view);
+
+        Card userTen = new Card(SuitCode.SPADES, CardCode.TEN);
+        Card userNine = new Card(SuitCode.HEARTS, CardCode.NINE);
+        Card userFive = new Card(SuitCode.CLUBS, CardCode.FIVE);
+
+        Card dealerTwo = new Card(SuitCode.DIAMONDS, CardCode.TWO);
+        Card dealerThree = new Card(SuitCode.SPADES, CardCode.THREE);
+
+        Shoe newShoe = createShoe(
+                            userTen,
+                            userFive,
+                            dealerThree,
+                            dealerTwo,
+                            userNine);
+        game.setShoe(newShoe);
+        game.getUser().setShoe(newShoe);
+        game.getDealer().setShoe(newShoe);
+
+        game.playRound();
+
+        assertEquals(Result.DEALER_VICTORY, game.getResult());
+        assertEquals(1, view.userDrawCalls);
+    }
 
 //    @Test
 //    void playRoundDetectsDealerBust() {
