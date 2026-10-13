@@ -8,7 +8,7 @@ public class Div extends Operation {
     }
 
     /**
-     * d(u / v) / dx = (u * (dv / dx) - v * (du / dx)) / (v * v).
+     * d(u / v) / dx = (v * (du / dx) - u * (dv / dx)) / (v * v).
      *
      * @param variable with respect to which the expression is differentiated
      *
@@ -17,8 +17,8 @@ public class Div extends Operation {
     @Override
     public Expression derivative(String variable) {
         return new Div(
-                    new Sub(new Mul(this.getLeft(), this.getRight().derivative(variable)),
-                            new Mul(this.getLeft().derivative(variable), this.getRight())),
+                    new Sub(new Mul(this.getLeft().derivative(variable), this.getRight()),
+                            new Mul(this.getLeft(), this.getRight().derivative(variable))),
                     new Mul(this.getRight(), this.getRight()));
     }
 

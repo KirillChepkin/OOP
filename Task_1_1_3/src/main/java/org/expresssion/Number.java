@@ -28,4 +28,9 @@ public class Number extends Expression {
     public double eval(Assignment assignment) {
         return this.number;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "(" + this.number + ")";
+    }
 }

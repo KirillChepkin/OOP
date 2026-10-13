@@ -17,4 +17,10 @@ public abstract class Operation extends Expression {
         this.left = left;
         this.right = right;
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "(" + this.getLeft() + ", " + this.getRight() +
+                ")";
+    }
 }

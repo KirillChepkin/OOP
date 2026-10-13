@@ -36,4 +36,9 @@ public class Variable extends Expression {
     public double eval(Assignment assignment) throws UnassignedVariable {
         return assignment.getValue(this.name);
     }
+
+    @Override
+    public String toString() {
+        return this.getClass().getSimpleName() + "(" + this.name + ")";
+    }
 }

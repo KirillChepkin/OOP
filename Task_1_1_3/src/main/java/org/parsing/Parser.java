@@ -1,25 +1,54 @@
 package org.parsing;
 
-import org.exception.*;
-import org.expresssion.*;
-import org.expresssion.Number;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.exception.ExpectedDoubleValue;
+import org.exception.ExpectedEqualsSign;
+import org.exception.ExpectedVariableName;
+import org.exception.InvalidArithmeticExpression;
+import org.exception.InvalidPieceOfExpression;
+import org.expresssion.Add;
+import org.expresssion.Assignment;
+import org.expresssion.Div;
+import org.expresssion.Expression;
+import org.expresssion.Mul;
+import org.expresssion.Number;
+import org.expresssion.Sub;
+import org.expresssion.Variable;
 
+/**
+ * This class provides static and dynamic methods for parsing string expressions of two types:
+ * 1) Assignments (e.g. x = 1; y = 2; z3 = 5.009)
+ * 2) Arithmetic expressions
+ */
 public class Parser {
     List<String> tokens;
+
+    public List<String> getTokens() {
+        return this.tokens;
+    }
+
     private List<String> operatorStack;
+
+    public List<String> getOperatorStack() {
+        return this.operatorStack;
+    }
+
     private List<Expression> operandStack;
 
+    public List<Expression> getOperandStack() {
+        return operandStack;
+    }
+
     private static List<String> parseAssignmentTokens(java.lang.String string) {
-        Pattern pattern = Pattern.compile("([0-9]+\\.?[0-9]+)|=|([0-9]+)|([a-zA-Z0-9]+)");
+        Pattern pattern = Pattern.compile(
+                "(-?[0-9]+\\.?[0-9]+)|=|(-?[0-9]+)|([a-zA-Z0-9]+)");
         Matcher matcher = pattern.matcher(string);
-        List <String> tokens = new ArrayList<>();
+        List<String> tokens = new ArrayList<>();
         while (matcher.find()) {
             tokens.add(matcher.group());
         }
@@ -27,9 +56,6 @@ public class Parser {
     }
 
     public static Assignment getAssignment(String string) {
-        if (!string.matches("[a-zA-Z0-9]|=|\\s|;|,]")) {
-
-        }
         List<String> tokens = parseAssignmentTokens(string);
         System.out.println(tokens);
         Map<String, Double> variableToValue = new HashMap<>();
@@ -71,7 +97,7 @@ public class Parser {
         Pattern pattern = Pattern.compile(
                 "[0-9]*\\.?[0-9]+|[a-zA-Z][a-zA-Z0-9]*|[-+*/()]");
         Matcher matcher = pattern.matcher(string);
-        List <String> tokens = new ArrayList<>();
+        List<String> tokens = new ArrayList<>();
         while (matcher.find()) {
             tokens.add(matcher.group());
         }
@@ -79,7 +105,7 @@ public class Parser {
     }
 
     public Expression getExpressionFromString(String string) {
-        if (!string.matches("[0-9]|[+-/*]|[a-zA-Z]|\\s|[()]")) {
+        if (!string.matches("([a-zA-Z0-9+/*\\-(). \t\n\r])+")) {
             throw new InvalidArithmeticExpression("The expression contains incorrect symbols.");
         }
         this.tokens = parseExpressionTokens(string);
@@ -88,45 +114,66 @@ public class Parser {
         for (String token: tokens) {
             if (token.equals("(")) {
                 this.operatorStack.add(token);
-            } else {
-
-            }
-
-            if (representsDouble(token)) {
+            } else if (representsDouble(token)) {
                 this.operandStack.add(new Number(Double.parseDouble(token)));
-            } else {
-
-            }
-
-            if (representsVariable(token)) {
+            } else if (representsVariable(token)) {
                 this.operandStack.add(new Variable(token));
-            } else {
-
-            }
-
-            // expression like (a / b * c) will be parsed as (a / b) * c.
-            if (representsOperator(token)) {
+            } else if (representsOperator(token)) {
+                // expression like (a / b * c) will be parsed as (a / b) * c.
                 this.processOperator(token);
+            } else if (token.equals(")")) {
+                this.clearStackDownToBracket();
+            } else {
+                throw new InvalidPieceOfExpression("Detected an invalid piece of expression: "
+                        + token);
             }
         }
-        return null;
+        clearStackDownToBracket();
+        if (operatorStack.size() != 0 || operandStack.size() != 1) {
+            throw new InvalidArithmeticExpression("Unable to process the expression");
+        }
+        return this.operandStack.remove(this.operandStack.size() - 1);
     }
 
-    private void processOperator(String token) {
-        String previous = popPreviousOperator();
+    private void clearStackDownToBracket() {
+        if (this.operatorStack.size() == 0) {
+            return;
+        }
+        String operator = popPreviousOperator();
         Expression a, b;
-        while (!previous.equals("(")
-                && getOperatorPriority(previous) >= getOperatorPriority(token)
+        while (!operator.equals("(")
                 && this.operandStack.size() >= 2) {
             b = this.operandStack.remove(this.operandStack.size() - 1);
             a = this.operandStack.remove(this.operandStack.size() - 1);
-            this.operandStack.add(createExpression(a, b, previous));
+            this.operandStack.add(createOperation(a, b, operator));
+            if (operatorStack.size() == 0) {
+                break;
+            }
+            operator = popPreviousOperator();
+        }
+    }
+
+    private void processOperator(String token) {
+        if (this.operatorStack.size() == 0) {
+            this.operatorStack.add(token);
+            return;
+        }
+        String previous;
+        Expression a, b;
+        while (this.operatorStack.size() > 0
+                && !operatorStack.get(operatorStack.size() - 1).equals("(")
+                && getOperatorPriority(operatorStack.get(operatorStack.size() - 1))
+                >= getOperatorPriority(token)
+                && this.operandStack.size() >= 2) {
             previous = popPreviousOperator();
+            b = this.operandStack.remove(this.operandStack.size() - 1);
+            a = this.operandStack.remove(this.operandStack.size() - 1);
+            this.operandStack.add(createOperation(a, b, previous));
         }
         this.operatorStack.add(token);
     }
 
-    private static Expression createExpression(Expression a, Expression b, String operator) {
+    private static Expression createOperation(Expression a, Expression b, String operator) {
         switch (operator) {
             case "+":
                 return new Add(a, b);
@@ -143,11 +190,7 @@ public class Parser {
     }
 
     private String popPreviousOperator() {
-        if (this.operatorStack.size() > 0) {
-            return this.operatorStack.remove(this.operatorStack.size() - 1);
-        } else {
-            throw new InvalidArithmeticExpression("Invalid arithmetic expression");
-        }
+        return this.operatorStack.remove(this.operatorStack.size() - 1);
     }
 
     private static int getOperatorPriority(String operator) {
@@ -163,10 +206,15 @@ public class Parser {
     }
 
     private static Boolean representsDouble(String string) {
-        return string.matches("([0-9]*(\\.)?[0-9]+)");
+        return string.matches("(-?[0-9]*(\\.)?[0-9]+)");
     }
 
     private static Boolean representsVariable(String string) {
-        return string.matches("[a-zA-Z].[a-zA-Z0-9]*");
+        return string.matches("[a-zA-Z][a-zA-Z0-9]*");
+    }
+
+    private void logStacks() {
+        System.out.println(this.operatorStack);
+        System.out.println(this.operandStack);
     }
 }
