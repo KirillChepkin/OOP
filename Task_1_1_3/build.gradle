@@ -4,7 +4,7 @@ plugins {
     id 'jacoco'
 }
 
-group = 'org.main'
+group = 'org.example'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -38,11 +38,11 @@ jacocoTestReport {
     }
     classDirectories.setFrom(files(classDirectories.files.collect {
         fileTree(dir: it, exclude: [
-                'org/main/Main.class'
+                'org/example/Main.class'
         ])
     }))
 }
 
 application {
-    mainClass = 'org.main.Main'
+    mainClass = 'org.example.Main'
 }

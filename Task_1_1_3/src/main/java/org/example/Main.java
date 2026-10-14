@@ -1,4 +1,4 @@
-package org.main;
+package org.example;
 
 import org.expresssion.Assignment;
 import org.expresssion.Expression;
