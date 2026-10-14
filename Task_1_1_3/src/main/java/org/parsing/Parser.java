@@ -11,14 +11,14 @@ import org.exception.ExpectedEqualsSign;
 import org.exception.ExpectedVariableName;
 import org.exception.InvalidArithmeticExpression;
 import org.exception.InvalidPieceOfExpression;
-import org.expresssion.Add;
-import org.expresssion.Assignment;
-import org.expresssion.Div;
-import org.expresssion.Expression;
-import org.expresssion.Mul;
-import org.expresssion.Number;
-import org.expresssion.Sub;
-import org.expresssion.Variable;
+import org.expression.Add;
+import org.expression.Assignment;
+import org.expression.Div;
+import org.expression.Expression;
+import org.expression.Mul;
+import org.expression.Number;
+import org.expression.Sub;
+import org.expression.Variable;
 
 /**
  * This class provides static and dynamic methods for parsing string expressions of two types:

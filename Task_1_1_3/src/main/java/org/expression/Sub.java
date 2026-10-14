@@ -1,12 +1,12 @@
-package org.expresssion;
+package org.expression;
 
-public class Add extends Operation {
-    public Add(Expression left, Expression right) {
+public class Sub extends Operation {
+    public Sub(Expression left, Expression right) {
         super(left, right);
     }
 
     /**
-     * Derivative of sum is a sum of derivatives.
+     * Derivative of subtraction is a subtraction of derivatives
      *
      * @param variable with respect to which the expression is differentiated
      *
@@ -14,7 +14,7 @@ public class Add extends Operation {
      */
     @Override
     public Expression derivative(String variable) {
-        return new Add(this.getLeft().derivative(variable), this.getRight().derivative(variable));
+        return new Sub(this.getLeft().derivative(variable), this.getRight().derivative(variable));
     }
 
     /**
@@ -23,10 +23,10 @@ public class Add extends Operation {
      *
      * @param assignment Must contain values for all variables inside the expression.
      *
-     * @return Derivative expression.
+     * @return Value of the expression.
      */
     @Override
     public double eval(Assignment assignment) {
-        return this.getLeft().eval(assignment) + this.getRight().eval(assignment);
+        return this.getLeft().eval(assignment) - this.getRight().eval(assignment);
     }
 }

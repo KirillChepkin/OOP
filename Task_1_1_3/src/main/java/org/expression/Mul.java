@@ -1,12 +1,12 @@
-package org.expresssion;
+package org.expression;
 
-public class Sub extends Operation {
-    public Sub(Expression left, Expression right) {
+public class Mul extends Operation {
+    public Mul(Expression left, Expression right) {
         super(left, right);
     }
 
     /**
-     * Derivative of subtraction is a subtraction of derivatives
+     * d(u * v) / dx = (du / dx) * v + (dv / dx) * u.
      *
      * @param variable with respect to which the expression is differentiated
      *
@@ -14,7 +14,9 @@ public class Sub extends Operation {
      */
     @Override
     public Expression derivative(String variable) {
-        return new Sub(this.getLeft().derivative(variable), this.getRight().derivative(variable));
+        return new Add(
+                new Mul(this.getLeft().derivative(variable), this.getRight()),
+                new Mul(this.getRight().derivative(variable), this.getLeft()));
     }
 
     /**
@@ -27,6 +29,6 @@ public class Sub extends Operation {
      */
     @Override
     public double eval(Assignment assignment) {
-        return this.getLeft().eval(assignment) - this.getRight().eval(assignment);
+        return this.getLeft().eval(assignment) * this.getRight().eval(assignment);
     }
 }

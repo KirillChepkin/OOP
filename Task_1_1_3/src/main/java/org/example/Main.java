@@ -1,13 +1,9 @@
 package org.example;
 
-import org.expresssion.Assignment;
-import org.expresssion.Expression;
+import org.expression.Assignment;
+import org.expression.Expression;
 import org.parsing.Parser;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.Scanner;
 
 public class Main {

@@ -1,4 +1,4 @@
-package org.expresssion;
+package org.expression;
 
 import org.exception.UnassignedVariable;
 

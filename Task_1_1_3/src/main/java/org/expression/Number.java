@@ -1,4 +1,4 @@
-package org.expresssion;
+package org.expression;
 
 public class Number extends Expression {
     private final double number;

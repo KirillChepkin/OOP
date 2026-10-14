@@ -1,12 +1,12 @@
-package org.expresssion;
+package org.expression;
 
-public class Mul extends Operation {
-    public Mul(Expression left, Expression right) {
+public class Add extends Operation {
+    public Add(Expression left, Expression right) {
         super(left, right);
     }
 
     /**
-     * d(u * v) / dx = (du / dx) * v + (dv / dx) * u.
+     * Derivative of sum is a sum of derivatives.
      *
      * @param variable with respect to which the expression is differentiated
      *
@@ -14,9 +14,7 @@ public class Mul extends Operation {
      */
     @Override
     public Expression derivative(String variable) {
-        return new Add(
-                new Mul(this.getLeft().derivative(variable), this.getRight()),
-                new Mul(this.getRight().derivative(variable), this.getLeft()));
+        return new Add(this.getLeft().derivative(variable), this.getRight().derivative(variable));
     }
 
     /**
@@ -25,10 +23,10 @@ public class Mul extends Operation {
      *
      * @param assignment Must contain values for all variables inside the expression.
      *
-     * @return Value of the expression.
+     * @return Derivative expression.
      */
     @Override
     public double eval(Assignment assignment) {
-        return this.getLeft().eval(assignment) * this.getRight().eval(assignment);
+        return this.getLeft().eval(assignment) + this.getRight().eval(assignment);
     }
 }

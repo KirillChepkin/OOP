@@ -1,4 +1,4 @@
-package org.expresssion;
+package org.expression;
 
 public abstract class Operation extends Expression {
     private final Expression left;
