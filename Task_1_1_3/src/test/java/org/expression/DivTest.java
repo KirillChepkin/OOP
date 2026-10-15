@@ -1,11 +1,11 @@
 package org.expression;
 
-import org.exception.ZeroDenominatorInExpression;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
+import org.exception.ZeroDenominatorInExpression;
+import org.junit.jupiter.api.Test;
 
 class DivTest {
 
@@ -26,7 +26,7 @@ class DivTest {
     }
 
     @Test
-    void derivativeOfXDividedByConstantIsReciprocal() {
+    void derivativeOfNumberDividedByConstantIsReciprocal() {
         Div expression = new Div(
                 new Variable("x"), new Number(2.0));
 
@@ -36,7 +36,7 @@ class DivTest {
     }
 
     @Test
-    void derivativeOfConstantDividedByXIsNegativeConstantOverXSquared() {
+    void derivativeOfConstantDividedByNumberIsNegativeConstantOverNumberSquared() {
         Div expression = new Div(
                 new Number(6.0), new Variable("x"));
 

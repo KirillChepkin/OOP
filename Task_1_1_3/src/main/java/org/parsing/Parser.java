@@ -11,14 +11,8 @@ import org.exception.ExpectedEqualsSign;
 import org.exception.ExpectedVariableName;
 import org.exception.InvalidArithmeticExpression;
 import org.exception.InvalidPieceOfExpression;
-import org.expression.Add;
-import org.expression.Assignment;
-import org.expression.Div;
-import org.expression.Expression;
-import org.expression.Mul;
+import org.expression.*;
 import org.expression.Number;
-import org.expression.Sub;
-import org.expression.Variable;
 
 /**
  * This class provides static and dynamic methods for parsing string expressions of two types:
@@ -76,7 +70,7 @@ public class Parser {
                 name = token;
                 state = 1;
                 continue;
-            } else if (state == 0){
+            } else if (state == 0) {
                 throw new ExpectedVariableName("Expected variable name starting with"
                         + " a letter in assigment string, found: ", token);
             }
@@ -184,7 +178,8 @@ public class Parser {
             return;
         }
         String previous;
-        Expression a, b;
+        Expression b;
+        Expression a;
         while (this.operatorStack.size() > 0
                 && !operatorStack.get(operatorStack.size() - 1).equals("(")
                 && getOperatorPriority(operatorStack.get(operatorStack.size() - 1))
@@ -199,6 +194,8 @@ public class Parser {
     }
 
     /**
+     * Produces an Operation object with its left argument being a and right being b.
+     *
      * @param a left operand of the expression.
      *
      * @param b right operand.
@@ -207,7 +204,7 @@ public class Parser {
      *
      * @return Expression corresponding to an input operator.
      */
-    private static Expression createOperation(Expression a, Expression b, String operator) {
+    private static Operation createOperation(Expression a, Expression b, String operator) {
         switch (operator) {
             case "+":
                 return new Add(a, b);

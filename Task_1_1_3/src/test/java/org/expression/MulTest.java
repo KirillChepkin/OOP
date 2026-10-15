@@ -1,10 +1,9 @@
 package org.expression;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
-
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class MulTest {
 
@@ -17,7 +16,7 @@ class MulTest {
     }
 
     @Test
-    void derivativeOfXTimesConstantIsConstant() {
+    void derivativeOfNumberTimesConstantIsConstant() {
         Mul expression = new Mul(
                 new Variable("x"), new Number(4.0));
 
@@ -27,7 +26,7 @@ class MulTest {
     }
 
     @Test
-    void derivativeOfXTimesXIsTwoX() {
+    void derivativeOfNumberTimesNumberIsTwoX() {
         Mul expression = new Mul(
                 new Variable("x"), new Variable("x"));
 

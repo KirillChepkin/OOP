@@ -3,10 +3,11 @@ package org.expression;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.exception.UnassignedVariable;
-import org.junit.jupiter.api.Test;
+
 import java.util.HashMap;
 import java.util.Map;
+import org.exception.UnassignedVariable;
+import org.junit.jupiter.api.Test;
 
 class AssignmentTest {
     @Test

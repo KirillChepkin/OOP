@@ -1,10 +1,9 @@
 package org.expression;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Test;
-
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SubTest {
 
@@ -17,7 +16,7 @@ class SubTest {
     }
 
     @Test
-    void derivativeOfXMinusConstantIsOne() {
+    void derivativeOfNumberMinusConstantIsOne() {
         Sub expression = new Sub(
                 new Variable("x"), new Number(5.0));
 
@@ -27,7 +26,7 @@ class SubTest {
     }
 
     @Test
-    void derivativeOfConstantMinusXIsMinusOne() {
+    void derivativeOfConstantMinusNumberIsMinusOne() {
         Sub expression = new Sub(
                 new Number(5.0), new Variable("x"));
 

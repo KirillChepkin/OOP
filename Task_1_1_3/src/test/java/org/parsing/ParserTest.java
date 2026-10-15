@@ -1,13 +1,16 @@
 package org.parsing;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import java.util.List;
 import java.util.Map;
-
 import org.exception.ExpectedDoubleValue;
 import org.exception.ExpectedEqualsSign;
 import org.exception.ExpectedVariableName;
 import org.exception.InvalidArithmeticExpression;
-import org.exception.InvalidPieceOfExpression;
 import org.expression.Add;
 import org.expression.Assignment;
 import org.expression.Div;
@@ -17,11 +20,6 @@ import org.expression.Number;
 import org.expression.Sub;
 import org.expression.Variable;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertInstanceOf;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParserTest {
 
