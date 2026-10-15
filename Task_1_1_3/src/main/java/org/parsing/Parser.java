@@ -67,7 +67,6 @@ public class Parser {
      */
     public static Assignment getAssignment(String string) {
         List<String> tokens = parseAssignmentTokens(string);
-        System.out.println(tokens);
         Map<String, Double> variableToValue = new HashMap<>();
         String name = null;
         double value = 0;

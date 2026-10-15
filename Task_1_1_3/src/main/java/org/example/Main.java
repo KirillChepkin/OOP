@@ -18,15 +18,23 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         String string = scanner.nextLine();
 
+        // Parsing the expression itself.
         Parser parser = new Parser();
         Expression expression = parser.getExpressionFromString(string);
+        System.out.println(parser.getTokens());
         System.out.println(expression);
+
+        // Parsing the assignment.
         string = scanner.nextLine();
         Assignment assignment = Parser.getAssignment(string);
         System.out.println(expression.eval(assignment));
+
+        // Differentiating the expression.
         string = scanner.nextLine();
         Expression derivative = expression.derivative(string);
         System.out.println(derivative);
+
+        // Parsing the assignment for derivative.
         string = scanner.nextLine();
         assignment = Parser.getAssignment(string);
         System.out.println(derivative.eval(assignment));
