@@ -248,4 +248,9 @@ class ParserTest {
         assertThrows(ExpectedDoubleValue.class,
                 () -> Parser.getAssignment("x = y"));
     }
+
+//    @Test
+//    void invalidPieceOfExpression() {
+//        assertThrows();
+//    }
 }
