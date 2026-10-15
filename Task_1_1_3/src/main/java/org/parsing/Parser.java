@@ -55,6 +55,16 @@ public class Parser {
         return tokens;
     }
 
+    /**
+     * Parses the assignment from an input string. It must obey the following pattern:
+     * <variable name> = <variable value>; <other variable name> = <other variable value>
+     *     and so on.
+     *     a comma might be used instead of a semicolon.
+     *
+     * @param string string to parse an assignment from.
+     *
+     * @return an assignment object parsed from a string.
+     */
     public static Assignment getAssignment(String string) {
         List<String> tokens = parseAssignmentTokens(string);
         System.out.println(tokens);
@@ -62,7 +72,7 @@ public class Parser {
         String name = null;
         double value = 0;
         int state = 0; // 0 - expecting variable, 1 - expecting "=", 2 - expecting double.
-        for (String token: tokens) {
+        for (String token : tokens) {
             if (state == 0 && representsVariable(token)) {
                 name = token;
                 state = 1;
@@ -93,6 +103,14 @@ public class Parser {
         return new Assignment(variableToValue);
     }
 
+    /**
+     * parses tokens that might be contained in an arithmetic expression: operators, double
+     * numbers, variables or brackets.
+     *
+     * @param string a string to parse tokens from.
+     *
+     * @return list of string tokens parsed from a given string.
+     */
     public static List<String> parseExpressionTokens(String string) {
         Pattern pattern = Pattern.compile(
                 "[0-9]*\\.?[0-9]+|[a-zA-Z][a-zA-Z0-9]*|[-+*/()]");
@@ -104,6 +122,13 @@ public class Parser {
         return tokens;
     }
 
+    /**
+     * Returns the expression structure parsed from a string.
+     *
+     * @param string a string to parse an expression from.
+     *
+     * @return An expression object parsed from a string.
+     */
     public Expression getExpressionFromString(String string) {
         if (!string.matches("([a-zA-Z0-9+/*\\-(). \t\n\r])+")) {
             throw new InvalidArithmeticExpression("The expression contains incorrect symbols.");
@@ -111,7 +136,7 @@ public class Parser {
         this.tokens = parseExpressionTokens(string);
         this.operatorStack = new ArrayList<>();
         this.operandStack = new ArrayList<>();
-        for (String token: tokens) {
+        for (String token : tokens) {
             if (token.equals("(")) {
                 this.operatorStack.add(token);
             } else if (representsDouble(token)) {
@@ -140,7 +165,8 @@ public class Parser {
             return;
         }
         String operator = popPreviousOperator();
-        Expression a, b;
+        Expression a;
+        Expression b;
         while (!operator.equals("(")
                 && this.operandStack.size() >= 2) {
             b = this.operandStack.remove(this.operandStack.size() - 1);
@@ -173,6 +199,15 @@ public class Parser {
         this.operatorStack.add(token);
     }
 
+    /**
+     * @param a left operand of the expression.
+     *
+     * @param b right operand.
+     *
+     * @param operator string operator.
+     *
+     * @return Expression corresponding to an input operator.
+     */
     private static Expression createOperation(Expression a, Expression b, String operator) {
         switch (operator) {
             case "+":
@@ -193,6 +228,14 @@ public class Parser {
         return this.operatorStack.remove(this.operatorStack.size() - 1);
     }
 
+    /**
+     * Returns priority values for operators that can be later compared during expression
+     * processing.
+     *
+     * @param operator string arithmetic operator.
+     *
+     * @return integer priority.
+     */
     private static int getOperatorPriority(String operator) {
         if (operator.equals("+") || operator.equals("-")) {
             return 1;
@@ -201,20 +244,38 @@ public class Parser {
         }
     }
 
+    /**
+     * Checks if a string represents a one-character operator: * / + -. No other operator is
+     * allowed except for this four.
+     *
+     * @param string token.
+     *
+     * @return true if a token is an operator, false otherwise.
+     */
     private static Boolean representsOperator(String string) {
         return string.matches("[+\\-*/]");
     }
 
+    /**
+     * Checks whether a string represents a boolean number, whether positive or negative.
+     *
+     * @param string token.
+     *
+     * @return if a token represents a double number.
+     */
     private static Boolean representsDouble(String string) {
         return string.matches("(-?[0-9]*(\\.)?[0-9]+)");
     }
 
+    /**
+     * Method to check if a string represents a variable. Variable names must start with any letter
+     * and may contain numbers and capital letters.
+     *
+     * @param string checks if a string token represents a variable.
+     *
+     * @return a corresponding boolean value.
+     */
     private static Boolean representsVariable(String string) {
         return string.matches("[a-zA-Z][a-zA-Z0-9]*");
-    }
-
-    private void logStacks() {
-        System.out.println(this.operatorStack);
-        System.out.println(this.operandStack);
     }
 }

@@ -2,6 +2,9 @@ package org.expression;
 
 import org.exception.ZeroDenominatorInExpression;
 
+/**
+ * Objects of this class represent a fraction of two expressions.
+ */
 public class Div extends Operation {
     public Div(Expression left, Expression right) {
         super(left, right);

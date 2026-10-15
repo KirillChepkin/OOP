@@ -1,5 +1,8 @@
 package org.expression;
 
+/**
+ * Represents a constant double number.
+ */
 public class Number extends Expression {
     private final double number;
 
@@ -20,6 +23,8 @@ public class Number extends Expression {
     }
 
     /**
+     * Constant number is always evaluated to its value.
+     *
      * @param assignment Must contain values for all variables inside the expression.
      *
      * @return Value of the expression.

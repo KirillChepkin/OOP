@@ -1,12 +1,15 @@
 package org.expression;
 
+/**
+ * Objects of this class represent a difference of two expressions.
+ */
 public class Sub extends Operation {
     public Sub(Expression left, Expression right) {
         super(left, right);
     }
 
     /**
-     * Derivative of subtraction is a subtraction of derivatives
+     * Derivative of subtraction is a subtraction of derivatives.
      *
      * @param variable with respect to which the expression is differentiated
      *

@@ -1,5 +1,8 @@
 package org.expression;
 
+/**
+ * Objects of this class represent an Addition of two numbers.
+ */
 public class Add extends Operation {
     public Add(Expression left, Expression right) {
         super(left, right);

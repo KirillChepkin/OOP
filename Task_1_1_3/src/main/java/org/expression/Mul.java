@@ -1,5 +1,8 @@
 package org.expression;
 
+/**
+ * Objects of this class represent a multiple of two expressions.
+ */
 public class Mul extends Operation {
     public Mul(Expression left, Expression right) {
         super(left, right);
@@ -8,7 +11,7 @@ public class Mul extends Operation {
     /**
      * d(u * v) / dx = (du / dx) * v + (dv / dx) * u.
      *
-     * @param variable with respect to which the expression is differentiated
+     * @param variable with respect to which the expression is differentiated.
      *
      * @return Derivative expression.
      */

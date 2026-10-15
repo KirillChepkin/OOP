@@ -1,5 +1,9 @@
 package org.expression;
 
+/**
+ * This abstract class provides common attributes and methods that are used in all binary
+ * operations implemented in the package.
+ */
 public abstract class Operation extends Expression {
     private final Expression left;
 
@@ -20,7 +24,7 @@ public abstract class Operation extends Expression {
 
     @Override
     public String toString() {
-        return this.getClass().getSimpleName() + "(" + this.getLeft() + ", " + this.getRight() +
-                ")";
+        return this.getClass().getSimpleName() + "(" + this.getLeft() + ", " + this.getRight()
+                + ")";
     }
 }
