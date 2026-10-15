@@ -1,5 +1,8 @@
 package org.parsing;
 
+import java.util.List;
+import java.util.Map;
+
 import org.exception.ExpectedDoubleValue;
 import org.exception.ExpectedEqualsSign;
 import org.exception.ExpectedVariableName;
@@ -15,10 +18,10 @@ import org.expression.Sub;
 import org.expression.Variable;
 import org.junit.jupiter.api.Test;
 
-import java.util.List;
-import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertInstanceOf;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ParserTest {
 
@@ -248,9 +251,4 @@ class ParserTest {
         assertThrows(ExpectedDoubleValue.class,
                 () -> Parser.getAssignment("x = y"));
     }
-
-//    @Test
-//    void invalidPieceOfExpression() {
-//        assertThrows();
-//    }
 }
