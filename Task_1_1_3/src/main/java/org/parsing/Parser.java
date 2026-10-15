@@ -57,7 +57,7 @@ public class Parser {
 
     /**
      * Parses the assignment from an input string. It must obey the following pattern:
-     * <variable name> = <variable value>; <other variable name> = <other variable value>
+     * (variable name) = (variable value); (other variable name) = (other variable value).
      *     and so on.
      *     a comma might be used instead of a semicolon.
      *

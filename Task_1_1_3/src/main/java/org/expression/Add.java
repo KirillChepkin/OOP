@@ -4,6 +4,14 @@ package org.expression;
  * Objects of this class represent an Addition of two numbers.
  */
 public class Add extends Operation {
+    /**
+     * Object constructor. Calls its parent class's object constructor.
+     * a + b.
+     *
+     * @param left a.
+     *
+     * @param right b.
+     */
     public Add(Expression left, Expression right) {
         super(left, right);
     }

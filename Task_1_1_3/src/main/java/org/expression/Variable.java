@@ -8,10 +8,20 @@ import org.exception.UnassignedVariable;
 public class Variable extends Expression {
     private final String name;
 
+    /**
+     * returns a name of the variable.
+     *
+     * @return string with a name.
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * class constructor.
+     *
+     * @param name name of the variable.
+     */
     public Variable(String name) {
         this.name = name;
     }

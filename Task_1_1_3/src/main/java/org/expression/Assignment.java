@@ -20,6 +20,8 @@ public class Assignment {
 
     /**
      * Variable to value getter. Checks if a variable name is in the assignment.
+     *
+     * @param name get value of a variable with the given name.
      */
     public Double getValue(String name) {
         if (!this.variableToValue.containsKey(name)) {
