@@ -53,13 +53,21 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
 <dt><a href="org/expression/Add.html" class="type-name-link" title="class in org.expression">Add</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class represent an Addition of two numbers.</div>
+</dd>
 <dt><a href="org/expression/Add.html#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Add(Expression, Expression)</a> - Constructor for class org.expression.<a href="org/expression/Add.html" title="class in org.expression">Add</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Object constructor.</div>
+</dd>
 <dt><a href="org/expression/Assignment.html" class="type-name-link" title="class in org.expression">Assignment</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Class that maps string variable names to their double values.</div>
+</dd>
 <dt><a href="org/expression/Assignment.html#%3Cinit%3E(java.util.Map)" class="member-name-link">Assignment(Map&lt;String, Double&gt;)</a> - Constructor for class org.expression.<a href="org/expression/Assignment.html" title="class in org.expression">Assignment</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class simply encapsulate a map under the hood.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
@@ -73,7 +81,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/expression/Expression.html#derivative(java.lang.String)" class="member-name-link">derivative(String)</a> - Method in class org.expression.<a href="org/expression/Expression.html" title="class in org.expression">Expression</a></dt>
 <dd>
-<div class="block">Returns An expression which is equal to the derivative of the given expression.</div>
+<div class="block">Returns An expression which is equal to the derivative of a given expression.</div>
 </dd>
 <dt><a href="org/expression/Mul.html#derivative(java.lang.String)" class="member-name-link">derivative(String)</a> - Method in class org.expression.<a href="org/expression/Mul.html" title="class in org.expression">Mul</a></dt>
 <dd>
@@ -85,12 +93,16 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/expression/Sub.html#derivative(java.lang.String)" class="member-name-link">derivative(String)</a> - Method in class org.expression.<a href="org/expression/Sub.html" title="class in org.expression">Sub</a></dt>
 <dd>
-<div class="block">Derivative of subtraction is a subtraction of derivatives</div>
+<div class="block">Derivative of subtraction is a subtraction of derivatives.</div>
 </dd>
 <dt><a href="org/expression/Variable.html#derivative(java.lang.String)" class="member-name-link">derivative(String)</a> - Method in class org.expression.<a href="org/expression/Variable.html" title="class in org.expression">Variable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Derivative of a variable is always constant.</div>
+</dd>
 <dt><a href="org/expression/Div.html" class="type-name-link" title="class in org.expression">Div</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class represent a fraction of two expressions.</div>
+</dd>
 <dt><a href="org/expression/Div.html#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Div(Expression, Expression)</a> - Constructor for class org.expression.<a href="org/expression/Div.html" title="class in org.expression">Div</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -107,48 +119,76 @@ loadScripts(document, 'script');</script>
  right expression.</div>
 </dd>
 <dt><a href="org/expression/Expression.html#eval(org.expression.Assignment)" class="member-name-link">eval(Assignment)</a> - Method in class org.expression.<a href="org/expression/Expression.html" title="class in org.expression">Expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns the derivative of an expression.</div>
+</dd>
 <dt><a href="org/expression/Mul.html#eval(org.expression.Assignment)" class="member-name-link">eval(Assignment)</a> - Method in class org.expression.<a href="org/expression/Mul.html" title="class in org.expression">Mul</a></dt>
 <dd>
 <div class="block">The result of evaluation of a left expression multiplied by the result of evaluation of a
  right expression.</div>
 </dd>
 <dt><a href="org/expression/Number.html#eval(org.expression.Assignment)" class="member-name-link">eval(Assignment)</a> - Method in class org.expression.<a href="org/expression/Number.html" title="class in org.expression">Number</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Constant number is always evaluated to its value.</div>
+</dd>
 <dt><a href="org/expression/Sub.html#eval(org.expression.Assignment)" class="member-name-link">eval(Assignment)</a> - Method in class org.expression.<a href="org/expression/Sub.html" title="class in org.expression">Sub</a></dt>
 <dd>
 <div class="block">The result of evaluation of a left expression multiplied by the result of evaluation of a
  right expression.</div>
 </dd>
 <dt><a href="org/expression/Variable.html#eval(org.expression.Assignment)" class="member-name-link">eval(Assignment)</a> - Method in class org.expression.<a href="org/expression/Variable.html" title="class in org.expression">Variable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Fetches a value of its variable and returns it.</div>
+</dd>
 <dt><a href="org/exception/ExpectedDoubleValue.html" class="type-name-link" title="class in org.exception">ExpectedDoubleValue</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when a numeric value is expected during expression parsing.</div>
+</dd>
 <dt><a href="org/exception/ExpectedDoubleValue.html#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">ExpectedDoubleValue(String, String)</a> - Constructor for exception org.exception.<a href="org/exception/ExpectedDoubleValue.html" title="class in org.exception">ExpectedDoubleValue</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when a numeric value is expected during expression parsing.</div>
+</dd>
 <dt><a href="org/exception/ExpectedEqualsSign.html" class="type-name-link" title="class in org.exception">ExpectedEqualsSign</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when an equals sign is expected during assignment parsing.</div>
+</dd>
 <dt><a href="org/exception/ExpectedEqualsSign.html#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">ExpectedEqualsSign(String, String)</a> - Constructor for exception org.exception.<a href="org/exception/ExpectedEqualsSign.html" title="class in org.exception">ExpectedEqualsSign</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when an equals sign is expected during assignment parsing.</div>
+</dd>
 <dt><a href="org/exception/ExpectedVariableName.html" class="type-name-link" title="class in org.exception">ExpectedVariableName</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when a variable name is expected during expression parsing.</div>
+</dd>
 <dt><a href="org/exception/ExpectedVariableName.html#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">ExpectedVariableName(String, String)</a> - Constructor for exception org.exception.<a href="org/exception/ExpectedVariableName.html" title="class in org.exception">ExpectedVariableName</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Prints the error message with a token.</div>
+</dd>
 <dt><a href="org/expression/Expression.html" class="type-name-link" title="class in org.expression">Expression</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class represent arithmetic expressions with constants, variables and</div>
+</dd>
 <dt><a href="org/expression/Expression.html#%3Cinit%3E()" class="member-name-link">Expression()</a> - Constructor for class org.expression.<a href="org/expression/Expression.html" title="class in org.expression">Expression</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
 <dt><a href="org/parsing/Parser.html#getAssignment(java.lang.String)" class="member-name-link">getAssignment(String)</a> - Static method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Parses the assignment from an input string.</div>
+</dd>
 <dt><a href="org/parsing/Parser.html#getExpressionFromString(java.lang.String)" class="member-name-link">getExpressionFromString(String)</a> - Method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Returns the expression structure parsed from a string.</div>
+</dd>
 <dt><a href="org/expression/Operation.html#getLeft()" class="member-name-link">getLeft()</a> - Method in class org.expression.<a href="org/expression/Operation.html" title="class in org.expression">Operation</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">getter for a left operand.</div>
+</dd>
 <dt><a href="org/expression/Variable.html#getName()" class="member-name-link">getName()</a> - Method in class org.expression.<a href="org/expression/Variable.html" title="class in org.expression">Variable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">returns a name of the variable.</div>
+</dd>
 <dt><a href="org/expression/Number.html#getNumber()" class="member-name-link">getNumber()</a> - Method in class org.expression.<a href="org/expression/Number.html" title="class in org.expression">Number</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/parsing/Parser.html#getOperandStack()" class="member-name-link">getOperandStack()</a> - Method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
@@ -156,49 +196,70 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/parsing/Parser.html#getOperatorStack()" class="member-name-link">getOperatorStack()</a> - Method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/expression/Operation.html#getRight()" class="member-name-link">getRight()</a> - Method in class org.expression.<a href="org/expression/Operation.html" title="class in org.expression">Operation</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">getter for a right operand.</div>
+</dd>
 <dt><a href="org/parsing/Parser.html#getTokens()" class="member-name-link">getTokens()</a> - Method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/expression/Assignment.html#getValue(java.lang.String)" class="member-name-link">getValue(String)</a> - Method in class org.expression.<a href="org/expression/Assignment.html" title="class in org.expression">Assignment</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Variable to value getter.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
 <dt><a href="org/exception/InvalidArithmeticExpression.html" class="type-name-link" title="class in org.exception">InvalidArithmeticExpression</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when an arithmetic expression is invalid.</div>
+</dd>
 <dt><a href="org/exception/InvalidArithmeticExpression.html#%3Cinit%3E(java.lang.String)" class="member-name-link">InvalidArithmeticExpression(String)</a> - Constructor for exception org.exception.<a href="org/exception/InvalidArithmeticExpression.html" title="class in org.exception">InvalidArithmeticExpression</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/exception/InvalidPieceOfExpression.html" class="type-name-link" title="class in org.exception">InvalidPieceOfExpression</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">vException thrown when an invalid piece of an arithmetic expression is encountered.</div>
+</dd>
 <dt><a href="org/exception/InvalidPieceOfExpression.html#%3Cinit%3E(java.lang.String)" class="member-name-link">InvalidPieceOfExpression(String)</a> - Constructor for exception org.exception.<a href="org/exception/InvalidPieceOfExpression.html" title="class in org.exception">InvalidPieceOfExpression</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
 <dt><a href="org/example/Main.html#main(java.lang.String%5B%5D)" class="member-name-link">main(String[])</a> - Static method in class org.example.<a href="org/example/Main.html" title="class in org.example">Main</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Standard main method.</div>
+</dd>
 <dt><a href="org/example/Main.html" class="type-name-link" title="class in org.example">Main</a> - Class in <a href="org/example/package-summary.html">org.example</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Standard main class.</div>
+</dd>
 <dt><a href="org/example/Main.html#%3Cinit%3E()" class="member-name-link">Main()</a> - Constructor for class org.example.<a href="org/example/Main.html" title="class in org.example">Main</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/expression/Mul.html" class="type-name-link" title="class in org.expression">Mul</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class represent a multiple of two expressions.</div>
+</dd>
 <dt><a href="org/expression/Mul.html#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Mul(Expression, Expression)</a> - Constructor for class org.expression.<a href="org/expression/Mul.html" title="class in org.expression">Mul</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:N">N</h2>
 <dl class="index">
 <dt><a href="org/expression/Number.html" class="type-name-link" title="class in org.expression">Number</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Represents a constant double number.</div>
+</dd>
 <dt><a href="org/expression/Number.html#%3Cinit%3E(double)" class="member-name-link">Number(double)</a> - Constructor for class org.expression.<a href="org/expression/Number.html" title="class in org.expression">Number</a></dt>
 <dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:O">O</h2>
 <dl class="index">
 <dt><a href="org/expression/Operation.html" class="type-name-link" title="class in org.expression">Operation</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">This abstract class provides common attributes and methods that are used in all binary
+ operations implemented in the package.</div>
+</dd>
 <dt><a href="org/expression/Operation.html#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Operation(Expression, Expression)</a> - Constructor for class org.expression.<a href="org/expression/Operation.html" title="class in org.expression">Operation</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Common object constructor for operations.</div>
+</dd>
 <dt><a href="org/example/package-summary.html">org.example</a> - package org.example</dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/exception/package-summary.html">org.exception</a> - package org.exception</dt>
@@ -211,7 +272,10 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
 <dt><a href="org/parsing/Parser.html#parseExpressionTokens(java.lang.String)" class="member-name-link">parseExpressionTokens(String)</a> - Static method in class org.parsing.<a href="org/parsing/Parser.html" title="class in org.parsing">Parser</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">parses tokens that might be contained in an arithmetic expression: operators, double
+ numbers, variables or brackets.</div>
+</dd>
 <dt><a href="org/parsing/Parser.html" class="type-name-link" title="class in org.parsing">Parser</a> - Class in <a href="org/parsing/package-summary.html">org.parsing</a></dt>
 <dd>
 <div class="block">This class provides static and dynamic methods for parsing string expressions of two types:
@@ -223,7 +287,9 @@ loadScripts(document, 'script');</script>
 <h2 class="title" id="I:S">S</h2>
 <dl class="index">
 <dt><a href="org/expression/Sub.html" class="type-name-link" title="class in org.expression">Sub</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class represent a difference of two expressions.</div>
+</dd>
 <dt><a href="org/expression/Sub.html#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Sub(Expression, Expression)</a> - Constructor for class org.expression.<a href="org/expression/Sub.html" title="class in org.expression">Sub</a></dt>
 <dd>&nbsp;</dd>
 </dl>
@@ -234,28 +300,42 @@ loadScripts(document, 'script');</script>
 <dt><a href="org/expression/Operation.html#toString()" class="member-name-link">toString()</a> - Method in class org.expression.<a href="org/expression/Operation.html" title="class in org.expression">Operation</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/expression/Variable.html#toString()" class="member-name-link">toString()</a> - Method in class org.expression.<a href="org/expression/Variable.html" title="class in org.expression">Variable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">a variable is represented by "Variable(this.name)".</div>
+</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
 <dt><a href="org/exception/UnassignedVariable.html" class="type-name-link" title="class in org.exception">UnassignedVariable</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when an unassigned variable is encountered during expression evaluation.</div>
+</dd>
 <dt><a href="org/exception/UnassignedVariable.html#%3Cinit%3E(java.lang.String)" class="member-name-link">UnassignedVariable(String)</a> - Constructor for exception org.exception.<a href="org/exception/UnassignedVariable.html" title="class in org.exception">UnassignedVariable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">prints a message.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:V">V</h2>
 <dl class="index">
 <dt><a href="org/expression/Variable.html" class="type-name-link" title="class in org.expression">Variable</a> - Class in <a href="org/expression/package-summary.html">org.expression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Objects of this class store variable names.</div>
+</dd>
 <dt><a href="org/expression/Variable.html#%3Cinit%3E(java.lang.String)" class="member-name-link">Variable(String)</a> - Constructor for class org.expression.<a href="org/expression/Variable.html" title="class in org.expression">Variable</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">class constructor.</div>
+</dd>
 </dl>
 <h2 class="title" id="I:Z">Z</h2>
 <dl class="index">
 <dt><a href="org/exception/ZeroDenominatorInExpression.html" class="type-name-link" title="class in org.exception">ZeroDenominatorInExpression</a> - Exception in <a href="org/exception/package-summary.html">org.exception</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Exception thrown when an arithmetic expression contains a zero denominator.</div>
+</dd>
 <dt><a href="org/exception/ZeroDenominatorInExpression.html#%3Cinit%3E(java.lang.String)" class="member-name-link">ZeroDenominatorInExpression(String)</a> - Constructor for exception org.exception.<a href="org/exception/ZeroDenominatorInExpression.html" title="class in org.exception">ZeroDenominatorInExpression</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">Prints a message.</div>
+</dd>
 </dl>
 <a href="#I:A">A</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:Z">Z</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="serialized-form.html">Serialized&nbsp;Form</a></main>
 </div>

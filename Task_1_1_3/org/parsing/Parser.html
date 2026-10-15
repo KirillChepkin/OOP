@@ -109,10 +109,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../expression/Assignment.html" title="class in org.expression">Assignment</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getAssignment(java.lang.String)" class="member-name-link">getAssignment</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Parses the assignment from an input string.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../expression/Expression.html" title="class in org.expression">Expression</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExpressionFromString(java.lang.String)" class="member-name-link">getExpressionFromString</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the expression structure parsed from a string.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../expression/Expression.html" title="class in org.expression">Expression</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOperandStack()" class="member-name-link">getOperandStack</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -124,7 +128,10 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseExpressionTokens(java.lang.String)" class="member-name-link">parseExpressionTokens</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">parses tokens that might be contained in an arithmetic expression: operators, double
+ numbers, variables or brackets.</div>
+</div>
 </div>
 </div>
 </div>
@@ -178,18 +185,43 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getAssignment(java.lang.String)">
 <h3>getAssignment</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../expression/Assignment.html" title="class in org.expression">Assignment</a></span>&nbsp;<span class="element-name">getAssignment</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</span></div>
+<div class="block">Parses the assignment from an input string. It must obey the following pattern:
+ (variable name) = (variable value); (other variable name) = (other variable value).
+     and so on.
+     a comma might be used instead of a semicolon.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>string</code> - string to parse an assignment from.</dd>
+<dt>Returns:</dt>
+<dd>an assignment object parsed from a string.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="parseExpressionTokens(java.lang.String)">
 <h3>parseExpressionTokens</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">parseExpressionTokens</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</span></div>
+<div class="block">parses tokens that might be contained in an arithmetic expression: operators, double
+ numbers, variables or brackets.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>string</code> - a string to parse tokens from.</dd>
+<dt>Returns:</dt>
+<dd>list of string tokens parsed from a given string.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getExpressionFromString(java.lang.String)">
 <h3>getExpressionFromString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../expression/Expression.html" title="class in org.expression">Expression</a></span>&nbsp;<span class="element-name">getExpressionFromString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;string)</span></div>
+<div class="block">Returns the expression structure parsed from a string.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>string</code> - a string to parse an expression from.</dd>
+<dt>Returns:</dt>
+<dd>An expression object parsed from a string.</dd>
+</dl>
 </section>
 </li>
 </ul>

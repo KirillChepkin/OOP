@@ -81,6 +81,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Expression</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Objects of this class represent arithmetic expressions with constants, variables and</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -111,11 +112,13 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="Expression.html" title="class in org.expression">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#derivative(java.lang.String)" class="member-name-link">derivative</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">Returns An expression which is equal to the derivative of the given expression.</div>
+<div class="block">Returns An expression which is equal to the derivative of a given expression.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#eval(org.expression.Assignment)" class="member-name-link">eval</a><wbr>(<a href="Assignment.html" title="class in org.expression">Assignment</a>&nbsp;assignment)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the derivative of an expression.</div>
+</div>
 </div>
 </div>
 </div>
@@ -151,7 +154,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.expression">Expression</a></span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</span></div>
-<div class="block">Returns An expression which is equal to the derivative of the given expression.</div>
+<div class="block">Returns An expression which is equal to the derivative of a given expression.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>variable</code> - with respect to which the expression is differentiated</dd>
@@ -164,6 +167,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="eval(org.expression.Assignment)">
 <h3>eval</h3>
 <div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="Assignment.html" title="class in org.expression">Assignment</a>&nbsp;assignment)</span></div>
+<div class="block">Returns the derivative of an expression.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>assignment</code> - Must contain values for all variables inside the expression.</dd>

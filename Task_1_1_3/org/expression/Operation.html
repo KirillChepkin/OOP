@@ -83,6 +83,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Operation</span>
 <span class="extends-implements">extends <a href="Expression.html" title="class in org.expression">Expression</a></span></div>
+<div class="block">This abstract class provides common attributes and methods that are used in all binary
+ operations implemented in the package.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -96,7 +98,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.expression.Expression,org.expression.Expression)" class="member-name-link">Operation</a><wbr>(<a href="Expression.html" title="class in org.expression">Expression</a>&nbsp;left,
  <a href="Expression.html" title="class in org.expression">Expression</a>&nbsp;right)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Common object constructor for operations.</div>
+</div>
 </div>
 </section>
 </li>
@@ -113,10 +117,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in org.expression">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLeft()" class="member-name-link">getLeft</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">getter for a left operand.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in org.expression">Expression</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRight()" class="member-name-link">getRight</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">getter for a right operand.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -145,6 +153,12 @@ loadScripts(document, 'script');</script>
 <h3>Operation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Operation</span><wbr><span class="parameters">(<a href="Expression.html" title="class in org.expression">Expression</a>&nbsp;left,
  <a href="Expression.html" title="class in org.expression">Expression</a>&nbsp;right)</span></div>
+<div class="block">Common object constructor for operations.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>left</code> - left operand of type Expression.</dd>
+<dd><code>right</code> - right operand of type Expression.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -159,12 +173,22 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getLeft()">
 <h3>getLeft</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.expression">Expression</a></span>&nbsp;<span class="element-name">getLeft</span>()</div>
+<div class="block">getter for a left operand.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>an operand.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getRight()">
 <h3>getRight</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.expression">Expression</a></span>&nbsp;<span class="element-name">getRight</span>()</div>
+<div class="block">getter for a right operand.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>an operand.</dd>
+</dl>
 </section>
 </li>
 <li>

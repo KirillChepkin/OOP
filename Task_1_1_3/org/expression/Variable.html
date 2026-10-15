@@ -79,6 +79,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Variable</span>
 <span class="extends-implements">extends <a href="Expression.html" title="class in org.expression">Expression</a></span></div>
+<div class="block">Objects of this class store variable names.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -91,7 +92,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">Variable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">class constructor.</div>
+</div>
 </div>
 </section>
 </li>
@@ -109,17 +112,23 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Expression.html" title="class in org.expression">Expression</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#derivative(java.lang.String)" class="member-name-link">derivative</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns An expression which is equal to the derivative of the given expression.</div>
+<div class="block">Derivative of a variable is always constant.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#eval(org.expression.Assignment)" class="member-name-link">eval</a><wbr>(<a href="Assignment.html" title="class in org.expression">Assignment</a>&nbsp;assignment)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Fetches a value of its variable and returns it.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">returns a name of the variable.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">a variable is represented by "Variable(this.name)".</div>
+</div>
 </div>
 </div>
 </div>
@@ -141,6 +150,11 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(java.lang.String)">
 <h3>Variable</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Variable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="block">class constructor.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - name of the variable.</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -155,14 +169,19 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getName()">
 <h3>getName</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<div class="block">returns a name of the variable.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>string with a name.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="derivative(java.lang.String)">
 <h3>derivative</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Expression.html" title="class in org.expression">Expression</a></span>&nbsp;<span class="element-name">derivative</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;variable)</span></div>
-<div class="block"><span class="descfrm-type-label">Description copied from class:&nbsp;<code><a href="Expression.html#derivative(java.lang.String)">Expression</a></code></span></div>
-<div class="block">Returns An expression which is equal to the derivative of the given expression.</div>
+<div class="block">Derivative of a variable is always constant. 1 if a variable is the same as
+ differentiation variable, 0 otherwise.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#derivative(java.lang.String)">derivative</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in org.expression">Expression</a></code></dd>
@@ -178,6 +197,8 @@ loadScripts(document, 'script');</script>
 <h3>eval</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">eval</span><wbr><span class="parameters">(<a href="Assignment.html" title="class in org.expression">Assignment</a>&nbsp;assignment)</span>
             throws <span class="exceptions"><a href="../exception/UnassignedVariable.html" title="class in org.exception">UnassignedVariable</a></span></div>
+<div class="block">Fetches a value of its variable and returns it. The case when a variable is not in an
+ assignment is handled by the method call.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Expression.html#eval(org.expression.Assignment)">eval</a></code>&nbsp;in class&nbsp;<code><a href="Expression.html" title="class in org.expression">Expression</a></code></dd>
@@ -194,9 +215,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="toString()">
 <h3>toString</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span>()</div>
+<div class="block">a variable is represented by "Variable(this.name)".</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>string representation.</dd>
 </dl>
 </section>
 </li>
