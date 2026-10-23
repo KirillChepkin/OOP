@@ -4,10 +4,15 @@ import java.util.HashSet;
 
 public abstract class Vertex<T> {
     private final T content;
-    private final int code;
 
     public T getContent() {
         return content;
+    }
+
+    private final int code;
+
+    public int getCode() {
+        return code;
     }
 
     public Vertex(int code, T content) {
