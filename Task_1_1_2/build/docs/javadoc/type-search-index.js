@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.example","l":"Card"},{"p":"org.example","l":"Deck"},{"p":"org.example","l":"Main"},{"p":"org.example","l":"Number"},{"p":"org.example","l":"Person"},{"p":"org.example","l":"Suit"},{"p":"org.example","l":"SuitAdjective"}];updateSearchResults();

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.MainTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-09-17T03:04:17.569Z" hostname="MacBook-Air-Kirill-2.local" time="0.034">
+  <properties/>
+  <testcase name="tryNegative()" classname="org.example.MainTest" time="0.019"/>
+  <testcase name="tryAscending()" classname="org.example.MainTest" time="0.002"/>
+  <testcase name="tryDouble()" classname="org.example.MainTest" time="0.0"/>
+  <testcase name="tryArray()" classname="org.example.MainTest" time="0.001"/>
+  <testcase name="tryEmpty()" classname="org.example.MainTest" time="0.0"/>
+  <testcase name="tryEqual()" classname="org.example.MainTest" time="0.0"/>
+  <testcase name="coverMain()" classname="org.example.MainTest" time="0.002"/>
+  <system-out><![CDATA[[-1, 0, 1, 2, 3, 4, 7, 9, 11, 23, 44]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,7 @@
+-classpath '/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1_1/build/classes/java/main:/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1_1/build/resources/main'
+-quiet 
+-d '/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1_1/build/docs/javadoc'
+-windowtitle 'task_1_1 1.0-SNAPSHOT API'
+-doctitle 'task_1_1 1.0-SNAPSHOT API'
+-notimestamp 
+'/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1_1/src/main/java/org/example/Main.java'

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="b4b4852e-7843-4f87-8c2e-7f56117d0209" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/CardCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Dealer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/SuitCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Value.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/view/CardRep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/view/ConsoleView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/view/SuitRep.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/view/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_1_2/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Card.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Card.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Deck.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Deck.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Number.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Person.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/Suit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/main/java/org/example/SuitAdjective.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/org/example/DeckTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Task_1_1_2/src/test/java/org/example/DeckTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.6901417434670751" />
+      <entry key="MS500" value="3.529379238583518" />
+      <entry key="S2" value="10.626408820140039" />
+      <entry key="S5" value="19.943738734959155" />
+      <entry key="S10" value="33.16134277045651" />
+      <entry key="S30" value="61.52377611564905" />
+      <entry key="S60" value="76.09667921757733" />
+      <entry key="M2" value="86.6605193507476" />
+      <entry key="M5" value="97.03397685171316" />
+      <entry key="M10" value="107.72516162522645" />
+      <entry key="M15" value="120.30509357419709" />
+      <entry key="M30" value="157.75340383573564" />
+      <entry key="H1" value="211.12114798337487" />
+      <entry key="H2" value="267.64197660005203" />
+      <entry key="H4" value="342.3063033330331" />
+      <entry key="D1" value="1074.738993472199" />
+      <entry key="W1" value="2135.3729343438054" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="2.9009428384806666E-104" />
+      <entry key="S5" value="3.8460565765353236E-42" />
+      <entry key="S10" value="1.9611365522408932E-21" />
+      <entry key="S30" value="1.2517067995522222E-7" />
+      <entry key="S60" value="3.537946862439326E-4" />
+      <entry key="M2" value="0.01880974880072453" />
+      <entry key="M5" value="0.20766922049593903" />
+      <entry key="M10" value="0.5500216004699752" />
+      <entry key="M15" value="0.9318072773166547" />
+      <entry key="M30" value="2.5113885054529055" />
+      <entry key="H1" value="5.909502005083793" />
+      <entry key="H2" value="10.180513114924118" />
+      <entry key="H4" value="14.42947115913437" />
+      <entry key="D1" value="25.949615235236248" />
+      <entry key="W1" value="37.36651415317634" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.6438916463673479" />
+      <entry key="MS500" value="3.5076280353558307" />
+      <entry key="S2" value="10.610692698395034" />
+      <entry key="S5" value="19.932269381429812" />
+      <entry key="S10" value="33.15135856899581" />
+      <entry key="S30" value="61.51495594654783" />
+      <entry key="S60" value="76.08463925010199" />
+      <entry key="M2" value="86.66061442994987" />
+      <entry key="M5" value="97.21980616360864" />
+      <entry key="M10" value="108.25761785690312" />
+      <entry key="M15" value="121.22228265653146" />
+      <entry key="M30" value="160.25337901392712" />
+      <entry key="H1" value="217.02107876904347" />
+      <entry key="H2" value="277.81517062131866" />
+      <entry key="H4" value="356.7303267662835" />
+      <entry key="D1" value="1100.6860547745405" />
+      <entry key="W1" value="2172.7388176362747" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3Iqw82MtNuthG1cI7LowbFHMxsl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Task_1_1_1 [:org.example.Main.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;I do mind&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Task__1__1__2&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1_1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_1/src/main/java/org/example/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Main" />
+      <module name="task_1_1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="task_1_1_1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="task_1_1_1" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="b4b4852e-7843-4f87-8c2e-7f56117d0209" name="Changes" comment="" />
+      <created>1788505250670</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1788505250670</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
