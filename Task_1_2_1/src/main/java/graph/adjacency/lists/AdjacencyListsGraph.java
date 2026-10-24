@@ -3,8 +3,17 @@ package graph.adjacency.lists;
 import graph.Graph;
 import graph.Vertex;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.PriorityQueue;
+import java.util.List;
 
+/**
+ * Graph implementation using adjacency lists.
+ *
+ * @param <T>
+ */
 public class AdjacencyListsGraph<T> implements Graph<T> {
     private final Map<Integer, AdjacencyListsVertex<T>> vertexMap = new HashMap<>();
 
@@ -18,14 +27,6 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
 
     @Override
     public int addVertex(T vertex) {
-//        int index = 0;
-//        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-//            if (!vertexMap.containsKey(i)) {
-//                index = i;
-//                break;
-//            }
-//        }
-
         int code;
         if (!freeCodes.isEmpty()) {
             code = freeCodes.poll();

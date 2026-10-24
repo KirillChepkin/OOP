@@ -22,7 +22,8 @@ class AdjacencyMatrixGraphTest {
         assertEquals(3, graph.getVertices().size());
         assertEquals(3, graph.getMatrix().size());
         assertTrue(graph.getMatrix().stream().allMatch(row -> row.size() == 3));
-        assertTrue(graph.getMatrix().stream().flatMap(List::stream).noneMatch(Boolean::booleanValue));
+        assertTrue(
+                graph.getMatrix().stream().flatMap(List::stream).noneMatch(Boolean::booleanValue));
         assertInstanceOf(AdjacencyMatrixVertex.class, graph.getVertex(0));
         assertEquals("B", graph.getVertex(1).getContent());
     }

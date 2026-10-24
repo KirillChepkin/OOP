@@ -25,7 +25,7 @@ class IncidenceMatrixGraphTest {
     }
 
     @Test
-    void edgesAreDirectedAndEachEdgeCreatesAColumn() {
+    void edgesAreDirectedAndEachEdgeCreatesColumn() {
         IncidenceMatrixGraph<String> graph = makeGraph("A", "B", "C");
         graph.addEdge(0, 1);
         graph.addEdge(1, 0);
@@ -84,7 +84,7 @@ class IncidenceMatrixGraphTest {
         graph.addEdge(3, 0);
         graph.addEdge(1, 1);
         IncidenceMatrixVertex<String> c = graph.getVertex(2);
-        IncidenceMatrixEdge<String> edgeFromCtoD = graph.getEdges().get(2);
+        final IncidenceMatrixEdge<String> edgeFromCtoD = graph.getEdges().get(2);
 
         graph.deleteVertex(1);
 

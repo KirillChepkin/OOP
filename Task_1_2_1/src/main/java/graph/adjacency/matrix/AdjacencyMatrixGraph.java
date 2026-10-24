@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Graph implementation powered by adjacency matrix.
+ *
+ * @param <T> type of values at vertices.
+ */
 public class AdjacencyMatrixGraph<T> implements Graph<T> {
     private final List<List<Boolean>> matrix = new ArrayList<>();
 

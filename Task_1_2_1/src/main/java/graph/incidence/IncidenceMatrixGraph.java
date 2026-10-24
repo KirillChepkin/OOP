@@ -2,7 +2,6 @@ package graph.incidence;
 
 import graph.Graph;
 import graph.Vertex;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

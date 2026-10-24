@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21684be0-3dd0-462f-bad7-ef6bd04d56af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixEdge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix/AdjacencyMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Graph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixEdge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixVertex.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixVertex.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/adjacency/lists/AdjacencyListsGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/adjacency/lists/AdjacencyListsGraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/adjacency/lists/AdjacencyListsVertexTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/adjacency/lists/AdjacencyListsVertexTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/adjacency/matrix/AdjacencyMatrixGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/adjacency/matrix/AdjacencyMatrixGraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/graph/incidence/IncidenceMatrixGraphTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/graph/incidence/IncidenceMatrixGraphTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,61 +67,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="3.177391466940259E-30" />
-      <entry key="MS500" value="1.2601265007576947E-6" />
-      <entry key="S2" value="0.03354194627780679" />
-      <entry key="S5" value="0.2972424772716702" />
-      <entry key="S10" value="1.1180865767502552" />
-      <entry key="S30" value="10.791425093014459" />
-      <entry key="S60" value="29.133527624511434" />
-      <entry key="M2" value="56.714640491529224" />
-      <entry key="M5" value="102.87523749014439" />
-      <entry key="M10" value="135.64027946157353" />
-      <entry key="M15" value="155.94854349587652" />
-      <entry key="M30" value="205.5050888560444" />
-      <entry key="H1" value="269.12750246558255" />
-      <entry key="H2" value="332.9896983056605" />
-      <entry key="H4" value="444.6513168912814" />
-      <entry key="D1" value="1206.4570118332763" />
-      <entry key="W1" value="1661.8023659705639" />
-    </decayedCancelled>
-    <decayedSelected>
       <entry key="MS100" value="1.0" />
       <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0000075772042005" />
-      <entry key="S5" value="1.0091411998848108" />
-      <entry key="S10" value="1.1084640529171979" />
-      <entry key="S30" value="1.7277930205505994" />
-      <entry key="S60" value="2.439345620381335" />
-      <entry key="M2" value="3.510652564018374" />
-      <entry key="M5" value="5.286484717420938" />
-      <entry key="M10" value="6.510329998051718" />
-      <entry key="M15" value="7.33626198763865" />
-      <entry key="M30" value="9.67872748091004" />
-      <entry key="H1" value="13.05689514528834" />
-      <entry key="H2" value="17.369973328841347" />
-      <entry key="H4" value="29.800030732064712" />
-      <entry key="D1" value="110.09329146753157" />
-      <entry key="W1" value="151.38680107324353" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0000000000000104" />
+      <entry key="S10" value="1.0000007472566474" />
+      <entry key="S30" value="1.1557544733527754" />
+      <entry key="S60" value="4.716697284498261" />
+      <entry key="M2" value="21.241624363042693" />
+      <entry key="M5" value="62.77063451206067" />
+      <entry key="M10" value="93.18918377972902" />
+      <entry key="M15" value="108.64801585848535" />
+      <entry key="M30" value="146.91447708683134" />
+      <entry key="H1" value="224.50909160642652" />
+      <entry key="H2" value="331.9100366275012" />
+      <entry key="H4" value="479.3301908072937" />
+      <entry key="D1" value="1294.2682985237725" />
+      <entry key="W1" value="1791.362191675017" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="2.7101968471987416E-165" />
+      <entry key="S30" value="2.3276523851901877E-55" />
+      <entry key="S60" value="8.953370195561531E-28" />
+      <entry key="M2" value="6.725807806322386E-14" />
+      <entry key="M5" value="1.7223032527072447E-5" />
+      <entry key="M10" value="0.011750986387507314" />
+      <entry key="M15" value="0.10875662263966102" />
+      <entry key="M30" value="1.1784433281166629" />
+      <entry key="H1" value="4.556014908556199" />
+      <entry key="H2" value="10.260576474736071" />
+      <entry key="H4" value="22.903561323787212" />
+      <entry key="D1" value="105.36796040720442" />
+      <entry key="W1" value="150.44101588887563" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.5725840627198783E-12" />
-      <entry key="MS500" value="0.004359602956292099" />
-      <entry key="S2" value="0.2903883891213483" />
-      <entry key="S5" value="0.8837856123445761" />
-      <entry key="S10" value="1.9650987029103348" />
-      <entry key="S30" value="12.324001125646205" />
-      <entry key="S60" value="31.405568592048162" />
-      <entry key="M2" value="60.106072380380304" />
-      <entry key="M5" value="108.09974832651044" />
-      <entry key="M10" value="142.11468403564947" />
-      <entry key="M15" value="163.25666475342572" />
-      <entry key="M30" value="215.16055329136705" />
-      <entry key="H1" value="282.1651335168357" />
-      <entry key="H2" value="350.34575655117976" />
-      <entry key="H4" value="474.44057319732883" />
-      <entry key="D1" value="1316.5452417743932" />
-      <entry key="W1" value="1813.1882132858573" />
+      <entry key="MS100" value="0.010096506489355403" />
+      <entry key="MS500" value="0.39887261990451645" />
+      <entry key="S2" value="0.7947097777949504" />
+      <entry key="S5" value="0.9121860421353178" />
+      <entry key="S10" value="0.9550850585114108" />
+      <entry key="S30" value="1.140531694773213" />
+      <entry key="S60" value="4.708811448782079" />
+      <entry key="M2" value="21.237102148794904" />
+      <entry key="M5" value="62.76826922760639" />
+      <entry key="M10" value="93.1994719707376" />
+      <entry key="M15" value="108.7553623262048" />
+      <entry key="M30" value="148.0895561220554" />
+      <entry key="H1" value="229.05810875655425" />
+      <entry key="H2" value="342.162252823372" />
+      <entry key="H4" value="502.2254002363711" />
+      <entry key="D1" value="1399.6314027327842" />
+      <entry key="W1" value="1941.802258059551" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -140,7 +144,7 @@
     "git-widget-placeholder": "#4 on Task__1__2__1",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/adjacency/matrix",
+    "last_opened_file_path": "/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/incidence",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -153,11 +157,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/graph/incidence" />
       <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency/matrix" />
       <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/java/graph" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/AdjacencyLists" />
