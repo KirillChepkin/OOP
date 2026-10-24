@@ -7,6 +7,7 @@ public interface Graph<T> {
     void deleteVertex(int code);
     Vertex<T> getVertex(int code);
     void addEdge(int start, int end);
+    void deleteEdge(int start, int end);
     List<Vertex<T>> getNeighbours(int code);
     void readGraph();
 }

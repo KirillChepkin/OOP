@@ -8,7 +8,7 @@ import java.util.Set;
 public class AdjacencyListsVertex<T> extends Vertex<T> {
     private final Set<Integer> adjacencyList = new HashSet<>();
 
-    public Set<Integer> getAdjacencyList() {
+    public Set<Integer> getAdjacencySet() {
         return adjacencyList;
     }
 

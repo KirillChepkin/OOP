@@ -20,6 +20,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
         return vertices;
     }
 
+    @Override
     public int addVertex(T vertex) {
         matrix.add(new ArrayList<>(Collections.nCopies(matrix.size(), false)));
         for (List<Boolean> list : matrix) {
@@ -30,9 +31,17 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
 
     @Override
     public void deleteVertex(int code) {
-
+        vertices.remove(code);
+        for (int i = code; i < vertices.size(); i++) {
+            vertices.get(i).setCode(i);
+        }
+        matrix.remove(code);
+        for (List<Boolean> list : matrix) {
+            list.remove(code);
+        }
     }
 
+    @Override
     public Vertex<T> getVertex(int code) {
         if (vertices.size() <= code) {
             throw new IndexOutOfBoundsException(
@@ -42,6 +51,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
         return vertices.get(code);
     }
 
+    @Override
     public void addEdge(int start, int end) {
         if (vertices.size() <= start && vertices.size() <= end) {
             throw new IndexOutOfBoundsException(
@@ -51,6 +61,17 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
         matrix.get(start).set(end, true);
     }
 
+    @Override
+    public void deleteEdge(int start, int end) {
+        if (vertices.size() <= start && vertices.size() <= end) {
+            throw new IndexOutOfBoundsException(
+                    "Cannot delete the edge from " + start + " to " + end
+                    + " because one of these vertices is not in the graph.");
+        }
+        matrix.get(start).set(end, false);
+    }
+
+    @Override
     public List<Vertex<T>> getNeighbours(int code) {
         if (vertices.size() <= code) {
             throw new IndexOutOfBoundsException(
@@ -66,6 +87,7 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
         return list;
     }
 
+    @Override
     public void readGraph() {
 
     }

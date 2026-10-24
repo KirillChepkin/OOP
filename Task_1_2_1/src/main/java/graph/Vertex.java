@@ -9,10 +9,14 @@ public abstract class Vertex<T> {
         return content;
     }
 
-    private final int code;
+    private int code;
 
     public int getCode() {
         return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public Vertex(int code, T content) {
