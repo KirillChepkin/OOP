@@ -3,10 +3,7 @@ package graph.adjacency.lists;
 import graph.Graph;
 import graph.Vertex;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class AdjacencyListsGraph<T> implements Graph<T> {
     private final Map<Integer, AdjacencyListsVertex<T>> vertexMap = new HashMap<>();
@@ -15,17 +12,31 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
         return vertexMap;
     }
 
+    private long nextCode = 0;
+
+    private final PriorityQueue<Integer> freeCodes = new PriorityQueue<>();
+
     @Override
     public int addVertex(T vertex) {
-        int index = 0;
-        for (int i = 0; i < Integer.MAX_VALUE; i++) {
-            if (!vertexMap.containsKey(i)) {
-                index = i;
-                break;
+//        int index = 0;
+//        for (int i = 0; i < Integer.MAX_VALUE; i++) {
+//            if (!vertexMap.containsKey(i)) {
+//                index = i;
+//                break;
+//            }
+//        }
+
+        int code;
+        if (!freeCodes.isEmpty()) {
+            code = freeCodes.poll();
+        } else {
+            if (nextCode > Integer.MAX_VALUE) {
+                throw new IllegalStateException("No more vertex codes available.");
             }
+            code = (int) nextCode++;
         }
-        vertexMap.put(index, new AdjacencyListsVertex<T>(index, vertex));
-        return index;
+        vertexMap.put(code, new AdjacencyListsVertex<T>(code, vertex));
+        return code;
     }
 
     @Override
@@ -36,9 +47,10 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
                             + " from the graph. It's not in it.");
         }
         vertexMap.remove(code);
-        for (Integer vertexCode : vertexMap.keySet()) {
-            vertexMap.get(vertexCode).getAdjacencySet().remove(code);
+        for (AdjacencyListsVertex<T> vertex : vertexMap.values()) {
+            vertex.getAdjacencySet().remove(code);
         }
+        freeCodes.add(code);
     }
 
     @Override
@@ -53,7 +65,7 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
 
     @Override
     public void addEdge(int start, int end) {
-        if (!vertexMap.containsKey(start) && !vertexMap.containsKey(end)) {
+        if (start < 0 || end < 0 || !vertexMap.containsKey(start) || !vertexMap.containsKey(end)) {
             throw new IndexOutOfBoundsException(
                     "Cannot add the edge from " + start + " to " + end
                     + " because one of these vertices is not in the graph.");
@@ -63,7 +75,7 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
 
     @Override
     public void deleteEdge(int start, int end) {
-        if (!vertexMap.containsKey(start) && !vertexMap.containsKey(end)) {
+        if (start < 0 || end < 0 || !vertexMap.containsKey(start) || !vertexMap.containsKey(end)) {
             throw new IndexOutOfBoundsException(
                     "Cannot delete the edge from " + start + " to " + end
                     + " because one of these vertices is not in the graph.");
@@ -73,7 +85,7 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
 
     @Override
     public List<Vertex<T>> getNeighbours(int code) {
-        if (!vertexMap.containsKey(code)) {
+        if (code < 0 || !vertexMap.containsKey(code)) {
             throw new IndexOutOfBoundsException(
                     "Cannot find Neighbours for the vertex with index "
                     + code + " because is not in the graph.");
