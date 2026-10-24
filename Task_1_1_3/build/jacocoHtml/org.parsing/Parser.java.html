@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Parser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_3</a> &gt; <a href="index.source.html" class="el_package">org.parsing</a> &gt; <span class="el_source">Parser.java</span></div><h1>Parser.java</h1><pre class="source lang-java linenums">package org.parsing;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import org.exception.ExpectedDoubleValue;
+import org.exception.ExpectedEqualsSign;
+import org.exception.ExpectedVariableName;
+import org.exception.InvalidArithmeticExpression;
+import org.exception.InvalidPieceOfExpression;
+import org.expression.Add;
+import org.expression.Assignment;
+import org.expression.Div;
+import org.expression.Expression;
+import org.expression.Mul;
+import org.expression.Number;
+import org.expression.Sub;
+import org.expression.Variable;
+
+/**
+ * This class provides static and dynamic methods for parsing string expressions of two types:
+ * 1) Assignments (e.g. x = 1; y = 2; z3 = 5.009)
+ * 2) Arithmetic expressions
+ */
+<span class="fc" id="L28">public class Parser {</span>
+    List&lt;String&gt; tokens;
+
+    public List&lt;String&gt; getTokens() {
+<span class="fc" id="L32">        return this.tokens;</span>
+    }
+
+    private List&lt;String&gt; operatorStack;
+
+    public List&lt;String&gt; getOperatorStack() {
+<span class="fc" id="L38">        return this.operatorStack;</span>
+    }
+
+    private List&lt;Expression&gt; operandStack;
+
+    public List&lt;Expression&gt; getOperandStack() {
+<span class="fc" id="L44">        return operandStack;</span>
+    }
+
+    private static List&lt;String&gt; parseAssignmentTokens(java.lang.String string) {
+<span class="fc" id="L48">        Pattern pattern = Pattern.compile(</span>
+                &quot;(-?[0-9]+\\.?[0-9]+)|=|(-?[0-9]+)|([a-zA-Z0-9]+)&quot;);
+<span class="fc" id="L50">        Matcher matcher = pattern.matcher(string);</span>
+<span class="fc" id="L51">        List&lt;String&gt; tokens = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L53">            tokens.add(matcher.group());</span>
+        }
+<span class="fc" id="L55">        return tokens;</span>
+    }
+
+    /**
+     * Parses the assignment from an input string. It must obey the following pattern:
+     * (variable name) = (variable value); (other variable name) = (other variable value).
+     *     and so on.
+     *     a comma might be used instead of a semicolon.
+     *
+     * @param string string to parse an assignment from.
+     *
+     * @return an assignment object parsed from a string.
+     */
+    public static Assignment getAssignment(String string) {
+<span class="fc" id="L69">        List&lt;String&gt; tokens = parseAssignmentTokens(string);</span>
+<span class="fc" id="L70">        Map&lt;String, Double&gt; variableToValue = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L71">        String name = null;</span>
+<span class="fc" id="L72">        double value = 0;</span>
+<span class="fc" id="L73">        int state = 0; // 0 - expecting variable, 1 - expecting &quot;=&quot;, 2 - expecting double.</span>
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        for (String token : tokens) {</span>
+<span class="fc bfc" id="L75" title="All 4 branches covered.">            if (state == 0 &amp;&amp; representsVariable(token)) {</span>
+<span class="fc" id="L76">                name = token;</span>
+<span class="fc" id="L77">                state = 1;</span>
+<span class="fc" id="L78">                continue;</span>
+<span class="fc bfc" id="L79" title="All 2 branches covered.">            } else if (state == 0){</span>
+<span class="fc" id="L80">                throw new ExpectedVariableName(&quot;Expected variable name starting with&quot;</span>
+                        + &quot; a letter in assigment string, found: &quot;, token);
+            }
+
+<span class="fc bfc" id="L84" title="All 4 branches covered.">            if (state == 1 &amp;&amp; token.equals(&quot;=&quot;)) {</span>
+<span class="fc" id="L85">                state = 2;</span>
+<span class="fc" id="L86">                continue;</span>
+<span class="fc bfc" id="L87" title="All 2 branches covered.">            } else if (state == 1) {</span>
+<span class="fc" id="L88">                throw new ExpectedEqualsSign(</span>
+                        &quot;Expected equals sign after variable name&quot;
+                                + &quot;in assignment string, found: &quot;, token);
+            }
+
+<span class="fc bfc" id="L93" title="All 2 branches covered.">            if (representsDouble(token)) {</span>
+<span class="fc" id="L94">                value = Double.parseDouble(token);</span>
+<span class="fc" id="L95">                state = 0;</span>
+<span class="fc" id="L96">                variableToValue.put(name, value);</span>
+            } else {
+<span class="fc" id="L98">                throw new ExpectedDoubleValue(&quot;Expected a double value after&quot;</span>
+                        + &quot; equal sign in assignment string, found: &quot;, token);
+            }
+<span class="fc" id="L101">        }</span>
+<span class="fc" id="L102">        return new Assignment(variableToValue);</span>
+    }
+
+    /**
+     * parses tokens that might be contained in an arithmetic expression: operators, double
+     * numbers, variables or brackets.
+     *
+     * @param string a string to parse tokens from.
+     *
+     * @return list of string tokens parsed from a given string.
+     */
+    public static List&lt;String&gt; parseExpressionTokens(String string) {
+<span class="fc" id="L114">        Pattern pattern = Pattern.compile(</span>
+                &quot;[0-9]*\\.?[0-9]+|[a-zA-Z][a-zA-Z0-9]*|[-+*/()]&quot;);
+<span class="fc" id="L116">        Matcher matcher = pattern.matcher(string);</span>
+<span class="fc" id="L117">        List&lt;String&gt; tokens = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L118" title="All 2 branches covered.">        while (matcher.find()) {</span>
+<span class="fc" id="L119">            tokens.add(matcher.group());</span>
+        }
+<span class="fc" id="L121">        return tokens;</span>
+    }
+
+    /**
+     * Returns the expression structure parsed from a string.
+     *
+     * @param string a string to parse an expression from.
+     *
+     * @return An expression object parsed from a string.
+     */
+    public Expression getExpressionFromString(String string) {
+<span class="fc bfc" id="L132" title="All 2 branches covered.">        if (!string.matches(&quot;([a-zA-Z0-9+/*\\-(). \t\n\r])+&quot;)) {</span>
+<span class="fc" id="L133">            throw new InvalidArithmeticExpression(&quot;The expression contains incorrect symbols.&quot;);</span>
+        }
+<span class="fc" id="L135">        this.tokens = parseExpressionTokens(string);</span>
+<span class="fc" id="L136">        this.operatorStack = new ArrayList&lt;&gt;();</span>
+<span class="fc" id="L137">        this.operandStack = new ArrayList&lt;&gt;();</span>
+<span class="fc bfc" id="L138" title="All 2 branches covered.">        for (String token : tokens) {</span>
+<span class="fc bfc" id="L139" title="All 2 branches covered.">            if (token.equals(&quot;(&quot;)) {</span>
+<span class="fc" id="L140">                this.operatorStack.add(token);</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">            } else if (representsDouble(token)) {</span>
+<span class="fc" id="L142">                this.operandStack.add(new Number(Double.parseDouble(token)));</span>
+<span class="fc bfc" id="L143" title="All 2 branches covered.">            } else if (representsVariable(token)) {</span>
+<span class="fc" id="L144">                this.operandStack.add(new Variable(token));</span>
+<span class="fc bfc" id="L145" title="All 2 branches covered.">            } else if (representsOperator(token)) {</span>
+                // expression like (a / b * c) will be parsed as (a / b) * c.
+<span class="fc" id="L147">                this.processOperator(token);</span>
+<span class="pc bpc" id="L148" title="1 of 2 branches missed.">            } else if (token.equals(&quot;)&quot;)) {</span>
+<span class="fc" id="L149">                this.clearStackDownToBracket();</span>
+            } else {
+<span class="nc" id="L151">                throw new InvalidPieceOfExpression(&quot;Detected an invalid piece of expression: &quot;</span>
+                        + token);
+            }
+<span class="fc" id="L154">        }</span>
+<span class="fc" id="L155">        clearStackDownToBracket();</span>
+<span class="pc bpc" id="L156" title="1 of 4 branches missed.">        if (operatorStack.size() != 0 || operandStack.size() != 1) {</span>
+<span class="fc" id="L157">            throw new InvalidArithmeticExpression(&quot;Unable to process the expression&quot;);</span>
+        }
+<span class="fc" id="L159">        return this.operandStack.remove(this.operandStack.size() - 1);</span>
+    }
+
+    private void clearStackDownToBracket() {
+<span class="fc bfc" id="L163" title="All 2 branches covered.">        if (this.operatorStack.size() == 0) {</span>
+<span class="fc" id="L164">            return;</span>
+        }
+<span class="fc" id="L166">        String operator = popPreviousOperator();</span>
+        Expression a;
+        Expression b;
+<span class="fc bfc" id="L169" title="All 2 branches covered.">        while (!operator.equals(&quot;(&quot;)</span>
+<span class="pc bpc" id="L170" title="1 of 2 branches missed.">                &amp;&amp; this.operandStack.size() &gt;= 2) {</span>
+<span class="fc" id="L171">            b = this.operandStack.remove(this.operandStack.size() - 1);</span>
+<span class="fc" id="L172">            a = this.operandStack.remove(this.operandStack.size() - 1);</span>
+<span class="fc" id="L173">            this.operandStack.add(createOperation(a, b, operator));</span>
+<span class="fc bfc" id="L174" title="All 2 branches covered.">            if (operatorStack.size() == 0) {</span>
+<span class="fc" id="L175">                break;</span>
+            }
+<span class="fc" id="L177">            operator = popPreviousOperator();</span>
+        }
+<span class="fc" id="L179">    }</span>
+
+    private void processOperator(String token) {
+<span class="fc bfc" id="L182" title="All 2 branches covered.">        if (this.operatorStack.size() == 0) {</span>
+<span class="fc" id="L183">            this.operatorStack.add(token);</span>
+<span class="fc" id="L184">            return;</span>
+        }
+        String previous;
+        Expression a, b;
+<span class="fc bfc" id="L188" title="All 2 branches covered.">        while (this.operatorStack.size() &gt; 0</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">                &amp;&amp; !operatorStack.get(operatorStack.size() - 1).equals(&quot;(&quot;)</span>
+<span class="fc" id="L190">                &amp;&amp; getOperatorPriority(operatorStack.get(operatorStack.size() - 1))</span>
+<span class="fc bfc" id="L191" title="All 2 branches covered.">                &gt;= getOperatorPriority(token)</span>
+<span class="pc bpc" id="L192" title="1 of 2 branches missed.">                &amp;&amp; this.operandStack.size() &gt;= 2) {</span>
+<span class="fc" id="L193">            previous = popPreviousOperator();</span>
+<span class="fc" id="L194">            b = this.operandStack.remove(this.operandStack.size() - 1);</span>
+<span class="fc" id="L195">            a = this.operandStack.remove(this.operandStack.size() - 1);</span>
+<span class="fc" id="L196">            this.operandStack.add(createOperation(a, b, previous));</span>
+        }
+<span class="fc" id="L198">        this.operatorStack.add(token);</span>
+<span class="fc" id="L199">    }</span>
+
+    /**
+     * @param a left operand of the expression.
+     *
+     * @param b right operand.
+     *
+     * @param operator string operator.
+     *
+     * @return Expression corresponding to an input operator.
+     */
+    private static Expression createOperation(Expression a, Expression b, String operator) {
+<span class="pc bpc" id="L211" title="1 of 5 branches missed.">        switch (operator) {</span>
+            case &quot;+&quot;:
+<span class="fc" id="L213">                return new Add(a, b);</span>
+            case &quot;-&quot;:
+<span class="fc" id="L215">                return new Sub(a, b);</span>
+            case &quot;*&quot;:
+<span class="fc" id="L217">                return new Mul(a, b);</span>
+            case &quot;/&quot;:
+<span class="fc" id="L219">                return new Div(a, b);</span>
+            default:
+<span class="nc" id="L221">                throw new InvalidPieceOfExpression(&quot;Invalid operator found while parsing the &quot;</span>
+                        + &quot;expression: &quot; + operator);
+        }
+    }
+
+    private String popPreviousOperator() {
+<span class="fc" id="L227">        return this.operatorStack.remove(this.operatorStack.size() - 1);</span>
+    }
+
+    /**
+     * Returns priority values for operators that can be later compared during expression
+     * processing.
+     *
+     * @param operator string arithmetic operator.
+     *
+     * @return integer priority.
+     */
+    private static int getOperatorPriority(String operator) {
+<span class="pc bpc" id="L239" title="1 of 4 branches missed.">        if (operator.equals(&quot;+&quot;) || operator.equals(&quot;-&quot;)) {</span>
+<span class="fc" id="L240">            return 1;</span>
+        } else {
+<span class="fc" id="L242">            return 2;</span>
+        }
+    }
+
+    /**
+     * Checks if a string represents a one-character operator: * / + -. No other operator is
+     * allowed except for this four.
+     *
+     * @param string token.
+     *
+     * @return true if a token is an operator, false otherwise.
+     */
+    private static Boolean representsOperator(String string) {
+<span class="fc" id="L255">        return string.matches(&quot;[+\\-*/]&quot;);</span>
+    }
+
+    /**
+     * Checks whether a string represents a boolean number, whether positive or negative.
+     *
+     * @param string token.
+     *
+     * @return if a token represents a double number.
+     */
+    private static Boolean representsDouble(String string) {
+<span class="fc" id="L266">        return string.matches(&quot;(-?[0-9]*(\\.)?[0-9]+)&quot;);</span>
+    }
+
+    /**
+     * Method to check if a string represents a variable. Variable names must start with any letter
+     * and may contain numbers and capital letters.
+     *
+     * @param string checks if a string token represents a variable.
+     *
+     * @return a corresponding boolean value.
+     */
+    private static Boolean representsVariable(String string) {
+<span class="fc" id="L278">        return string.matches(&quot;[a-zA-Z][a-zA-Z0-9]*&quot;);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Number.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_3</a> &gt; <a href="index.source.html" class="el_package">org.expression</a> &gt; <span class="el_source">Number.java</span></div><h1>Number.java</h1><pre class="source lang-java linenums">package org.expression;
+
+/**
+ * Represents a constant double number.
+ */
+public class Number extends Expression {
+    private final double number;
+
+    public double getNumber() {
+<span class="fc" id="L10">        return this.number;</span>
+    }
+
+<span class="fc" id="L13">    public Number(double number) {</span>
+<span class="fc" id="L14">        this.number = number;</span>
+<span class="fc" id="L15">    }</span>
+
+    /**
+     * The derivative of a constant number is always 0.
+     */
+    @Override
+    public Expression derivative(String variable) {
+<span class="fc" id="L22">        return new Number(0);</span>
+    }
+
+    /**
+     * Constant number is always evaluated to its value.
+     *
+     * @param assignment Must contain values for all variables inside the expression.
+     *
+     * @return Value of the expression.
+     */
+    @Override
+    public double eval(Assignment assignment) {
+<span class="fc" id="L34">        return this.number;</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="fc" id="L39">        return this.getClass().getSimpleName() + &quot;(&quot; + this.number + &quot;)&quot;;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>
