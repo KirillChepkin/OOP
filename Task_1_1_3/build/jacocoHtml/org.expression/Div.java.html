@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Div.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_3</a> &gt; <a href="index.source.html" class="el_package">org.expression</a> &gt; <span class="el_source">Div.java</span></div><h1>Div.java</h1><pre class="source lang-java linenums">package org.expression;
+
+import org.exception.ZeroDenominatorInExpression;
+
+/**
+ * Objects of this class represent a fraction of two expressions.
+ */
+public class Div extends Operation {
+    public Div(Expression left, Expression right) {
+<span class="fc" id="L10">        super(left, right);</span>
+<span class="fc" id="L11">    }</span>
+
+    /**
+     * d(u / v) / dx = (v * (du / dx) - u * (dv / dx)) / (v * v).
+     *
+     * @param variable with respect to which the expression is differentiated
+     *
+     * @return Derivative expression.
+     */
+    @Override
+    public Expression derivative(String variable) {
+<span class="fc" id="L22">        return new Div(</span>
+<span class="fc" id="L23">                    new Sub(new Mul(this.getLeft().derivative(variable), this.getRight()),</span>
+<span class="fc" id="L24">                            new Mul(this.getLeft(), this.getRight().derivative(variable))),</span>
+<span class="fc" id="L25">                    new Mul(this.getRight(), this.getRight()));</span>
+    }
+
+    /**
+     * The result of evaluation of a left expression divided by the result of evaluation of a
+     * right expression.
+     *
+     * @param assignment Must contain values for all variables inside the expression.
+     *
+     * @return Value of the expression.
+     */
+    @Override
+    public double eval(Assignment assignment) {
+<span class="fc" id="L38">        double denominator = this.getRight().eval(assignment);</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">        if (denominator == 0) {</span>
+<span class="fc" id="L40">            throw new ZeroDenominatorInExpression(&quot;Division evaluation failed: denominator &quot;</span>
+                    + &quot;evaluated to zero.&quot;);
+        }
+<span class="fc" id="L43">        return this.getLeft().eval(assignment) / denominator;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

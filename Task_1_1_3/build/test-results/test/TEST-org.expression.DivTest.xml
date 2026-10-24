@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.expression.DivTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-10-15T15:59:11.544Z" hostname="MacBook-Air-Kirill-2.local" time="0.003">
+  <properties/>
+  <testcase name="toStringShowsBothOperands()" classname="org.expression.DivTest" time="0.0"/>
+  <testcase name="divisionByZeroThrowsException()" classname="org.expression.DivTest" time="0.001"/>
+  <testcase name="evalDividesLeftOperandByRight()" classname="org.expression.DivTest" time="0.0"/>
+  <testcase name="derivativeOfConstantDividedByXIsNegativeConstantOverXSquared()" classname="org.expression.DivTest" time="0.001"/>
+  <testcase name="derivativeOfXDividedByConstantIsReciprocal()" classname="org.expression.DivTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
