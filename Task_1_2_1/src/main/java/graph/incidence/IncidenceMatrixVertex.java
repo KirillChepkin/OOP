@@ -1,5 +1,9 @@
 package graph.incidence;
 
-//public class IncidenceGraphVertex<T> extends Vertex<T> {
-//
-//}
+import graph.Vertex;
+
+public class IncidenceMatrixVertex<T> extends Vertex<T> {
+    public IncidenceMatrixVertex(int code, T content) {
+        super(code, content);
+    }
+}
