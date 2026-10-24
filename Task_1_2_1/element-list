@@ -1,4 +1,5 @@
 graph
 graph.adjacency.lists
 graph.adjacency.matrix
+graph.incidence
 main

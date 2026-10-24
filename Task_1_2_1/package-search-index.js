@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"graph"},{"l":"graph.adjacency.lists"},{"l":"graph.adjacency.matrix"},{"l":"main"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"graph"},{"l":"graph.adjacency.lists"},{"l":"graph.adjacency.matrix"},{"l":"graph.incidence"},{"l":"main"}];updateSearchResults();
