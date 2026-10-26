@@ -68,20 +68,16 @@ loadScripts(document, 'script');</script>
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
 <div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">graph.incidence</a></div>
-<h1 title="Class IncidenceMatrixEdge" class="title">Class IncidenceMatrixEdge&lt;T&gt;</h1>
+<h1 title="Class IncidenceMatrixEdge" class="title">Class IncidenceMatrixEdge</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">graph.incidence.IncidenceMatrixEdge&lt;T&gt;</div>
+<div class="inheritance">graph.incidence.IncidenceMatrixEdge</div>
 </div>
 <section class="class-description" id="class-description">
-<dl class="notes">
-<dt>Type Parameters:</dt>
-<dd><code>T</code> - edge has references to both its vertices of generic type.</dd>
-</dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">IncidenceMatrixEdge&lt;T&gt;</span>
+<div class="type-signature"><span class="modifiers">public final class </span><span class="element-name type-name-label">IncidenceMatrixEdge</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">This class represents an edge of a graph.</div>
+<div class="block">A directed edge identified by its column and its endpoint vertex keys.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -93,12 +89,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,graph.incidence.IncidenceMatrixVertex,graph.incidence.IncidenceMatrixVertex)" class="member-name-link">IncidenceMatrixEdge</a><wbr>(int&nbsp;code,
- <a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;&nbsp;startVertex,
- <a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;&nbsp;endVertex)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Constructor for edge representation.</div>
-</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,int)" class="member-name-link">IncidenceMatrixEdge</a><wbr>(int&nbsp;code,
+ int&nbsp;startKey,
+ int&nbsp;endKey)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -116,11 +110,11 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCode()" class="member-name-link">getCode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEndVertex()" class="member-name-link">getEndVertex</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEndKey()" class="member-name-link">getEndKey</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartVertex()" class="member-name-link">getStartVertex</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStartKey()" class="member-name-link">getStartKey</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -140,18 +134,11 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,graph.incidence.IncidenceMatrixVertex,graph.incidence.IncidenceMatrixVertex)">
+<section class="detail" id="&lt;init&gt;(int,int,int)">
 <h3>IncidenceMatrixEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IncidenceMatrixEdge</span><wbr><span class="parameters">(int&nbsp;code,
- <a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;&nbsp;startVertex,
- <a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;&nbsp;endVertex)</span></div>
-<div class="block">Constructor for edge representation.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>code</code> - code that was assigned to edge by the graph that stores it.</dd>
-<dd><code>startVertex</code> - start vertex of the edge.</dd>
-<dd><code>endVertex</code> - end vertex of the edge.</dd>
-</dl>
+ int&nbsp;startKey,
+ int&nbsp;endKey)</span></div>
 </section>
 </li>
 </ul>
@@ -169,15 +156,15 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getStartVertex()">
-<h3>getStartVertex</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;</span>&nbsp;<span class="element-name">getStartVertex</span>()</div>
+<section class="detail" id="getStartKey()">
+<h3>getStartKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStartKey</span>()</div>
 </section>
 </li>
 <li>
-<section class="detail" id="getEndVertex()">
-<h3>getEndVertex</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IncidenceMatrixVertex.html" title="class in graph.incidence">IncidenceMatrixVertex</a>&lt;<a href="IncidenceMatrixEdge.html" title="type parameter in IncidenceMatrixEdge">T</a>&gt;</span>&nbsp;<span class="element-name">getEndVertex</span>()</div>
+<section class="detail" id="getEndKey()">
+<h3>getEndKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getEndKey</span>()</div>
 </section>
 </li>
 </ul>
