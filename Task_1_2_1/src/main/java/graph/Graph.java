@@ -5,21 +5,23 @@ import java.util.List;
 /**
  * This interface declares methods that every class representing a graph should implement.
  * They are sufficient for topological sort algorithms.
- *
- * @param <T> Vertices of the graph are supposed to store objects of some class T.
  */
-public interface Graph<T> {
-    int addVertex(T vertex);
+public interface Graph {
+    int addVertex(int key);
 
-    void deleteVertex(int code);
+    void deleteVertex(int key);
 
-    Vertex<T> getVertex(int code);
+    boolean vertexExists(int key);
+
+    List<Integer> getVertices();
+
+    int getVertexCount();
 
     void addEdge(int start, int end);
 
     void deleteEdge(int start, int end);
 
-    List<Vertex<T>> getNeighbours(int code);
+    boolean edgeExists(int start, int end);
 
-    void readGraph();
+    List<Integer> getNeighbours(int code);
 }

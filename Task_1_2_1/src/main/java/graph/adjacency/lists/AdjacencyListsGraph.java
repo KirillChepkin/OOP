@@ -3,30 +3,33 @@ package graph.adjacency.lists;
 import graph.Graph;
 import graph.Vertex;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.PriorityQueue;
-import java.util.List;
+import java.util.*;
 
 /**
  * Graph implementation using adjacency lists.
- *
- * @param <T>
  */
-public class AdjacencyListsGraph<T> implements Graph<T> {
-    private final Map<Integer, AdjacencyListsVertex<T>> vertexMap = new HashMap<>();
+public class AdjacencyListsGraph implements Graph {
+    private final Map<Integer, Integer> keyToCode = new HashMap<>();
+    private final Map<Integer, Integer> codeToKey = new HashMap<>();
 
-    public Map<Integer, AdjacencyListsVertex<T>> getVertexMap() {
-        return vertexMap;
-    }
+    private final Map<Integer, List<Integer>> vertexMap = new HashMap<>();
 
     private long nextCode = 0;
 
     private final PriorityQueue<Integer> freeCodes = new PriorityQueue<>();
 
     @Override
-    public int addVertex(T vertex) {
+    public List<Integer> getVertices() {
+        return new ArrayList<>(keyToCode.keySet());
+    }
+
+    @Override
+    public int getVertexCount() {
+        return keyToCode.size();
+    }
+
+    @Override
+    public int addVertex(int key) {
         int code;
         if (!freeCodes.isEmpty()) {
             code = freeCodes.poll();
@@ -36,70 +39,73 @@ public class AdjacencyListsGraph<T> implements Graph<T> {
             }
             code = (int) nextCode++;
         }
-        vertexMap.put(code, new AdjacencyListsVertex<T>(code, vertex));
+
+        keyToCode.put(key, code);
+        codeToKey.put(code, key);
+        vertexMap.put(code, new ArrayList<>());
         return code;
     }
 
     @Override
-    public void deleteVertex(int code) {
-        if (!vertexMap.containsKey(code)) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot delete requested vertex with the index" + code
+    public void deleteVertex(int key) {
+        if (vertexExists(key)) {
+            throw new NoSuchElementException(
+                    "Cannot delete requested vertex with the key " + key
                             + " from the graph. It's not in it.");
         }
+        int code = keyToCode.get(key);
+        keyToCode.remove(key);
+        codeToKey.remove(code);
         vertexMap.remove(code);
-        for (AdjacencyListsVertex<T> vertex : vertexMap.values()) {
-            vertex.getAdjacencySet().remove(code);
+        for (List<Integer> list : vertexMap.values()) {
+            list.remove(code);
         }
         freeCodes.add(code);
     }
 
     @Override
-    public Vertex<T> getVertex(int code) {
-        if (!vertexMap.containsKey(code)) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot return requested vertex with the index" + code
-                    + ". It's not in the graph.");
-        }
-        return vertexMap.get(code);
+    public boolean vertexExists(int key) {
+        return keyToCode.containsKey(key);
     }
 
     @Override
     public void addEdge(int start, int end) {
-        if (start < 0 || end < 0 || !vertexMap.containsKey(start) || !vertexMap.containsKey(end)) {
-            throw new IndexOutOfBoundsException(
+        if (!vertexExists(start) || !vertexExists(end)) {
+            throw new NoSuchElementException(
                     "Cannot add the edge from " + start + " to " + end
                     + " because one of these vertices is not in the graph.");
         }
-        vertexMap.get(start).getAdjacencySet().add(end);
+        vertexMap.get(keyToCode.get(start)).add(keyToCode.get(end));
     }
 
     @Override
     public void deleteEdge(int start, int end) {
-        if (start < 0 || end < 0 || !vertexMap.containsKey(start) || !vertexMap.containsKey(end)) {
-            throw new IndexOutOfBoundsException(
+        if (!vertexExists(start) || !vertexExists(end)) {
+            throw new NoSuchElementException(
                     "Cannot delete the edge from " + start + " to " + end
                     + " because one of these vertices is not in the graph.");
         }
-        vertexMap.get(start).getAdjacencySet().remove(end);
+        vertexMap.get(keyToCode.get(start)).remove(keyToCode.get(end));
     }
 
     @Override
-    public List<Vertex<T>> getNeighbours(int code) {
-        if (code < 0 || !vertexMap.containsKey(code)) {
-            throw new IndexOutOfBoundsException(
+    public boolean edgeExists(int start, int end) {
+        return keyToCode.containsKey(start) && vertexMap.get(keyToCode.get(start)).contains(end);
+    }
+
+    @Override
+    public List<Integer> getNeighbours(int key) {
+        if (vertexExists(key)) {
+            throw new NoSuchElementException(
                     "Cannot find Neighbours for the vertex with index "
-                    + code + " because is not in the graph.");
+                    + key + " because is not in the graph.");
         }
-        List<Vertex<T>> list = new ArrayList<>();
-        for (int vertexCode : vertexMap.get(code).getAdjacencySet()) {
-            list.add(vertexMap.get(vertexCode));
+
+        int code = keyToCode.get(key);
+        List<Integer> list = new ArrayList<>();
+        for (int vertexCode : vertexMap.get(code)) {
+            list.add(codeToKey.get(vertexCode));
         }
         return list;
-    }
-
-    @Override
-    public void readGraph() {
-
     }
 }

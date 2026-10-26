@@ -2,26 +2,30 @@ package graph.adjacency.matrix;
 
 import graph.Graph;
 import graph.Vertex;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+
+import java.util.*;
 
 /**
  * Graph implementation powered by adjacency matrix.
- *
- * @param <T> type of values at vertices.
  */
-public class AdjacencyMatrixGraph<T> implements Graph<T> {
+public class AdjacencyMatrixGraph implements Graph {
+    private final Map<Integer, Integer> keyToCode = new HashMap<>();
+    private final Map<Integer, Integer> codeToKey = new HashMap<>();
+
     private final List<List<Boolean>> matrix = new ArrayList<>();
 
     public List<List<Boolean>> getMatrix() {
         return matrix;
     }
 
-    private final List<Vertex<T>> vertices = new ArrayList<>();
+    @Override
+    public List<Integer> getVertices() {
+        return new ArrayList<>(keyToCode.keySet());
+    }
 
-    public List<Vertex<T>> getVertices() {
-        return vertices;
+    @Override
+    public int getVertexCount() {
+        return keyToCode.size();
     }
 
     @Override
@@ -96,10 +100,5 @@ public class AdjacencyMatrixGraph<T> implements Graph<T> {
             }
         }
         return list;
-    }
-
-    @Override
-    public void readGraph() {
-
     }
 }
