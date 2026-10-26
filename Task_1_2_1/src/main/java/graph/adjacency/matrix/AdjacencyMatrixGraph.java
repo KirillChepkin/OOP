@@ -1,17 +1,14 @@
 package graph.adjacency.matrix;
 
+import graph.BaseGraph;
 import graph.Graph;
 import graph.Vertex;
-
 import java.util.*;
 
 /**
  * Graph implementation powered by adjacency matrix.
  */
-public class AdjacencyMatrixGraph implements Graph {
-    private final Map<Integer, Integer> keyToCode = new HashMap<>();
-    private final Map<Integer, Integer> codeToKey = new HashMap<>();
-
+public class AdjacencyMatrixGraph extends BaseGraph implements Graph {
     private final List<List<Boolean>> matrix = new ArrayList<>();
 
     public List<List<Boolean>> getMatrix() {
@@ -19,28 +16,19 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
-    public List<Integer> getVertices() {
-        return new ArrayList<>(keyToCode.keySet());
-    }
-
-    @Override
-    public int getVertexCount() {
-        return keyToCode.size();
-    }
-
-    @Override
-    public int addVertex(T vertex) {
+    public void addVertex(int key) {
+        int code = matrix.size() - 1;
+        keyToCode.put(key, code);
+        codeToKey.put(code, key);
         matrix.add(new ArrayList<>(Collections.nCopies(matrix.size(), false)));
         for (List<Boolean> list : matrix) {
             list.add(false);
         }
-        int index = matrix.size() - 1;
-        vertices.add(new AdjacencyMatrixVertex<T>(index, vertex));
-        return index;
     }
 
     @Override
     public void deleteVertex(int code) {
+
         if (code < 0 || vertices.size() <= code) {
             throw new IndexOutOfBoundsException(
                     "Cannot delete requested vertex with the index" + code
@@ -84,6 +72,11 @@ public class AdjacencyMatrixGraph implements Graph {
                     + " because one of these vertices is not in the graph.");
         }
         matrix.get(start).set(end, false);
+    }
+
+    @Override
+    public boolean edgeExists(int start, int end) {
+        return keyToCode.containsKey(start) &&  matrix
     }
 
     @Override

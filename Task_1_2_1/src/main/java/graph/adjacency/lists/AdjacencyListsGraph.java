@@ -1,5 +1,6 @@
 package graph.adjacency.lists;
 
+import graph.BaseGraph;
 import graph.Graph;
 import graph.Vertex;
 
@@ -8,10 +9,7 @@ import java.util.*;
 /**
  * Graph implementation using adjacency lists.
  */
-public class AdjacencyListsGraph implements Graph {
-    private final Map<Integer, Integer> keyToCode = new HashMap<>();
-    private final Map<Integer, Integer> codeToKey = new HashMap<>();
-
+public class AdjacencyListsGraph extends BaseGraph implements Graph {
     private final Map<Integer, List<Integer>> vertexMap = new HashMap<>();
 
     private long nextCode = 0;
@@ -19,17 +17,11 @@ public class AdjacencyListsGraph implements Graph {
     private final PriorityQueue<Integer> freeCodes = new PriorityQueue<>();
 
     @Override
-    public List<Integer> getVertices() {
-        return new ArrayList<>(keyToCode.keySet());
-    }
+    public void addVertex(int key) {
+        if (keyToCode.containsKey(key)) {
+            throw new IllegalArgumentException("Key " + key + " is already in the graph.");
+        }
 
-    @Override
-    public int getVertexCount() {
-        return keyToCode.size();
-    }
-
-    @Override
-    public int addVertex(int key) {
         int code;
         if (!freeCodes.isEmpty()) {
             code = freeCodes.poll();
@@ -43,12 +35,11 @@ public class AdjacencyListsGraph implements Graph {
         keyToCode.put(key, code);
         codeToKey.put(code, key);
         vertexMap.put(code, new ArrayList<>());
-        return code;
     }
 
     @Override
     public void deleteVertex(int key) {
-        if (vertexExists(key)) {
+        if (!vertexExists(key)) {
             throw new NoSuchElementException(
                     "Cannot delete requested vertex with the key " + key
                             + " from the graph. It's not in it.");
@@ -58,14 +49,9 @@ public class AdjacencyListsGraph implements Graph {
         codeToKey.remove(code);
         vertexMap.remove(code);
         for (List<Integer> list : vertexMap.values()) {
-            list.remove(code);
+            list.remove(Integer.valueOf(code));
         }
         freeCodes.add(code);
-    }
-
-    @Override
-    public boolean vertexExists(int key) {
-        return keyToCode.containsKey(key);
     }
 
     @Override
@@ -90,12 +76,14 @@ public class AdjacencyListsGraph implements Graph {
 
     @Override
     public boolean edgeExists(int start, int end) {
-        return keyToCode.containsKey(start) && vertexMap.get(keyToCode.get(start)).contains(end);
+        return keyToCode.containsKey(start)
+                && keyToCode.containsKey(end)
+                && vertexMap.get(keyToCode.get(start)).contains(keyToCode.get(end));
     }
 
     @Override
     public List<Integer> getNeighbours(int key) {
-        if (vertexExists(key)) {
+        if (!vertexExists(key)) {
             throw new NoSuchElementException(
                     "Cannot find Neighbours for the vertex with index "
                     + key + " because is not in the graph.");
