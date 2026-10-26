@@ -5,11 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="21684be0-3dd0-462f-bad7-ef6bd04d56af" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/graph/BaseGraph.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/GraphContractTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/RandomizedConsistencyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/adjacency/lists/AdjacencyListsGraphTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/adjacency/matrix/AdjacencyMatrixGraphTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/incidence/IncidenceMatrixEdgeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/graph/incidence/IncidenceMatrixGraphTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.6.0/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.6.0/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.6.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.6.0/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.6.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.6.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/9.6.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/9.6.0/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/BaseGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/BaseGraph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/graph/Graph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/Graph.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/graph/adjacency/lists/AdjacencyListsGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/adjacency/lists/AdjacencyListsGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/adjacency/lists/AdjacencyListsVertex.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix/AdjacencyMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix/AdjacencyMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix/AdjacencyMatrixVertex.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixEdge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixEdge.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixGraph.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixGraph.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/graph/incidence/IncidenceMatrixVertex.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,61 +79,61 @@
 }</component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.000006415530512" />
-      <entry key="MS500" value="1.0915053776625003" />
-      <entry key="S2" value="1.56250632653999" />
-      <entry key="S5" value="2.001172629035489" />
-      <entry key="S10" value="2.5075868498246607" />
-      <entry key="S30" value="3.3106062705309225" />
-      <entry key="S60" value="3.784730156912293" />
-      <entry key="M2" value="4.553897525580515" />
-      <entry key="M5" value="6.1253617677386005" />
-      <entry key="M10" value="7.246329393927209" />
-      <entry key="M15" value="7.758423495338049" />
-      <entry key="M30" value="9.961539494717966" />
-      <entry key="H1" value="30.260556056550918" />
-      <entry key="H2" value="111.22384394033413" />
-      <entry key="H4" value="298.0309792768229" />
-      <entry key="D1" value="1351.9134467122963" />
-      <entry key="W1" value="2087.748577949067" />
+      <entry key="MS100" value="1.0000000030681155" />
+      <entry key="MS500" value="1.0198323575940595" />
+      <entry key="S2" value="1.3752697743785949" />
+      <entry key="S5" value="1.6756803355391767" />
+      <entry key="S10" value="1.8307437397354347" />
+      <entry key="S30" value="3.0742580092619813" />
+      <entry key="S60" value="5.8445277435461715" />
+      <entry key="M2" value="9.550027557210928" />
+      <entry key="M5" value="18.293112561045852" />
+      <entry key="M10" value="32.6871704402509" />
+      <entry key="M15" value="42.89213221704689" />
+      <entry key="M30" value="59.542336925826405" />
+      <entry key="H1" value="86.08667684272788" />
+      <entry key="H2" value="165.75901966116552" />
+      <entry key="H4" value="350.25854152086725" />
+      <entry key="D1" value="1410.8466862516" />
+      <entry key="W1" value="2158.4497174324842" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.0666871723805153E-12" />
-      <entry key="MS500" value="0.004032807008048948" />
-      <entry key="S2" value="0.2586689605689196" />
-      <entry key="S5" value="0.8281850763699812" />
-      <entry key="S10" value="1.6236971662059823" />
-      <entry key="S30" value="2.8950115261748457" />
-      <entry key="S60" value="3.4605953368443254" />
-      <entry key="M2" value="4.062101538376105" />
-      <entry key="M5" value="5.121567064019164" />
-      <entry key="M10" value="5.857466793257017" />
-      <entry key="M15" value="6.185890896299213" />
-      <entry key="M30" value="6.918796738723535" />
-      <entry key="H1" value="11.18300344927613" />
-      <entry key="H2" value="23.70898804552506" />
-      <entry key="H4" value="44.47417302694735" />
-      <entry key="D1" value="147.34242088378014" />
-      <entry key="W1" value="214.67750684043781" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.8882071536468484E-264" />
+      <entry key="S2" value="1.1722288607031527E-66" />
+      <entry key="S5" value="4.242335037674947E-27" />
+      <entry key="S10" value="6.513320994450485E-14" />
+      <entry key="S30" value="4.0234705628950996E-5" />
+      <entry key="S60" value="0.0063436753191778794" />
+      <entry key="M2" value="0.08132363061006023" />
+      <entry key="M5" value="0.5904714612817119" />
+      <entry key="M10" value="1.8360675078930258" />
+      <entry key="M15" value="2.9028352501800283" />
+      <entry key="M30" value="4.960733047706862" />
+      <entry key="H1" value="9.544502221719467" />
+      <entry key="H2" value="21.78073321900448" />
+      <entry key="H4" value="42.657711400081574" />
+      <entry key="D1" value="146.75322733022932" />
+      <entry key="W1" value="215.3454239508057" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="7.253790015553664E-6" />
-      <entry key="MS500" value="0.13879851539276641" />
-      <entry key="S2" value="1.17572386960595" />
-      <entry key="S5" value="2.394182499965531" />
-      <entry key="S10" value="3.817963000214487" />
-      <entry key="S30" value="6.05481150030268" />
-      <entry key="S60" value="7.157994042499229" />
-      <entry key="M2" value="8.563112777297748" />
-      <entry key="M5" value="11.217962634754835" />
-      <entry key="M10" value="13.086473975123283" />
-      <entry key="M15" value="13.931912254111406" />
-      <entry key="M30" value="16.873118833178587" />
-      <entry key="H1" value="41.436587773873654" />
-      <entry key="H2" value="134.9239041128443" />
-      <entry key="H4" value="342.4955427513528" />
-      <entry key="D1" value="1499.2498872136568" />
-      <entry key="W1" value="2302.4248364251353" />
+      <entry key="MS100" value="0.00564034978354581" />
+      <entry key="MS500" value="0.37188978083123847" />
+      <entry key="S2" value="1.1322648698478872" />
+      <entry key="S5" value="1.5664348924051237" />
+      <entry key="S10" value="1.7736409286473411" />
+      <entry key="S30" value="3.0545220802816058" />
+      <entry key="S60" value="5.840386800250972" />
+      <entry key="M2" value="9.62335726240729" />
+      <entry key="M5" value="18.873179818364054" />
+      <entry key="M10" value="34.5108208877807" />
+      <entry key="M15" value="45.78291640647111" />
+      <entry key="M30" value="64.49360817336022" />
+      <entry key="H1" value="95.62276719826663" />
+      <entry key="H2" value="187.53026338419872" />
+      <entry key="H4" value="392.9063875029035" />
+      <entry key="D1" value="1557.5938490596677" />
+      <entry key="W1" value="2373.793873602575" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -129,35 +145,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#4 on Task__1__2__1&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/incidence&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.GraphContractTest.arbitraryIntegerKeys.executor": "Debug",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "#4 on Task__1__2__1",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/adjacency/lists",
+    "last_opened_file_path": "/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/adjacency/lists",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency/lists" />
       <recent name="$PROJECT_DIR$/src/test/java/graph/incidence" />
-      <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency/matrix" />
-      <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency" />
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/java/graph" />
+      <recent name="$PROJECT_DIR$/src/main/java/graph/incidence" />
+      <recent name="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java/AdjacencyLists" />
@@ -165,6 +183,40 @@
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GraphContractTest.arbitraryIntegerKeys" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;graph.GraphContractTest.arbitraryIntegerKeys&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Gradle.GraphContractTest.arbitraryIntegerKeys" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -186,5 +238,16 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/graph/GraphContractTest.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

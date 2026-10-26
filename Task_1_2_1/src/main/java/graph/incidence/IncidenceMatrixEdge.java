@@ -1,32 +1,15 @@
 package graph.incidence;
 
-/**
- * This class represents an edge of a graph.
- *
- * @param <T> edge has references to both its vertices of generic type.
- */
-public class IncidenceMatrixEdge<T> {
+/** A directed edge identified by its column and its endpoint vertex keys. */
+public final class IncidenceMatrixEdge {
     private int code;
+    private final int startKey;
+    private final int endKey;
 
-    private final IncidenceMatrixVertex<T> startVertex;
-    private final IncidenceMatrixVertex<T> endVertex;
-
-    /**
-     * Constructor for edge representation.
-     *
-     * @param code code that was assigned to edge by the graph that stores it.
-     *
-     * @param startVertex start vertex of the edge.
-     *
-     * @param endVertex end vertex of the edge.
-     */
-    public IncidenceMatrixEdge(
-            int code,
-            IncidenceMatrixVertex<T> startVertex,
-            IncidenceMatrixVertex<T> endVertex) {
+    public IncidenceMatrixEdge(int code, int startKey, int endKey) {
         this.code = code;
-        this.startVertex = startVertex;
-        this.endVertex = endVertex;
+        this.startKey = startKey;
+        this.endKey = endKey;
     }
 
     public int getCode() {
@@ -37,11 +20,11 @@ public class IncidenceMatrixEdge<T> {
         this.code = code;
     }
 
-    public IncidenceMatrixVertex<T> getStartVertex() {
-        return startVertex;
+    public int getStartKey() {
+        return startKey;
     }
 
-    public IncidenceMatrixVertex<T> getEndVertex() {
-        return endVertex;
+    public int getEndKey() {
+        return endKey;
     }
 }

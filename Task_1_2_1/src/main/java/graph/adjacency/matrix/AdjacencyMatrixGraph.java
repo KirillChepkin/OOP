@@ -1,97 +1,75 @@
 package graph.adjacency.matrix;
 
 import graph.BaseGraph;
-import graph.Graph;
-import graph.Vertex;
-import java.util.*;
 
-/**
- * Graph implementation powered by adjacency matrix.
- */
-public class AdjacencyMatrixGraph extends BaseGraph implements Graph {
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/** Directed adjacency matrix: row and column numbers are compact internal codes. */
+public class AdjacencyMatrixGraph extends BaseGraph {
     private final List<List<Boolean>> matrix = new ArrayList<>();
 
+    /** Defensive snapshot; modifying it cannot corrupt the graph. */
     public List<List<Boolean>> getMatrix() {
-        return matrix;
+        List<List<Boolean>> copy = new ArrayList<>();
+        for (List<Boolean> row : matrix) {
+            copy.add(Collections.unmodifiableList(new ArrayList<>(row)));
+        }
+        return Collections.unmodifiableList(copy);
     }
 
     @Override
-    public void addVertex(int key) {
-        int code = matrix.size() - 1;
-        keyToCode.put(key, code);
-        codeToKey.put(code, key);
-        matrix.add(new ArrayList<>(Collections.nCopies(matrix.size(), false)));
-        for (List<Boolean> list : matrix) {
-            list.add(false);
+    public int addVertex(int key) {
+        if (vertexExists(key)) {
+            throw new IllegalArgumentException("Duplicate vertex key: " + key);
         }
+        int code = getVertexCount();
+        for (List<Boolean> row : matrix) {
+            row.add(false);
+        }
+        matrix.add(new ArrayList<>(Collections.nCopies(code + 1, false)));
+        registerVertex(key, code);
+        return code;
     }
 
     @Override
-    public void deleteVertex(int code) {
-
-        if (code < 0 || vertices.size() <= code) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot delete requested vertex with the index" + code
-                            + ". It's not in the graph.");
-        }
-        vertices.remove(code);
-        for (int i = code; i < vertices.size(); i++) {
-            vertices.get(i).setCode(i);
-        }
+    public void deleteVertex(int key) {
+        int code = requireCode(key);
         matrix.remove(code);
-        for (List<Boolean> list : matrix) {
-            list.remove(code);
+        for (List<Boolean> row : matrix) {
+            row.remove(code);
         }
-    }
-
-    @Override
-    public Vertex<T> getVertex(int code) {
-        if (code < 0 || vertices.size() <= code) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot return requested vertex with the index" + code
-                    + ". It's not in the graph.");
-        }
-        return vertices.get(code);
+        unregisterAndCompact(key);
     }
 
     @Override
     public void addEdge(int start, int end) {
-        if (start < 0 || end < 0 || vertices.size() <= start || vertices.size() <= end) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot add the edge from " + start + " to " + end
-                    + " because one of these vertices is not in the graph.");
-        }
-        matrix.get(start).set(end, true);
+        matrix.get(requireCode(start)).set(requireCode(end), true);
     }
 
     @Override
     public void deleteEdge(int start, int end) {
-        if (start < 0 || end < 0 || vertices.size() <= start || vertices.size() <= end) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot delete the edge from " + start + " to " + end
-                    + " because one of these vertices is not in the graph.");
-        }
-        matrix.get(start).set(end, false);
+        matrix.get(requireCode(start)).set(requireCode(end), false);
     }
 
     @Override
     public boolean edgeExists(int start, int end) {
-        return keyToCode.containsKey(start) &&  matrix
+        Integer startCode = keyToCode.get(start);
+        Integer endCode = keyToCode.get(end);
+        return startCode != null && endCode != null
+                && matrix.get(startCode).get(endCode);
     }
 
     @Override
-    public List<Vertex<T>> getNeighbours(int code) {
-        if (code < 0 || vertices.size() <= code) {
-            throw new IndexOutOfBoundsException(
-                    "Cannot find neighbours of requested vertex with the index" + code
-                            + ". It's not in the graph.");
-        }
-        List<Vertex<T>> list = new ArrayList<>();
-        for (int i = 0; i < matrix.get(code).size(); i++) {
-            if (matrix.get(code).get(i)) {
-                list.add(vertices.get(i));
+    public List<Integer> getNeighbours(int key) {
+        int code = requireCode(key);
+        List<Integer> neighbours = new ArrayList<>();
+        for (int column = 0; column < matrix.size(); column++) {
+            if (matrix.get(code).get(column)) {
+                neighbours.add(codeToKey.get(column));
             }
         }
-        return list;
+        return neighbours;
     }
 }

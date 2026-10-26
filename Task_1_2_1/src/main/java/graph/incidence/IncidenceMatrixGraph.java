@@ -1,22 +1,21 @@
 package graph.incidence;
 
+import graph.BaseGraph;
 import graph.Graph;
-import graph.Vertex;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-/**
- * Directed graph backed by an incidence matrix: rows are vertices and
- * columns are edges. -1 indicates an outgoing edge, +1 an incoming edge,
- * 2 a self-loop, and 0 no incidence. Parallel edges are not stored.
- */
-public class IncidenceMatrixGraph<T> implements Graph<T> {
+/** Directed incidence matrix: rows are vertex codes and columns are edges. */
+public class IncidenceMatrixGraph extends BaseGraph {
+    // -1 = outgoing, +1 = incoming, 2 = self-loop, 0 = not incident.
     private final List<List<Integer>> matrix = new ArrayList<>();
-    private final List<IncidenceMatrixVertex<T>> vertices = new ArrayList<>();
-    private final List<IncidenceMatrixEdge<T>> edges = new ArrayList<>();
+    // Row index -> public vertex key; kept aligned with the incidence matrix.
+    private final List<Integer> vertexKeys = new ArrayList<>();
+    // Column index -> directed edge.
+    private final List<IncidenceMatrixEdge> edges = new ArrayList<>();
 
-    /** Returns an immutable snapshot, so callers cannot corrupt the matrix. */
+    /** Defensive snapshot of the incidence matrix. */
     public List<List<Integer>> getMatrix() {
         List<List<Integer>> copy = new ArrayList<>();
         for (List<Integer> row : matrix) {
@@ -25,66 +24,59 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
         return Collections.unmodifiableList(copy);
     }
 
-    public List<IncidenceMatrixVertex<T>> getVertices() {
-        return Collections.unmodifiableList(vertices);
+    /** Vertex keys in incidence-matrix row order. */
+    public List<Integer> getRowKeys() {
+        return Collections.unmodifiableList(new ArrayList<>(vertexKeys));
     }
 
-    public List<IncidenceMatrixEdge<T>> getEdges() {
-        return Collections.unmodifiableList(edges);
+    /** Snapshot of the edges, in matrix-column order. */
+    public List<IncidenceMatrixEdge> getEdges() {
+        return Collections.unmodifiableList(new ArrayList<>(edges));
     }
 
     @Override
-    public int addVertex(T vertex) {
-        int code = vertices.size();
-        vertices.add(new IncidenceMatrixVertex<>(code, vertex));
+    public int addVertex(int key) {
+        if (vertexExists(key)) {
+            throw new IllegalArgumentException("Duplicate vertex key: " + key);
+        }
+        int code = getVertexCount();
         matrix.add(new ArrayList<>(Collections.nCopies(edges.size(), 0)));
+        vertexKeys.add(key);
+        registerVertex(key, code);
         return code;
     }
 
     @Override
-    public void deleteVertex(int code) {
-        checkVertexCode(code);
-        IncidenceMatrixVertex<T> removed = vertices.get(code);
-
-        // Remove all incident columns from right to left, keeping indices valid.
+    public void deleteVertex(int key) {
+        int row = requireCode(key);
+        // Reverse order ensures each deleted column index is still valid.
         for (int column = edges.size() - 1; column >= 0; column--) {
-            IncidenceMatrixEdge<T> edge = edges.get(column);
-            if (edge.getStartVertex() == removed || edge.getEndVertex() == removed) {
-                removeEdgeColumn(column);
+            IncidenceMatrixEdge edge = edges.get(column);
+            if (edge.getStartKey() == key || edge.getEndKey() == key) {
+                removeColumn(column);
             }
         }
-        renumberEdgesFrom(0);
-
-        vertices.remove(code);
-        matrix.remove(code);
-        for (int i = code; i < vertices.size(); i++) {
-            vertices.get(i).setCode(i);
-        }
-    }
-
-    @Override
-    public IncidenceMatrixVertex<T> getVertex(int code) {
-        checkVertexCode(code);
-        return vertices.get(code);
+        matrix.remove(row);
+        vertexKeys.remove(row);
+        unregisterAndCompact(key);
     }
 
     @Override
     public void addEdge(int start, int end) {
-        checkVertexCode(start);
-        checkVertexCode(end);
-        if (findEdgeColumn(start, end) >= 0) {
-            return;  // Same semantics as Set/Boolean adjacency representations.
+        int startRow = requireCode(start);
+        int endRow = requireCode(end);
+        if (edgeExists(start, end)) {
+            return;
         }
-
         int column = edges.size();
-        edges.add(new IncidenceMatrixEdge<>(column, vertices.get(start), vertices.get(end)));
-        for (int row = 0; row < vertices.size(); row++) {
+        edges.add(new IncidenceMatrixEdge(column, start, end));
+        for (int row = 0; row < matrix.size(); row++) {
             int value = 0;
-            if (start == end && row == start) {
+            if (startRow == endRow && row == startRow) {
                 value = 2;
-            } else if (row == start) {
+            } else if (row == startRow) {
                 value = -1;
-            } else if (row == end) {
+            } else if (row == endRow) {
                 value = 1;
             }
             matrix.get(row).add(value);
@@ -93,60 +85,49 @@ public class IncidenceMatrixGraph<T> implements Graph<T> {
 
     @Override
     public void deleteEdge(int start, int end) {
-        checkVertexCode(start);
-        checkVertexCode(end);
+        requireCode(start);
+        requireCode(end);
         int column = findEdgeColumn(start, end);
         if (column >= 0) {
-            removeEdgeColumn(column);
-            renumberEdgesFrom(column);
+            removeColumn(column);
         }
     }
 
     @Override
-    public List<Vertex<T>> getNeighbours(int code) {
-        checkVertexCode(code);
-        List<Vertex<T>> neighbours = new ArrayList<>();
+    public boolean edgeExists(int start, int end) {
+        return vertexExists(start) && vertexExists(end)
+                && findEdgeColumn(start, end) >= 0;
+    }
+
+    @Override
+    public List<Integer> getNeighbours(int key) {
+        int row = requireCode(key);
+        List<Integer> neighbours = new ArrayList<>();
         for (int column = 0; column < edges.size(); column++) {
-            int incidence = matrix.get(code).get(column);
-            if (incidence == -1 || incidence == 2) {
-                neighbours.add(edges.get(column).getEndVertex());
+            int value = matrix.get(row).get(column);
+            if (value == -1 || value == 2) {
+                neighbours.add(edges.get(column).getEndKey());
             }
         }
         return neighbours;
     }
 
-    @Override
-    public void readGraph() {
-        // Intentionally left unimplemented, as in the existing graph classes.
-    }
-
-    private void checkVertexCode(int code) {
-        if (code < 0 || code >= vertices.size()) {
-            throw new IndexOutOfBoundsException("Vertex with code " + code + " does not exist.");
-        }
-    }
-
     private int findEdgeColumn(int start, int end) {
-        IncidenceMatrixVertex<T> startVertex = vertices.get(start);
-        IncidenceMatrixVertex<T> endVertex = vertices.get(end);
         for (int column = 0; column < edges.size(); column++) {
-            IncidenceMatrixEdge<T> edge = edges.get(column);
-            if (edge.getStartVertex() == startVertex && edge.getEndVertex() == endVertex) {
+            IncidenceMatrixEdge edge = edges.get(column);
+            if (edge.getStartKey() == start && edge.getEndKey() == end) {
                 return column;
             }
         }
         return -1;
     }
 
-    private void removeEdgeColumn(int column) {
+    private void removeColumn(int column) {
         edges.remove(column);
         for (List<Integer> row : matrix) {
             row.remove(column);
         }
-    }
-
-    private void renumberEdgesFrom(int firstColumn) {
-        for (int i = firstColumn; i < edges.size(); i++) {
+        for (int i = column; i < edges.size(); i++) {
             edges.get(i).setCode(i);
         }
     }

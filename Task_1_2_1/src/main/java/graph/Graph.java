@@ -7,7 +7,7 @@ import java.util.List;
  * They are sufficient for topological sort algorithms.
  */
 public interface Graph {
-    void addVertex(int key);
+    int addVertex(int key);
 
     void deleteVertex(int key);
 
