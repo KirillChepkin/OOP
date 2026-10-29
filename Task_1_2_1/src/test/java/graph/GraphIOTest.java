@@ -1,7 +1,9 @@
 package graph;
 
-import graph.adjacency.lists.AdjacencyListsGraph;
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,10 +14,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import graph.adjacency.lists.AdjacencyListsGraph;
+import org.junit.jupiter.api.Test;
 
+/**
+ * Tests reading and writing directed graphs using {@link GraphIO}.
+ */
 class GraphIOTest {
 
     @Test
@@ -66,17 +70,14 @@ class GraphIOTest {
 
         assertEquals(
                 Set.of(Integer.MIN_VALUE, 7, Integer.MAX_VALUE, 0),
-                new HashSet<>(graph.getVertices())
-        );
+                new HashSet<>(graph.getVertices()));
 
         assertEquals(
                 Set.of(
                         new GraphIO.Edge(Integer.MIN_VALUE, 7),
                         new GraphIO.Edge(7, Integer.MAX_VALUE),
-                        new GraphIO.Edge(Integer.MAX_VALUE, Integer.MAX_VALUE)
-                ),
-                getEdges(graph)
-        );
+                        new GraphIO.Edge(Integer.MAX_VALUE, Integer.MAX_VALUE)),
+                getEdges(graph));
     }
 
     @Test
@@ -100,17 +101,14 @@ class GraphIOTest {
         GraphIO.readGraph(graph, new BufferedReader(new StringReader(input)));
 
         assertEquals(Set.of(1, 2, 3), new HashSet<>(graph.getVertices()));
-
         assertEquals(
                 Set.of(
                         new GraphIO.Edge(1, 2),
-                        new GraphIO.Edge(2, 3)
-                ),
-                getEdges(graph)
-        );
+                        new GraphIO.Edge(2, 3)),
+                getEdges(graph));
 
-        assertTrue(!graph.vertexExists(100));
-        assertTrue(!graph.vertexExists(200));
+        assertFalse(graph.vertexExists(100));
+        assertFalse(graph.vertexExists(200));
     }
 
     @Test
@@ -124,8 +122,7 @@ class GraphIOTest {
 
         GraphIO.readGraph(
                 restored,
-                new BufferedReader(new StringReader("0\n0\n"))
-        );
+                new BufferedReader(new StringReader("0\n0\n")));
 
         assertEquals(List.of(), restored.getVertices());
         assertEquals(0, restored.getVertexCount());
@@ -146,19 +143,15 @@ class GraphIOTest {
         original.addEdge(50, 50);
 
         String serialized = writeGraph(original);
-
         Graph restored = new AdjacencyListsGraph();
 
         GraphIO.readGraph(
                 restored,
-                new BufferedReader(new StringReader(serialized))
-        );
+                new BufferedReader(new StringReader(serialized)));
 
         assertEquals(
                 new HashSet<>(original.getVertices()),
-                new HashSet<>(restored.getVertices())
-        );
-
+                new HashSet<>(restored.getVertices()));
         assertEquals(getEdges(original), getEdges(restored));
     }
 
@@ -205,10 +198,8 @@ class GraphIOTest {
                     IOException.class,
                     () -> GraphIO.readGraph(
                             new AdjacencyListsGraph(),
-                            new BufferedReader(new StringReader(input))
-                    ),
-                    "Expected IOException for input: " + input
-            );
+                            new BufferedReader(new StringReader(input))),
+                    "Expected IOException for input: " + input);
         }
     }
 
@@ -234,9 +225,7 @@ class GraphIOTest {
                 IOException.class,
                 () -> GraphIO.readGraph(
                         graph,
-                        new BufferedReader(new StringReader(invalidInput))
-                )
-        );
+                        new BufferedReader(new StringReader(invalidInput))));
 
         assertEquals(originalVertices, new HashSet<>(graph.getVertices()));
         assertEquals(originalEdges, getEdges(graph));

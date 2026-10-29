@@ -1,19 +1,21 @@
 package graph;
 
-import graph.adjacency.lists.AdjacencyListsGraph;
-import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import graph.adjacency.lists.AdjacencyListsGraph;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.junit.jupiter.api.Test;
+
+/**
+ * Tests topological sorting algorithms implemented in {@link GraphSorter}.
+ */
 class GraphSorterTest {
 
     @Test
@@ -66,7 +68,6 @@ class GraphSorterTest {
         graph.addEdge(7, 20);
 
         // Vertex 100 is isolated.
-
         assertValidTopologicalOrder(graph, GraphSorter.kahnSort(graph));
         assertValidTopologicalOrder(graph, new GraphSorter().dfsSort(graph));
     }
@@ -89,7 +90,6 @@ class GraphSorterTest {
         // Vertices 1, 2, 3 form one component.
         // Vertices 4, 5 form another.
         // Vertex 6 is isolated.
-
         assertValidTopologicalOrder(graph, GraphSorter.kahnSort(graph));
         assertValidTopologicalOrder(graph, new GraphSorter().dfsSort(graph));
     }
@@ -145,9 +145,7 @@ class GraphSorterTest {
         assertValidTopologicalOrder(secondGraph, sorter.dfsSort(secondGraph));
     }
 
-    private void assertValidTopologicalOrder(
-            Graph graph, List<Integer> order) {
-
+    private void assertValidTopologicalOrder(Graph graph, List<Integer> order) {
         assertNotNull(order, "A DAG must produce a topological ordering.");
 
         List<Integer> vertices = graph.getVertices();
@@ -155,14 +153,12 @@ class GraphSorterTest {
         assertEquals(
                 vertices.size(),
                 order.size(),
-                "The ordering must contain every vertex exactly once."
-        );
+                "The ordering must contain every vertex exactly once.");
 
         assertEquals(
                 new HashSet<>(vertices),
                 new HashSet<>(order),
-                "The ordering must contain exactly the graph's vertices."
-        );
+                "The ordering must contain exactly the graph's vertices.");
 
         Map<Integer, Integer> positions = new HashMap<>();
 
@@ -176,8 +172,7 @@ class GraphSorterTest {
                         positions.get(vertex) < positions.get(neighbour),
                         "Vertex " + vertex
                                 + " must appear before its neighbour "
-                                + neighbour + "."
-                );
+                                + neighbour + ".");
             }
         }
     }
