@@ -24,7 +24,7 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Returns an unmodifiable snapshot of the incidence matrix.
      *
-     * @return an unmodifiable copy of the matrix
+     * @return an unmodifiable copy of the matrix.
      */
     public List<List<Integer>> getMatrix() {
         List<List<Integer>> copy = new ArrayList<>();
@@ -39,7 +39,7 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Returns the public vertex keys in matrix row order.
      *
-     * @return an unmodifiable list of vertex keys
+     * @return an unmodifiable list of vertex keys.
      */
     public List<Integer> getRowKeys() {
         return Collections.unmodifiableList(new ArrayList<>(vertexKeys));
@@ -48,7 +48,7 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Returns the edges in matrix column order.
      *
-     * @return an unmodifiable snapshot of the edge list
+     * @return an unmodifiable snapshot of the edge list.
      */
     public List<IncidenceMatrixEdge> getEdges() {
         return Collections.unmodifiableList(new ArrayList<>(edges));
@@ -57,9 +57,11 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Adds a vertex with the specified public key.
      *
-     * @param key the public key of the vertex
-     * @return the internal code assigned to the vertex
-     * @throws IllegalArgumentException if a vertex with this key already exists
+     * @param key the public key of the vertex.
+     *
+     * @return the internal code assigned to the vertex.
+     *
+     * @throws IllegalArgumentException if a vertex with this key already exists.
      */
     @Override
     public int addVertex(int key) {
@@ -79,8 +81,9 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Removes a vertex and all edges incident to it.
      *
-     * @param key the public key of the vertex to remove
-     * @throws java.util.NoSuchElementException if the vertex does not exist
+     * @param key the public key of the vertex to remove.
+     *
+     * @throws java.util.NoSuchElementException if the vertex does not exist.
      */
     @Override
     public void deleteVertex(int key) {
@@ -105,9 +108,11 @@ public class IncidenceMatrixGraph extends BaseGraph {
      *
      * <p>If the edge already exists, the graph remains unchanged.</p>
      *
-     * @param start the public key of the starting vertex
-     * @param end the public key of the ending vertex
-     * @throws java.util.NoSuchElementException if either vertex does not exist
+     * @param start the public key of the starting vertex.
+     *
+     * @param end the public key of the ending vertex.
+     *
+     * @throws java.util.NoSuchElementException if either vertex does not exist.
      */
     @Override
     public void addEdge(int start, int end) {
@@ -139,8 +144,10 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Removes a directed edge between two vertices if it exists.
      *
-     * @param start the public key of the starting vertex
-     * @param end the public key of the ending vertex
+     * @param start the public key of the starting vertex.
+     *
+     * @param end the public key of the ending vertex.
+     *
      * @throws java.util.NoSuchElementException if either vertex does not exist
      */
     @Override
@@ -158,8 +165,10 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Checks whether a directed edge exists between two vertices.
      *
-     * @param start the public key of the starting vertex
-     * @param end the public key of the ending vertex
+     * @param start the public key of the starting vertex.
+     *
+     * @param end the public key of the ending vertex.
+     *
      * @return {@code true} if both vertices exist and the edge exists;
      *         otherwise, {@code false}
      */
@@ -172,9 +181,11 @@ public class IncidenceMatrixGraph extends BaseGraph {
     /**
      * Returns the outgoing neighbors of a vertex.
      *
-     * @param key the public key of the vertex
-     * @return a list of public keys of outgoing neighbors
-     * @throws java.util.NoSuchElementException if the vertex does not exist
+     * @param key the public key of the vertex.
+     *
+     * @return a list of public keys of outgoing neighbors.
+     *
+     * @throws java.util.NoSuchElementException if the vertex does not exist.
      */
     @Override
     public List<Integer> getNeighbours(int key) {
@@ -196,7 +207,9 @@ public class IncidenceMatrixGraph extends BaseGraph {
      * Finds the matrix column corresponding to a directed edge.
      *
      * @param start the public key of the starting vertex
+     *
      * @param end the public key of the ending vertex
+     *
      * @return the edge column index, or {@code -1} if the edge does not exist
      */
     private int findEdgeColumn(int start, int end) {
