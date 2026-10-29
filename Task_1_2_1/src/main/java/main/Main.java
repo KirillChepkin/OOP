@@ -1,13 +1,12 @@
 package main;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 import graph.Graph;
 import graph.GraphIO;
 import graph.GraphSorter;
 import graph.adjacency.lists.AdjacencyListsGraph;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 /**
  * Provides the entry point for reading and processing a directed graph.
