@@ -67,15 +67,11 @@ public final class GraphIO {
         }
     }
 
-    /**
-     * Replaces all vertices and edges. Malformed or invalid files do not change
-     * the supplied graph; parsing and validation finish before any mutations.
-     */
-    public static void readGraph(Graph graph, Path path) throws IOException {
-        Objects.requireNonNull(graph, "graph");
-        GraphData data = parse(path);
 
-        // Copy because deleteVertex changes the graph's collection of vertices.
+    public static void readGraph(Graph graph, BufferedReader reader) throws IOException {
+        Objects.requireNonNull(graph, "graph");
+        GraphData data = parse(reader);
+
         for (int key : new ArrayList<>(graph.getVertices())) {
             graph.deleteVertex(key);
         }
@@ -87,8 +83,7 @@ public final class GraphIO {
         }
     }
 
-    /** Writes vertices and edges in ascending order for a canonical format. */
-    public static void printGraph(Graph graph, Path path) throws IOException {
+    public static void printGraph(Graph graph, BufferedWriter writer) throws IOException {
         Objects.requireNonNull(graph, "graph");
         List<Integer> vertices = new ArrayList<>(graph.getVertices());
         Collections.sort(vertices);
@@ -111,73 +106,68 @@ public final class GraphIO {
             }
         }
         Collections.sort(edges);
-
-        try (BufferedWriter writer = Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
-            writer.write(Integer.toString(vertices.size()));
+        writer.write(Integer.toString(vertices.size()));
+        writer.write('\n');
+        for (int key : vertices) {
+            writer.write(Integer.toString(key));
             writer.write('\n');
-            for (int key : vertices) {
-                writer.write(Integer.toString(key));
-                writer.write('\n');
-            }
-            writer.write(Integer.toString(edges.size()));
+        }
+        writer.write(Integer.toString(edges.size()));
+        writer.write('\n');
+        for (Edge edge : edges) {
+            writer.write(Integer.toString(edge.getStart()));
+            writer.write(',');
+            writer.write(Integer.toString(edge.getEnd()));
             writer.write('\n');
-            for (Edge edge : edges) {
-                writer.write(Integer.toString(edge.getStart()));
-                writer.write(',');
-                writer.write(Integer.toString(edge.getEnd()));
-                writer.write('\n');
-            }
         }
     }
 
-    private static GraphData parse(Path path) throws IOException {
-        try (BufferedReader reader = Files.newBufferedReader(path, StandardCharsets.UTF_8)) {
-            int vertexCount = parseNonnegativeCount(reader.readLine(), "vertex count", 1);
-            List<Integer> vertices = new ArrayList<>();
-            Set<Integer> vertexKeys = new HashSet<>();
-            for (int i = 0; i < vertexCount; i++) {
-                int lineNumber = i + 2;
-                int key = parseInteger(reader.readLine(), "vertex key", lineNumber);
-                if (!vertexKeys.add(key)) {
-                    throw new IOException("Duplicate vertex key " + key + " on line " + lineNumber);
-                }
-                vertices.add(key);
+    private static GraphData parse(BufferedReader reader) throws IOException {
+        int vertexCount = parseNonnegativeCount(reader.readLine(), "vertex count", 1);
+        List<Integer> vertices = new ArrayList<>();
+        Set<Integer> vertexKeys = new HashSet<>();
+        for (int i = 0; i < vertexCount; i++) {
+            int lineNumber = i + 2;
+            int key = parseInteger(reader.readLine(), "vertex key", lineNumber);
+            if (!vertexKeys.add(key)) {
+                throw new IOException("Duplicate vertex key " + key + " on line " + lineNumber);
             }
-
-            int edgeCountLine = vertexCount + 2;
-            int edgeCount = parseNonnegativeCount(
-                    reader.readLine(), "edge count", edgeCountLine);
-            List<Edge> edges = new ArrayList<>();
-            Set<Edge> seen = new HashSet<>();
-            for (int i = 0; i < edgeCount; i++) {
-                int lineNumber = edgeCountLine + 1 + i;
-                String line = reader.readLine();
-                if (line == null) {
-                    throw new IOException("Missing edge on line " + lineNumber);
-                }
-                int comma = line.indexOf(',');
-                if (comma <= 0 || comma != line.lastIndexOf(',')
-                        || comma == line.length() - 1) {
-                    throw new IOException("Invalid edge on line " + lineNumber + ": " + line);
-                }
-                int start = parseInteger(line.substring(0, comma),
-                        "edge start", lineNumber);
-                int end = parseInteger(line.substring(comma + 1),
-                        "edge end", lineNumber);
-                if (!vertexKeys.contains(start) || !vertexKeys.contains(end)) {
-                    throw new IOException("Unknown edge endpoint on line " + lineNumber);
-                }
-                Edge edge = new Edge(start, end);
-                if (!seen.add(edge)) {
-                    throw new IOException("Duplicate edge on line " + lineNumber);
-                }
-                edges.add(edge);
-            }
-            if (reader.readLine() != null) {
-                throw new IOException("Unexpected extra line after declared edges");
-            }
-            return new GraphData(vertices, edges);
+            vertices.add(key);
         }
+
+        int edgeCountLine = vertexCount + 2;
+        int edgeCount = parseNonnegativeCount(
+                reader.readLine(), "edge count", edgeCountLine);
+        List<Edge> edges = new ArrayList<>();
+        Set<Edge> seen = new HashSet<>();
+        for (int i = 0; i < edgeCount; i++) {
+            int lineNumber = edgeCountLine + 1 + i;
+            String line = reader.readLine();
+            if (line == null) {
+                throw new IOException("Missing edge on line " + lineNumber);
+            }
+            int comma = line.indexOf(',');
+            if (comma <= 0 || comma != line.lastIndexOf(',')
+                    || comma == line.length() - 1) {
+                throw new IOException("Invalid edge on line " + lineNumber + ": " + line);
+            }
+            int start = parseInteger(line.substring(0, comma),
+                    "edge start", lineNumber);
+            int end = parseInteger(line.substring(comma + 1),
+                    "edge end", lineNumber);
+            if (!vertexKeys.contains(start) || !vertexKeys.contains(end)) {
+                throw new IOException("Unknown edge endpoint on line " + lineNumber);
+            }
+            Edge edge = new Edge(start, end);
+            if (!seen.add(edge)) {
+                throw new IOException("Duplicate edge on line " + lineNumber);
+            }
+            edges.add(edge);
+        }
+//        if (reader.readLine() != null) {
+//            throw new IOException("Unexpected extra line after declared edges");
+//        }
+        return new GraphData(vertices, edges);
     }
 
     private static int parseNonnegativeCount(String text, String what, int line)

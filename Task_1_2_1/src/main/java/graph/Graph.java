@@ -1,5 +1,9 @@
 package graph;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.List;
 
 /**
@@ -24,4 +28,12 @@ public interface Graph {
     boolean edgeExists(int start, int end);
 
     List<Integer> getNeighbours(int code);
+
+    default void readGraph(BufferedReader reader) throws IOException {
+        GraphIO.readGraph(this, reader);
+    }
+
+    default void printGraph(BufferedWriter writer) throws IOException {
+        GraphIO.printGraph(this, writer);
+    }
 }
