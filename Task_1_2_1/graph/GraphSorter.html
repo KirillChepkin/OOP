@@ -77,6 +77,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GraphSorter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Provides topological sorting algorithms for directed graphs.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -106,13 +107,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dfs(int)" class="member-name-link">dfs</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Performs a depth-first search starting from the specified vertex.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dfsSort(graph.Graph)" class="member-name-link">dfsSort</a><wbr>(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sorts the vertices using depth-first search.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#kahnSort(graph.Graph)" class="member-name-link">kahnSort</a><wbr>(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sorts the vertices using Kahn's algorithm.</div>
+</div>
 </div>
 </div>
 </div>
@@ -148,18 +155,39 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="kahnSort(graph.Graph)">
 <h3>kahnSort</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">kahnSort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph)</span></div>
+<div class="block">Sorts the vertices using Kahn's algorithm.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to sort</dd>
+<dt>Returns:</dt>
+<dd>a topological ordering, or <code>null</code> if the graph contains a cycle</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="dfsSort(graph.Graph)">
 <h3>dfsSort</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">dfsSort</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph)</span></div>
+<div class="block">Sorts the vertices using depth-first search.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to sort</dd>
+<dt>Returns:</dt>
+<dd>a topological ordering, or <code>null</code> if the graph contains a cycle</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="dfs(int)">
 <h3>dfs</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dfs</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Performs a depth-first search starting from the specified vertex.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key of the vertex to visit</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if a cycle is detected</dd>
+</dl>
 </section>
 </li>
 </ul>
