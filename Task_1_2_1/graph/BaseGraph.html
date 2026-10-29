@@ -86,6 +86,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">BaseGraph</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="Graph.html" title="interface in graph">Graph</a></span></div>
+<div class="block">Provides common vertex management functionality for graph implementations.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -133,30 +134,40 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertexCount()" class="member-name-link">getVertexCount</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the number of vertices in the graph.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVertices()" class="member-name-link">getVertices</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the public keys of all vertices in the graph.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registerVertex(int,int)" class="member-name-link">registerVertex</a><wbr>(int&nbsp;key,
  int&nbsp;code)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Registers a vertex and associates its public key with an internal code.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requireCode(int)" class="member-name-link">requireCode</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the internal code of an existing vertex.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unregisterAndCompact(int)" class="member-name-link">unregisterAndCompact</a><wbr>(int&nbsp;key)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">For dense-code representations: remove key, then shift higher codes down.</div>
+<div class="block">Unregisters a vertex and shifts higher internal codes down by one.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unregisterVertex(int)" class="member-name-link">unregisterVertex</a><wbr>(int&nbsp;key)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">For sparse-code representations such as adjacency lists.</div>
+<div class="block">Unregisters a vertex without compacting the remaining internal codes.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#vertexExists(int)" class="member-name-link">vertexExists</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether a vertex with the specified key exists.</div>
+</div>
 </div>
 </div>
 </div>
@@ -215,9 +226,12 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <section class="detail" id="getVertices()">
 <h3>getVertices</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">getVertices</span>()</div>
+<div class="block">Returns the public keys of all vertices in the graph.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#getVertices()">getVertices</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in graph">Graph</a></code></dd>
+<dt>Returns:</dt>
+<dd>a list of vertex keys</dd>
 </dl>
 </section>
 </li>
@@ -225,9 +239,12 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <section class="detail" id="getVertexCount()">
 <h3>getVertexCount</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getVertexCount</span>()</div>
+<div class="block">Returns the number of vertices in the graph.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#getVertexCount()">getVertexCount</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in graph">Graph</a></code></dd>
+<dt>Returns:</dt>
+<dd>the number of vertices</dd>
 </dl>
 </section>
 </li>
@@ -235,9 +252,14 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <section class="detail" id="vertexExists(int)">
 <h3>vertexExists</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">vertexExists</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Checks whether a vertex with the specified key exists.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Graph.html#vertexExists(int)">vertexExists</a></code>&nbsp;in interface&nbsp;<code><a href="Graph.html" title="interface in graph">Graph</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the vertex exists; otherwise, <code>false</code></dd>
 </dl>
 </section>
 </li>
@@ -245,6 +267,15 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <section class="detail" id="requireCode(int)">
 <h3>requireCode</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">requireCode</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Returns the internal code of an existing vertex.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex</dd>
+<dt>Returns:</dt>
+<dd>the internal vertex code</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -252,20 +283,38 @@ implements <a href="Graph.html" title="interface in graph">Graph</a></span></div
 <h3>registerVertex</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">registerVertex</span><wbr><span class="parameters">(int&nbsp;key,
  int&nbsp;code)</span></div>
+<div class="block">Registers a vertex and associates its public key with an internal code.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex</dd>
+<dd><code>code</code> - the internal code of the vertex</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if the key already exists</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="unregisterVertex(int)">
 <h3>unregisterVertex</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">unregisterVertex</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
-<div class="block">For sparse-code representations such as adjacency lists.</div>
+<div class="block">Unregisters a vertex without compacting the remaining internal codes.
+ Intended for sparse-code representations such as adjacency lists.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex to remove</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="unregisterAndCompact(int)">
 <h3>unregisterAndCompact</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">unregisterAndCompact</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
-<div class="block">For dense-code representations: remove key, then shift higher codes down.</div>
+<div class="block">Unregisters a vertex and shifts higher internal codes down by one.
+ Intended for dense-code representations such as adjacency matrices.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex to remove</dd>
+</dl>
 </section>
 </li>
 </ul>

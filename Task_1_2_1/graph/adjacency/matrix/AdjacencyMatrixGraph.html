@@ -83,7 +83,10 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AdjacencyMatrixGraph</span>
 <span class="extends-implements">extends <a href="../../BaseGraph.html" title="class in graph">BaseGraph</a></span></div>
-<div class="block">Directed adjacency matrix: row and column numbers are compact internal codes.</div>
+<div class="block">Represents a directed graph using an adjacency matrix.
+
+ <p>Rows and columns are indexed by compact internal vertex codes,
+ which are mapped to public vertex keys by <a href="../../BaseGraph.html" title="class in graph"><code>BaseGraph</code></a>.</p></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -123,29 +126,41 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEdge(int,int)" class="member-name-link">addEdge</a><wbr>(int&nbsp;start,
  int&nbsp;end)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a directed edge between two vertices.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addVertex(int)" class="member-name-link">addVertex</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds a vertex with the specified public key.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteEdge(int,int)" class="member-name-link">deleteEdge</a><wbr>(int&nbsp;start,
  int&nbsp;end)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes a directed edge between two vertices.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteVertex(int)" class="member-name-link">deleteVertex</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes a vertex and all edges connected to it.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#edgeExists(int,int)" class="member-name-link">edgeExists</a><wbr>(int&nbsp;start,
  int&nbsp;end)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether a directed edge exists between two vertices.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMatrix()" class="member-name-link">getMatrix</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Defensive snapshot; modifying it cannot corrupt the graph.</div>
+<div class="block">Returns an unmodifiable snapshot of the adjacency matrix.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbours(int)" class="member-name-link">getNeighbours</a><wbr>(int&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the outgoing neighbors of a vertex.</div>
+</div>
 </div>
 </div>
 </div>
@@ -187,19 +202,42 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getMatrix()">
 <h3>getMatrix</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&gt;</span>&nbsp;<span class="element-name">getMatrix</span>()</div>
-<div class="block">Defensive snapshot; modifying it cannot corrupt the graph.</div>
+<div class="block">Returns an unmodifiable snapshot of the adjacency matrix.
+
+ <p>Both the outer list and its rows are unmodifiable, so modifying
+ the returned matrix cannot change the graph.</p></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>an unmodifiable copy of the adjacency matrix</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="addVertex(int)">
 <h3>addVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">addVertex</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Adds a vertex with the specified public key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex</dd>
+<dt>Returns:</dt>
+<dd>the internal code assigned to the vertex</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if a vertex with this key already exists</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="deleteVertex(int)">
 <h3>deleteVertex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteVertex</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Removes a vertex and all edges connected to it.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex to remove</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -207,6 +245,14 @@ loadScripts(document, 'script');</script>
 <h3>addEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEdge</span><wbr><span class="parameters">(int&nbsp;start,
  int&nbsp;end)</span></div>
+<div class="block">Adds a directed edge between two vertices.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>start</code> - the public key of the starting vertex</dd>
+<dd><code>end</code> - the public key of the ending vertex</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if either vertex does not exist</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -214,6 +260,14 @@ loadScripts(document, 'script');</script>
 <h3>deleteEdge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteEdge</span><wbr><span class="parameters">(int&nbsp;start,
  int&nbsp;end)</span></div>
+<div class="block">Removes a directed edge between two vertices.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>start</code> - the public key of the starting vertex</dd>
+<dd><code>end</code> - the public key of the ending vertex</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if either vertex does not exist</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -221,12 +275,30 @@ loadScripts(document, 'script');</script>
 <h3>edgeExists</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">edgeExists</span><wbr><span class="parameters">(int&nbsp;start,
  int&nbsp;end)</span></div>
+<div class="block">Checks whether a directed edge exists between two vertices.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>start</code> - the public key of the starting vertex</dd>
+<dd><code>end</code> - the public key of the ending vertex</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if both vertices exist and the edge exists;
+         otherwise, <code>false</code></dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getNeighbours(int)">
 <h3>getNeighbours</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">getNeighbours</span><wbr><span class="parameters">(int&nbsp;key)</span></div>
+<div class="block">Returns the outgoing neighbors of a vertex.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the public key of the vertex</dd>
+<dt>Returns:</dt>
+<dd>a list of public keys of outgoing neighbors</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist</dd>
+</dl>
 </section>
 </li>
 </ul>
