@@ -217,7 +217,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns an unmodifiable snapshot of the incidence matrix.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>an unmodifiable copy of the matrix</dd>
+<dd>an unmodifiable copy of the matrix.</dd>
 </dl>
 </section>
 </li>
@@ -228,7 +228,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the public vertex keys in matrix row order.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>an unmodifiable list of vertex keys</dd>
+<dd>an unmodifiable list of vertex keys.</dd>
 </dl>
 </section>
 </li>
@@ -239,7 +239,7 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the edges in matrix column order.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>an unmodifiable snapshot of the edge list</dd>
+<dd>an unmodifiable snapshot of the edge list.</dd>
 </dl>
 </section>
 </li>
@@ -250,11 +250,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Adds a vertex with the specified public key.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>key</code> - the public key of the vertex</dd>
+<dd><code>key</code> - the public key of the vertex.</dd>
 <dt>Returns:</dt>
-<dd>the internal code assigned to the vertex</dd>
+<dd>the internal code assigned to the vertex.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if a vertex with this key already exists</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if a vertex with this key already exists.</dd>
 </dl>
 </section>
 </li>
@@ -265,9 +265,9 @@ loadScripts(document, 'script');</script>
 <div class="block">Removes a vertex and all edges incident to it.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>key</code> - the public key of the vertex to remove</dd>
+<dd><code>key</code> - the public key of the vertex to remove.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist.</dd>
 </dl>
 </section>
 </li>
@@ -281,10 +281,10 @@ loadScripts(document, 'script');</script>
  <p>If the edge already exists, the graph remains unchanged.</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>start</code> - the public key of the starting vertex</dd>
-<dd><code>end</code> - the public key of the ending vertex</dd>
+<dd><code>start</code> - the public key of the starting vertex.</dd>
+<dd><code>end</code> - the public key of the ending vertex.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if either vertex does not exist</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if either vertex does not exist.</dd>
 </dl>
 </section>
 </li>
@@ -296,8 +296,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Removes a directed edge between two vertices if it exists.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>start</code> - the public key of the starting vertex</dd>
-<dd><code>end</code> - the public key of the ending vertex</dd>
+<dd><code>start</code> - the public key of the starting vertex.</dd>
+<dd><code>end</code> - the public key of the ending vertex.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if either vertex does not exist</dd>
 </dl>
@@ -311,8 +311,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Checks whether a directed edge exists between two vertices.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>start</code> - the public key of the starting vertex</dd>
-<dd><code>end</code> - the public key of the ending vertex</dd>
+<dd><code>start</code> - the public key of the starting vertex.</dd>
+<dd><code>end</code> - the public key of the ending vertex.</dd>
 <dt>Returns:</dt>
 <dd><code>true</code> if both vertices exist and the edge exists;
          otherwise, <code>false</code></dd>
@@ -326,11 +326,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the outgoing neighbors of a vertex.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>key</code> - the public key of the vertex</dd>
+<dd><code>key</code> - the public key of the vertex.</dd>
 <dt>Returns:</dt>
-<dd>a list of public keys of outgoing neighbors</dd>
+<dd>a list of public keys of outgoing neighbors.</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist</dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/NoSuchElementException.html" title="class or interface in java.util" class="external-link">NoSuchElementException</a></code> - if the vertex does not exist.</dd>
 </dl>
 </section>
 </li>
