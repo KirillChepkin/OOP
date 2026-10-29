@@ -86,7 +86,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public static final class </span><span class="element-name type-name-label">GraphIO.Edge</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;<a href="GraphIO.Edge.html" title="class in graph">GraphIO.Edge</a>&gt;</span></div>
-<div class="block">The endpoints are public vertex KEYS, not implementation-specific codes.</div>
+<div class="block">Represents a directed edge using public vertex keys.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -100,7 +100,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int)" class="member-name-link">Edge</a><wbr>(int&nbsp;start,
  int&nbsp;end)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates an edge from one vertex to another.</div>
+</div>
 </div>
 </section>
 </li>
@@ -117,19 +119,29 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compareTo(graph.GraphIO.Edge)" class="member-name-link">compareTo</a><wbr>(<a href="GraphIO.Edge.html" title="class in graph">GraphIO.Edge</a>&nbsp;other)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Compares edges by their starting keys and then their ending keys.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether another object represents the same directed edge.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnd()" class="member-name-link">getEnd</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the key of the ending vertex.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStart()" class="member-name-link">getStart</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the key of the starting vertex.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns a hash code based on the endpoint keys.</div>
+</div>
 </div>
 </div>
 </div>
@@ -152,6 +164,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3>Edge</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Edge</span><wbr><span class="parameters">(int&nbsp;start,
  int&nbsp;end)</span></div>
+<div class="block">Creates an edge from one vertex to another.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>start</code> - the key of the starting vertex</dd>
+<dd><code>end</code> - the key of the ending vertex</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -166,21 +184,36 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="getStart()">
 <h3>getStart</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStart</span>()</div>
+<div class="block">Returns the key of the starting vertex.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the starting vertex key</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getEnd()">
 <h3>getEnd</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getEnd</span>()</div>
+<div class="block">Returns the key of the ending vertex.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the ending vertex key</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="compareTo(graph.GraphIO.Edge)">
 <h3>compareTo</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">compareTo</span><wbr><span class="parameters">(<a href="GraphIO.Edge.html" title="class in graph">GraphIO.Edge</a>&nbsp;other)</span></div>
+<div class="block">Compares edges by their starting keys and then their ending keys.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html#compareTo(T)" title="class or interface in java.lang" class="external-link">compareTo</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;<a href="GraphIO.Edge.html" title="class in graph">GraphIO.Edge</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>other</code> - the edge to compare with</dd>
+<dt>Returns:</dt>
+<dd>a negative integer, zero, or a positive integer</dd>
 </dl>
 </section>
 </li>
@@ -188,9 +221,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;object)</span></div>
+<div class="block">Checks whether another object represents the same directed edge.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>object</code> - the object to compare with</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if both endpoints are equal; otherwise, <code>false</code></dd>
 </dl>
 </section>
 </li>
@@ -198,9 +236,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="hashCode()">
 <h3>hashCode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">hashCode</span>()</div>
+<div class="block">Returns a hash code based on the endpoint keys.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+<dt>Returns:</dt>
+<dd>the hash code of this edge</dd>
 </dl>
 </section>
 </li>

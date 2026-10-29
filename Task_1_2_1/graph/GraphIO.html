@@ -77,7 +77,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public final class </span><span class="element-name type-name-label">GraphIO</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">Common file format for directed graphs whose vertices have integer keys.</div>
+<div class="block">Provides file input and output for directed graphs with integer vertex keys.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -93,7 +93,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="GraphIO.Edge.html" class="type-name-link" title="class in graph">GraphIO.Edge</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The endpoints are public vertex KEYS, not implementation-specific codes.</div>
+<div class="block">Represents a directed edge using public vertex keys.</div>
 </div>
 </div>
 </section>
@@ -112,11 +112,15 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#printGraph(graph.Graph,java.io.BufferedWriter)" class="member-name-link">printGraph</a><wbr>(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html" title="class or interface in java.io" class="external-link">BufferedWriter</a>&nbsp;writer)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Writes a graph to a writer in the established graph file format.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readGraph(graph.Graph,java.io.BufferedReader)" class="member-name-link">readGraph</a><wbr>(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html" title="class or interface in java.io" class="external-link">BufferedReader</a>&nbsp;reader)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Replaces the contents of a graph with data read from a reader.</div>
+</div>
 </div>
 </div>
 </div>
@@ -140,9 +144,16 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readGraph</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedReader.html" title="class or interface in java.io" class="external-link">BufferedReader</a>&nbsp;reader)</span>
                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Replaces the contents of a graph with data read from a reader.
+
+ <p>The reader must contain the vertex count, vertex keys, edge count,
+ and directed edges in the established graph file format.</p></div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to populate</dd>
+<dd><code>reader</code> - the source of graph data</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the input is invalid or cannot be read</dd>
 </dl>
 </section>
 </li>
@@ -152,9 +163,15 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">printGraph</span><wbr><span class="parameters">(<a href="Graph.html" title="interface in graph">Graph</a>&nbsp;graph,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/BufferedWriter.html" title="class or interface in java.io" class="external-link">BufferedWriter</a>&nbsp;writer)</span>
                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Writes a graph to a writer in the established graph file format.
+
+ <p>Vertices and edges are written in sorted order.</p></div>
 <dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>graph</code> - the graph to write</dd>
+<dd><code>writer</code> - the destination for graph data</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if the graph contains inconsistent data or writing fails</dd>
 </dl>
 </section>
 </li>
