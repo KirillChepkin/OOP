@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Operation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Task_1_1_3</a> &gt; <a href="index.source.html" class="el_package">org.expression</a> &gt; <span class="el_source">Operation.java</span></div><h1>Operation.java</h1><pre class="source lang-java linenums">package org.expression;
+
+/**
+ * This abstract class provides common attributes and methods that are used in all binary
+ * operations implemented in the package.
+ */
+public abstract class Operation extends Expression {
+    private final Expression left;
+
+    /**
+     * getter for a left operand.
+     *
+     * @return an operand.
+     */
+    public Expression getLeft() {
+<span class="fc" id="L16">        return this.left;</span>
+    }
+
+    private final Expression right;
+
+    /**
+     * getter for a right operand.
+     *
+     * @return an operand.
+     */
+    public Expression getRight() {
+<span class="fc" id="L27">        return this.right;</span>
+    }
+
+    /**
+     * Common object constructor for operations.
+     *
+     * @param left left operand of type Expression.
+     *
+     * @param right right operand of type Expression.
+     */
+<span class="fc" id="L37">    public Operation(Expression left, Expression right) {</span>
+<span class="fc" id="L38">        this.left = left;</span>
+<span class="fc" id="L39">        this.right = right;</span>
+<span class="fc" id="L40">    }</span>
+
+    @Override
+    public String toString() {
+<span class="fc" id="L44">        return this.getClass().getSimpleName() + &quot;(&quot; + this.getLeft() + &quot;, &quot; + this.getRight()</span>
+                + &quot;)&quot;;
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.14.202510111229</span></div></body></html>

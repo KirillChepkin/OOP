@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="21684be0-3dd0-462f-bad7-ef6bd04d56af" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Task_1_1_3" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KirillChepkin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KirillChepkin/OOP&quot;,
+    &quot;accountId&quot;: &quot;5a496c1b-a36e-4b33-843f-194c1fb877a6&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="7.221273752977837E-219" />
+      <entry key="MS500" value="2.7630774898800553E-44" />
+      <entry key="S2" value="4.834129508318846E-11" />
+      <entry key="S5" value="3.0002598475306304E-4" />
+      <entry key="S10" value="0.06826026201519098" />
+      <entry key="S30" value="3.190003067024057" />
+      <entry key="S60" value="8.796810137660977" />
+      <entry key="M2" value="15.847284632056601" />
+      <entry key="M5" value="30.72656856717708" />
+      <entry key="M10" value="48.239091339410926" />
+      <entry key="M15" value="59.79082720614021" />
+      <entry key="M30" value="80.92082535577273" />
+      <entry key="H1" value="127.30578700203232" />
+      <entry key="H2" value="248.21672882710476" />
+      <entry key="H4" value="487.813470882843" />
+      <entry key="D1" value="1880.5503675310688" />
+      <entry key="W1" value="3036.164113814819" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0000000000046856" />
+      <entry key="M10" value="1.0000107710750217" />
+      <entry key="M15" value="1.001552874477694" />
+      <entry key="M30" value="1.2499068639150284" />
+      <entry key="H1" value="4.54662278743888" />
+      <entry key="H2" value="16.96365105256451" />
+      <entry key="H4" value="44.26624811381541" />
+      <entry key="D1" value="193.81915154226488" />
+      <entry key="W1" value="307.18261107894836" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="5.726733150546282E-4" />
+      <entry key="MS500" value="0.22468878165275744" />
+      <entry key="S2" value="0.6884863706917483" />
+      <entry key="S5" value="0.8616044503483006" />
+      <entry key="S10" value="0.9960910715160647" />
+      <entry key="S30" value="4.162941066908681" />
+      <entry key="S60" value="9.781418771561608" />
+      <entry key="M2" value="16.83865910185363" />
+      <entry key="M5" value="31.722685062327407" />
+      <entry key="M10" value="49.23699933893085" />
+      <entry key="M15" value="60.79091389957852" />
+      <entry key="M30" value="82.16966595765393" />
+      <entry key="H1" value="131.84967642560503" />
+      <entry key="H2" value="265.1735767967491" />
+      <entry key="H4" value="532.0690381378392" />
+      <entry key="D1" value="2074.360973700838" />
+      <entry key="W1" value="3343.3448082607074" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3L5Cyj64suEEbhoXJLB94luxflt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.GraphContractTest.arbitraryIntegerKeys.executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.Task_1_2_1 [:main.Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;#4 on Task__1__2__1&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph/adjacency/lists&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kirillchepkin/Desktop/OOP_2026/OOP/Task_1_2_1/src/test/java/graph&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.jshint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.jshint&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/java/graph" />
+      <recent name="$PROJECT_DIR$/src/test/java/graph/adjacency/lists" />
+      <recent name="$PROJECT_DIR$/src/test/java/graph/incidence" />
+      <recent name="$PROJECT_DIR$/src/main/java/graph/incidence" />
+      <recent name="$PROJECT_DIR$/src/main/java/graph/adjacency/matrix" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java/AdjacencyLists" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="Task_1_1_3.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GraphContractTest.arbitraryIntegerKeys" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;graph.GraphContractTest.arbitraryIntegerKeys&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.GraphContractTest.arbitraryIntegerKeys" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="21684be0-3dd0-462f-bad7-ef6bd04d56af" name="Changes" comment="" />
+      <created>1792734800763</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1792734800763</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
