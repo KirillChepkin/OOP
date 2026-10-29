@@ -3,7 +3,6 @@ package graph;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,9 +11,8 @@ import java.io.StringReader;
 import java.io.StringWriter;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 import graph.adjacency.lists.AdjacencyListsGraph;
+import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 /**
