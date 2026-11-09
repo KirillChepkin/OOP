@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.exception.ExceptionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-10-15T15:59:11.506Z" hostname="MacBook-Air-Kirill-2.local" time="0.032">
+  <properties/>
+  <testcase name="expectedVariableNameIncludesToken()" classname="org.exception.ExceptionTest" time="0.017"/>
+  <testcase name="unassignedVariablePreservesMessage()" classname="org.exception.ExceptionTest" time="0.003"/>
+  <testcase name="expectedDoubleValueIncludesToken()" classname="org.exception.ExceptionTest" time="0.001"/>
+  <testcase name="zeroDenominatorPreservesMessage()" classname="org.exception.ExceptionTest" time="0.001"/>
+  <testcase name="invalidPieceOfExpressionPreservesMessage()" classname="org.exception.ExceptionTest" time="0.001"/>
+  <testcase name="expectedEqualsSignIncludesToken()" classname="org.exception.ExceptionTest" time="0.0"/>
+  <testcase name="invalidArithmeticExpressionPreservesMessage()" classname="org.exception.ExceptionTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

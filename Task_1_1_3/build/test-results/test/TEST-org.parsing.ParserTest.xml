@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.parsing.ParserTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2026-10-15T15:59:11.556Z" hostname="MacBook-Air-Kirill-2.local" time="0.014">
+  <properties/>
+  <testcase name="parsesNestedParentheses()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesDivision()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="operatorAndOperandStacksAreEmptyAfterSuccessfulParsing()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parenthesesOverridePrecedence()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="rejectsExpressionContainingInvalidCharacters()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesSubtraction()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parsesAssignmentWithWhitespace()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parseExpressionTokensSeparatesNumbersVariablesAndOperators()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesAssignmentWithMultipleVariables()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="storesTokensAfterParsing()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="assignmentWithoutNumericValueThrowsException()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="rejectsExpressionWithExtraOperand()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesVariable()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parsesAddition()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="assignmentWithoutEqualsSignThrowsException()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesIntegerAndDecimalAssignmentValues()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parsesMultiplication()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="parsesExpressionWithVariables()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parsedExpressionCanBeDifferentiated()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="assignmentWithoutVariableNameThrowsException()" classname="org.parsing.ParserTest" time="0.0"/>
+  <testcase name="multiplicationHasHigherPrecedenceThanAddition()" classname="org.parsing.ParserTest" time="0.001"/>
+  <testcase name="parsesNumber()" classname="org.parsing.ParserTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
