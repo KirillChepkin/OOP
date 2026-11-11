@@ -2,10 +2,12 @@ package hash_table;
 
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NonNull;
+
 import java.util.Objects;
 
 public class Entry<K, V> {
-    Entry(K key, V value, int keyHash) {
+    Entry(@NonNull K key, V value, int keyHash) {
         this.key = key;
         this.value = value;
         this.keyHash = keyHash;
@@ -38,7 +40,7 @@ public class Entry<K, V> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, value);
+        return Objects.hash(key, value, keyHash);
     }
 
 

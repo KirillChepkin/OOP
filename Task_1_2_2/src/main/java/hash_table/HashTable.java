@@ -1,5 +1,6 @@
 package hash_table;
 
+import lombok.NonNull;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
@@ -23,7 +24,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
 //
 //    }
 
-    @NotNull()
+    @NotNull
     @Override
     public Iterator<Entry<K, V>> iterator() {
         return new HashTableIterator();
@@ -59,7 +60,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         }
     }
 
-    public V put(K key, V value) {
+    public V put(@NonNull K key, V value) {
         int keyHash = key.hashCode();
         int bucket = Math.floorMod(keyHash, buckets.length);
         V previous = null;
@@ -83,7 +84,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return previous;
     }
 
-    public V remove(K key) {
+    public V remove(@NonNull K key) {
         int keyHash = key.hashCode();
         int bucket = Math.floorMod(keyHash, buckets.length);
         V value = null;
@@ -102,7 +103,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return value;
     }
 
-    public V get(K key) {
+    public V get(@NonNull K key) {
         int keyHash = key.hashCode();
         int bucket = Math.floorMod(keyHash, buckets.length);
         V value = null;
@@ -116,7 +117,7 @@ public class HashTable<K, V> implements Iterable<Entry<K, V>> {
         return value;
     }
 
-    public boolean containsKey(K key) {
+    public boolean containsKey(@NonNull K key) {
         int keyHash = key.hashCode();
         int bucket = Math.floorMod(keyHash, buckets.length);
         boolean contains = false;
