@@ -1,1 +1,1 @@
-typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"hash_table","l":"Entry"},{"p":"hash_table","l":"HashTable"},{"p":"<Unnamed>","l":"Main"}];updateSearchResults();
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"hashtable","l":"Entry"},{"p":"hashtable","l":"HashTable"},{"p":"<Unnamed>","l":"Main"}];updateSearchResults();
