@@ -1,12 +1,23 @@
+
 package hashtable;
+
+import java.util.Objects;
 
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 
-import java.util.Objects;
-
+/**
+ * Represents a key-value pair stored in a hash table.
+ *
+ * @param <K> the type of the key
+ * @param <V> the type of the value
+ */
 public class Entry<K, V> {
+    private final K key;
+    private final V value;
+    private final int keyHash;
+
     Entry(@NonNull K key, @NonNull V value, int keyHash) {
         this.key = key;
         this.value = value;
@@ -14,11 +25,19 @@ public class Entry<K, V> {
     }
 
     @Getter
-    private final K key;
+    public K getKey() {
+        return key;
+    }
+
     @Getter
-    private final V value;
+    public V getValue() {
+        return value;
+    }
+
     @Getter(AccessLevel.PACKAGE)
-    private final int keyHash;
+    public int getKeyHash() {
+        return keyHash;
+    }
 
     @Override
     public boolean equals(Object obj) {

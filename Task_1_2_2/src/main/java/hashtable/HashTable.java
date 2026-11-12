@@ -7,7 +7,6 @@ import java.util.LinkedList;
 import java.util.ListIterator;
 import java.util.NoSuchElementException;
 import java.util.Objects;
-
 import lombok.Getter;
 import lombok.NonNull;
 import org.jetbrains.annotations.NotNull;
