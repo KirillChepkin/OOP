@@ -75,6 +75,11 @@ loadScripts(document, 'script');</script>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>K</code> - the type of keys</dd>
+<dd><code>V</code> - the type of values</dd>
+</dl>
+<dl class="notes">
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="Entry.html" title="class in hashtable">Entry</a>&lt;K,<wbr>V&gt;&gt;</code></dd>
 </dl>
@@ -82,6 +87,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">HashTable&lt;K,<wbr>V&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="Entry.html" title="class in hashtable">Entry</a>&lt;K,<wbr>V&gt;&gt;</span></div>
+<div class="block">A generic hash table implementation using separate chaining
+ to resolve hash collisions.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,7 +101,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">HashTable</a>()</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Creates an empty hash table.</div>
+</div>
 </div>
 </section>
 </li>
@@ -111,13 +120,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#containsKey(K)" class="member-name-link">containsKey</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks whether the hash table contains the specified key.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;obj)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashTable.html" title="type parameter in HashTable">V</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(K)" class="member-name-link">get</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Retrieves the value associated with the specified key.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -127,10 +140,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashTable.html" title="type parameter in HashTable">V</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#put(K,V)" class="member-name-link">put</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts a key-value pair or replaces the value associated with an existing key.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="HashTable.html" title="type parameter in HashTable">V</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(K)" class="member-name-link">remove</a><wbr>(<a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Removes the entry associated with the specified key.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -158,6 +175,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="&lt;init&gt;()">
 <h3>HashTable</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">HashTable</span>()</div>
+<div class="block">Creates an empty hash table.</div>
 </section>
 </li>
 </ul>
@@ -186,6 +204,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
  <a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key,
  @NonNull
  <a href="HashTable.html" title="type parameter in HashTable">V</a>&nbsp;value)</span></div>
+<div class="block">Inserts a key-value pair or replaces the value associated with an existing key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key</dd>
+<dd><code>value</code> - the value</dd>
+<dt>Returns:</dt>
+<dd>the previous value associated with the key, or null if it was absent</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -193,6 +219,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3 id="remove(java.lang.Object)">remove</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashTable.html" title="type parameter in HashTable">V</a></span>&nbsp;<span class="element-name">remove</span><wbr><span class="parameters">(@NonNull
  <a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</span></div>
+<div class="block">Removes the entry associated with the specified key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key to remove</dd>
+<dt>Returns:</dt>
+<dd>the removed value, or null if the key was absent</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -200,6 +233,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3 id="get(java.lang.Object)">get</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="HashTable.html" title="type parameter in HashTable">V</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(@NonNull
  <a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</span></div>
+<div class="block">Retrieves the value associated with the specified key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key to search for</dd>
+<dt>Returns:</dt>
+<dd>the associated value, or null if the key was absent</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -207,6 +247,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h3 id="containsKey(java.lang.Object)">containsKey</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">containsKey</span><wbr><span class="parameters">(@NonNull
  <a href="HashTable.html" title="type parameter in HashTable">K</a>&nbsp;key)</span></div>
+<div class="block">Checks whether the hash table contains the specified key.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>key</code> - the key to search for</dd>
+<dt>Returns:</dt>
+<dd>true if the key exists, false otherwise</dd>
+</dl>
 </section>
 </li>
 <li>
