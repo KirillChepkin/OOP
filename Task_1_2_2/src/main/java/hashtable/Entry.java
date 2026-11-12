@@ -1,4 +1,4 @@
-package hash_table;
+package hashtable;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -7,7 +7,7 @@ import lombok.NonNull;
 import java.util.Objects;
 
 public class Entry<K, V> {
-    Entry(@NonNull K key, V value, int keyHash) {
+    Entry(@NonNull K key, @NonNull V value, int keyHash) {
         this.key = key;
         this.value = value;
         this.keyHash = keyHash;
@@ -30,24 +30,26 @@ public class Entry<K, V> {
             return false;
         }
 
-        Entry<K, V> entry = (Entry) obj;
+        Entry<?, ?> entry = (Entry<?, ?>) obj;
 
-        if (entry.keyHash != keyHash) {
-            return false;
-        }
-        return Objects.equals(entry.key, key) && Objects.equals(entry.value, value);
+        return Objects.equals(key, entry.key)
+                && Objects.equals(value, entry.value);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(key, value, keyHash);
+        return Objects.hash(key, value);
     }
 
-
-    boolean keyEquals(Entry<K, V> entry) {
-        if (entry.keyHash != this.keyHash) {
+    boolean keyEquals(@NonNull K key, int keyHash) {
+        if (keyHash != this.keyHash) {
             return false;
         }
-        return this.key.equals(entry.key);
+        return this.key.equals(key);
+    }
+
+    @Override
+    public String toString() {
+        return key + "=" + value;
     }
 }
