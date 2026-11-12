@@ -1,8 +1,6 @@
-
 package hashtable;
 
 import java.util.Objects;
-
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -14,29 +12,17 @@ import lombok.NonNull;
  * @param <V> the type of the value
  */
 public class Entry<K, V> {
+    @Getter
     private final K key;
+    @Getter
     private final V value;
+    @Getter(AccessLevel.PACKAGE)
     private final int keyHash;
 
     Entry(@NonNull K key, @NonNull V value, int keyHash) {
         this.key = key;
         this.value = value;
         this.keyHash = keyHash;
-    }
-
-    @Getter
-    public K getKey() {
-        return key;
-    }
-
-    @Getter
-    public V getValue() {
-        return value;
-    }
-
-    @Getter(AccessLevel.PACKAGE)
-    public int getKeyHash() {
-        return keyHash;
     }
 
     @Override
