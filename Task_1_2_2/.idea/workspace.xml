@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9cd4e66b-8eed-475a-8d5c-e07de568bbd6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_3_1/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Task_1_3_1/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hashtable/Entry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/hashtable/HashTable.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hashtable/EntryTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hashtable/HashTableTest.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;KirillChepkin&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/KirillChepkin/OOP&quot;,
+    &quot;accountId&quot;: &quot;5a496c1b-a36e-4b33-843f-194c1fb877a6&quot;
+  }
+}</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.6933520899980026" />
+      <entry key="MS500" value="2.6814188293028915" />
+      <entry key="S2" value="5.407839489399843" />
+      <entry key="S5" value="8.325282327049441" />
+      <entry key="S10" value="10.178254450669613" />
+      <entry key="S30" value="14.958669096953027" />
+      <entry key="S60" value="19.323806512387115" />
+      <entry key="M2" value="27.444642322357907" />
+      <entry key="M5" value="52.45256154290934" />
+      <entry key="M10" value="78.43637812574619" />
+      <entry key="M15" value="92.66054681525112" />
+      <entry key="M30" value="112.59289907540814" />
+      <entry key="H1" value="137.10142423171658" />
+      <entry key="H2" value="188.5128521597334" />
+      <entry key="H4" value="282.51212465079425" />
+      <entry key="D1" value="858.7161375605568" />
+      <entry key="W1" value="1239.1121232814098" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="1.0580103429166121E-168" />
+      <entry key="S2" value="1.1939967210706062E-42" />
+      <entry key="S5" value="2.391983273528923E-17" />
+      <entry key="S10" value="6.817509364896587E-9" />
+      <entry key="S30" value="0.003000065273232019" />
+      <entry key="S60" value="0.077428409426382" />
+      <entry key="M2" value="0.39347770632173584" />
+      <entry key="M5" value="1.0436989324715416" />
+      <entry key="M10" value="1.4447783090075812" />
+      <entry key="M15" value="1.6103455156612256" />
+      <entry key="M30" value="1.8445633870379037" />
+      <entry key="H1" value="3.4925260965205056" />
+      <entry key="H2" value="11.998684583420749" />
+      <entry key="H4" value="30.05596826324983" />
+      <entry key="D1" value="131.31696104647585" />
+      <entry key="W1" value="198.6959211646215" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.6274954223014955" />
+      <entry key="MS500" value="2.661164422984363" />
+      <entry key="S2" value="5.39543904131007" />
+      <entry key="S5" value="8.316742574982383" />
+      <entry key="S10" value="10.172822782548002" />
+      <entry key="S30" value="14.958885477833023" />
+      <entry key="S60" value="19.398868447416163" />
+      <entry key="M2" value="27.83539104604507" />
+      <entry key="M5" value="53.49379015914438" />
+      <entry key="M10" value="79.87941738399485" />
+      <entry key="M15" value="94.2695756912024" />
+      <entry key="M30" value="114.43660318775808" />
+      <entry key="H1" value="140.59213324078405" />
+      <entry key="H2" value="200.5071070977491" />
+      <entry key="H4" value="312.5621658539827" />
+      <entry key="D1" value="990.0284439148703" />
+      <entry key="W1" value="1437.8070216879853" />
+    </decayedShown>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7,
+  &quot;fromUser&quot;: false
+}</component>
+  <component name="ProjectId" id="3LrpIQPOPKTxMnXmBlJbJyCxhev" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Gradle.EntryTest.keyEqualsHandlesNullKeys.executor": "Debug",
+    "Gradle.HashTableTest.equalsHandlesDifferentValueTypesInCollisionBucket.executor": "Debug",
+    "Gradle.Task_1_2_2 [:Main.main()].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "Task__1__3__1",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "to.speed.mode.migration.done": "true"
+  }
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Task_1_2_2.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EntryTest.keyEqualsHandlesNullKeys" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hash_table.EntryTest.keyEqualsHandlesNullKeys&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="HashTableTest.equalsHandlesDifferentValueTypesInCollisionBucket" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;hash_table.HashTableTest.equalsHandlesDifferentValueTypesInCollisionBucket&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.HashTableTest.equalsHandlesDifferentValueTypesInCollisionBucket" />
+        <item itemvalue="Gradle.EntryTest.keyEqualsHandlesNullKeys" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-a203e0a19954-intellij.indexing.shared.core-IU-262.10315.125" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.10315.125" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9cd4e66b-8eed-475a-8d5c-e07de568bbd6" name="Changes" comment="" />
+      <created>1794221967917</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1794221967917</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
