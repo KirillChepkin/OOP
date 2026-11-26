@@ -3,81 +3,152 @@ import lombok.Getter;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
-public class SubstringFinder {
+public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
+
     @Getter
     private final int chunkSize = 8192;
+
     private final byte[] fileChunk = new byte[chunkSize];
-    private final List<Long> byteIndices = new ArrayList<>();
-    private byte[] subarray = {};
+
+    private InputStream stream;
+    private byte[] pattern;
     private int[] failureFunction;
-    private int occurrencePrefixLength = 0;
-    private long chunkStart = 0;
+
+    private int occurrencePrefixLength;
+    private int bufferPosition;
     private int bytesObtained;
 
-    public List<Long> findOccurrences(InputStream stream, String substring)
+    private long bytePosition;
+    private long nextOccurrence;
+
+    private boolean nextReady;
+    private boolean exhausted;
+    private boolean initialized;
+
+    public boolean findFirstOccurrence(InputStream stream, String substring)
             throws IOException {
+        if (stream == null) {
+            throw new IllegalArgumentException("InputStream must not be null");
+        }
         if (substring == null || substring.isEmpty()) {
-            throw new IllegalArgumentException(
-                    "Substring must not be empty"
-            );
+            throw new IllegalArgumentException("Substring must not be empty");
         }
-        subarray = substring.getBytes(StandardCharsets.UTF_8);
+
+        this.stream = stream;
+        pattern = substring.getBytes(StandardCharsets.UTF_8);
+        failureFunction = calculateFailureFunction();
+
         occurrencePrefixLength = 0;
-        chunkStart = 0;
-        byteIndices.clear();
-        bytesObtained = stream.read(fileChunk);
-        if (bytesObtained == -1) {
-            return new ArrayList<>();
-        }
-        searchSubarray(stream);
-        return new ArrayList<>(byteIndices);
+        bufferPosition = 0;
+        bytesObtained = 0;
+        bytePosition = 0;
+
+        nextReady = false;
+        exhausted = false;
+        initialized = true;
+
+        return advanceToNextOccurrence();
     }
 
-    private void searchSubarray(InputStream stream) throws IOException {
-        precomputeFailureFunction();
-        do {
-            searchInChunk();
-            chunkStart += bytesObtained;
-            bytesObtained = stream.read(fileChunk);
-        } while (bytesObtained != -1);
-    }
+    private int[] calculateFailureFunction() {
+        int[] failure = new int[pattern.length];
 
-    private void precomputeFailureFunction() {
-        failureFunction = new int[subarray.length];
-        for (int i = 1; i < subarray.length; i++) {
-            int k = failureFunction[i - 1];
-            while (k > 0 && subarray[k] != subarray[i]) {
-                k = failureFunction[k - 1];
+        for (int i = 1; i < pattern.length; i++) {
+            int k = failure[i - 1];
+            while (k > 0 && pattern[k] != pattern[i]) {
+                k = failure[k - 1];
             }
-            if (subarray[k] == subarray[i]) {
+            if (pattern[k] == pattern[i]) {
                 k++;
             }
-            failureFunction[i] = k;
+            failure[i] = k;
+        }
+
+        return failure;
+    }
+
+    private boolean advanceToNextOccurrence() throws IOException {
+        nextReady = false;
+
+        while (true) {
+            if (bufferPosition >= bytesObtained) {
+                bytesObtained = stream.read(fileChunk);
+                bufferPosition = 0;
+
+                if (bytesObtained == -1) {
+                    exhausted = true;
+                    return false;
+                }
+                if (bytesObtained == 0) {
+                    continue;
+                }
+            }
+
+            byte currentByte = fileChunk[bufferPosition++];
+
+            while (occurrencePrefixLength > 0
+                    && currentByte != pattern[occurrencePrefixLength]) {
+                occurrencePrefixLength =
+                        failureFunction[occurrencePrefixLength - 1];
+            }
+            if (currentByte == pattern[occurrencePrefixLength]) {
+                occurrencePrefixLength++;
+            }
+
+            long currentPosition = bytePosition++;
+
+            if (occurrencePrefixLength == pattern.length) {
+                nextOccurrence = currentPosition - pattern.length + 1;
+                occurrencePrefixLength =
+                        failureFunction[occurrencePrefixLength - 1];
+                nextReady = true;
+                return true;
+            }
         }
     }
 
-    private void searchInChunk() {
-        for (int i = 0; i < bytesObtained; i++) {
-            while (occurrencePrefixLength > 0
-                    && fileChunk[i] != subarray[occurrencePrefixLength]) {
-
-                occurrencePrefixLength =
-                        failureFunction[occurrencePrefixLength - 1];
-            }
-            if (fileChunk[i] == subarray[occurrencePrefixLength]) {
-                occurrencePrefixLength++;
-            }
-            if (occurrencePrefixLength == subarray.length) {
-                byteIndices.add(
-                        chunkStart + i - occurrencePrefixLength + 1
-                );
-                occurrencePrefixLength =
-                        failureFunction[occurrencePrefixLength - 1];
-            }
+    @Override
+    public boolean hasNext() {
+        if (!initialized) {
+            throw new IllegalStateException(
+                    "Call findFirstOccurrence() before iterating"
+            );
         }
+        if (nextReady) {
+            return true;
+        }
+        if (exhausted) {
+            return false;
+        }
+
+        try {
+            return advanceToNextOccurrence();
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    }
+
+    @Override
+    public Long next() {
+        if (!hasNext()) {
+            throw new NoSuchElementException();
+        }
+        nextReady = false;
+        return nextOccurrence;
+    }
+
+    @Override
+    public Iterator<Long> iterator() {
+        if (!initialized) {
+            throw new IllegalStateException(
+                    "Call findFirstOccurrence() before iterating"
+            );
+        }
+        return this;
     }
 }
