@@ -1,173 +1,259 @@
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 import java.util.NoSuchElementException;
 
-import lombok.Getter;
+import org.junit.jupiter.api.Test;
 
-/**
- * Searches for occurrences of a substring in an input stream using the KMP algorithm.
- * The search is performed in chunks, so the entire input does not need to be loaded into memory.
- */
-public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-    @Getter
-    private final int chunkSize = 8192;
-    private final byte[] fileChunk = new byte[chunkSize];
+class SubstringFinderTest {
 
-    private InputStream stream;
-    private byte[] pattern;
-    private int[] failureFunction;
+    @Test
+    void findsFirstOccurrence() throws IOException {
+        ByteArrayInputStream stream = inputStream("XXABCYY");
+        SubstringFinder finder = new SubstringFinder();
 
-    private int occurrencePrefixLength;
-    private int bufferPosition;
-    private int bytesObtained;
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
+        assertEquals(2L, finder.next());
+        assertFalse(finder.hasNext());
+    }
 
-    private long bytePosition;
-    private long nextOccurrence;
+    @Test
+    void returnsFalseWhenSubstringIsAbsent() throws IOException {
+        ByteArrayInputStream stream = inputStream("ABCDEFG");
+        SubstringFinder finder = new SubstringFinder();
 
-    private boolean nextReady;
-    private boolean exhausted;
-    private boolean initialized;
+        assertFalse(finder.findFirstOccurrence(stream, "XYZ"));
+        assertFalse(finder.hasNext());
+    }
 
-    /**
-     * Initializes the search and finds the first occurrence of the specified substring.
-     *
-     * @param stream input stream to search
-     * @param substring substring to find
-     * @return true if at least one occurrence was found, false otherwise
-     * @throws IOException if an I/O error occurs while reading the stream
-     */
-    public boolean findFirstOccurrence(InputStream stream, String substring)
+    @Test
+    void returnsFalseForEmptyInputStream() throws IOException {
+        ByteArrayInputStream stream = inputStream("");
+        SubstringFinder finder = new SubstringFinder();
+
+        assertFalse(finder.findFirstOccurrence(stream, "ABC"));
+        assertFalse(finder.hasNext());
+    }
+
+    @Test
+    void findsMultipleOccurrences() throws IOException {
+        ByteArrayInputStream stream = inputStream("ABCXXABCYYABC");
+        SubstringFinder finder = new SubstringFinder();
+
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
+
+        assertEquals(
+                List.of(0L, 5L, 10L),
+                collectOccurrences(finder)
+        );
+    }
+
+    @Test
+    void findsOverlappingOccurrences() throws IOException {
+        ByteArrayInputStream stream = inputStream("AAAAA");
+        SubstringFinder finder = new SubstringFinder();
+
+        assertTrue(finder.findFirstOccurrence(stream, "AAA"));
+
+        assertEquals(
+                List.of(0L, 1L, 2L),
+                collectOccurrences(finder)
+        );
+    }
+
+    @Test
+    void findsOverlappingOccurrencesWithPartialPatternFallback()
             throws IOException {
-        if (stream == null) {
-            throw new IllegalArgumentException("InputStream must not be null");
-        }
-        if (substring == null || substring.isEmpty()) {
-            throw new IllegalArgumentException("Substring must not be empty");
-        }
+        ByteArrayInputStream stream = inputStream("ABABAB");
+        SubstringFinder finder = new SubstringFinder();
 
-        this.stream = stream;
-        pattern = substring.getBytes(StandardCharsets.UTF_8);
-        failureFunction = calculateFailureFunction();
+        assertTrue(finder.findFirstOccurrence(stream, "ABAB"));
 
-        occurrencePrefixLength = 0;
-        bufferPosition = 0;
-        bytesObtained = 0;
-        bytePosition = 0;
-
-        nextReady = false;
-        exhausted = false;
-        initialized = true;
-
-        return advanceToNextOccurrence();
+        assertEquals(
+                List.of(0L, 2L),
+                collectOccurrences(finder)
+        );
     }
 
-    private int[] calculateFailureFunction() {
-        int[] failure = new int[pattern.length];
+    @Test
+    void findsOccurrenceAcrossChunkBoundary() throws IOException {
+        byte[] data = new byte[8195];
+        Arrays.fill(data, (byte) 'X');
 
-        for (int i = 1; i < pattern.length; i++) {
-            int k = failure[i - 1];
+        // The first two pattern bytes are in the first chunk.
+        // The last byte is in the second chunk.
+        data[8190] = 'A';
+        data[8191] = 'B';
+        data[8192] = 'C';
 
-            while (k > 0 && pattern[k] != pattern[i]) {
-                k = failure[k - 1];
-            }
+        ByteArrayInputStream stream = new ByteArrayInputStream(data);
+        SubstringFinder finder = new SubstringFinder();
 
-            if (pattern[k] == pattern[i]) {
-                k++;
-            }
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
 
-            failure[i] = k;
-        }
-
-        return failure;
+        assertEquals(8190L, finder.next());
+        assertFalse(finder.hasNext());
     }
 
-    private boolean advanceToNextOccurrence() throws IOException {
-        nextReady = false;
+    @Test
+    void findsMultipleOccurrencesAcrossChunkBoundary()
+            throws IOException {
+        byte[] data = new byte[8197];
+        Arrays.fill(data, (byte) 'X');
 
-        while (true) {
-            if (bufferPosition >= bytesObtained) {
-                bytesObtained = stream.read(fileChunk);
-                bufferPosition = 0;
+        data[8190] = 'A';
+        data[8191] = 'B';
+        data[8192] = 'C';
 
-                if (bytesObtained == -1) {
-                    exhausted = true;
-                    return false;
-                }
+        data[8194] = 'A';
+        data[8195] = 'B';
+        data[8196] = 'C';
 
-                if (bytesObtained == 0) {
-                    continue;
-                }
-            }
+        ByteArrayInputStream stream = new ByteArrayInputStream(data);
+        SubstringFinder finder = new SubstringFinder();
 
-            byte currentByte = fileChunk[bufferPosition++];
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
 
-            while (occurrencePrefixLength > 0
-                    && currentByte != pattern[occurrencePrefixLength]) {
-                occurrencePrefixLength =
-                        failureFunction[occurrencePrefixLength - 1];
-            }
-
-            if (currentByte == pattern[occurrencePrefixLength]) {
-                occurrencePrefixLength++;
-            }
-
-            long currentPosition = bytePosition++;
-
-            if (occurrencePrefixLength == pattern.length) {
-                nextOccurrence = currentPosition - pattern.length + 1;
-                occurrencePrefixLength =
-                        failureFunction[occurrencePrefixLength - 1];
-                nextReady = true;
-                return true;
-            }
-        }
+        assertEquals(
+                List.of(8190L, 8194L),
+                collectOccurrences(finder)
+        );
     }
 
-    @Override
-    public boolean hasNext() {
-        if (!initialized) {
-            throw new IllegalStateException(
-                    "Call findFirstOccurrence() before iterating"
-            );
-        }
+    @Test
+    void returnsUtf8BytePositions() throws IOException {
+        ByteArrayInputStream stream = inputStream("абвёжгде");
+        SubstringFinder finder = new SubstringFinder();
 
-        if (nextReady) {
-            return true;
-        }
+        assertTrue(finder.findFirstOccurrence(stream, "ёж"));
 
-        if (exhausted) {
-            return false;
-        }
-
-        try {
-            return advanceToNextOccurrence();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        // The three preceding Cyrillic characters occupy 6 UTF-8 bytes.
+        assertEquals(6L, finder.next());
+        assertFalse(finder.hasNext());
     }
 
-    @Override
-    public Long next() {
-        if (!hasNext()) {
-            throw new NoSuchElementException();
-        }
+    @Test
+    void hasNextDoesNotSkipCachedOccurrence() throws IOException {
+        ByteArrayInputStream stream = inputStream("ABCABC");
+        SubstringFinder finder = new SubstringFinder();
 
-        nextReady = false;
-        return nextOccurrence;
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
+
+        assertTrue(finder.hasNext());
+        assertTrue(finder.hasNext());
+
+        assertEquals(0L, finder.next());
+        assertEquals(3L, finder.next());
+
+        assertFalse(finder.hasNext());
     }
 
-    @Override
-    public Iterator<Long> iterator() {
-        if (!initialized) {
-            throw new IllegalStateException(
-                    "Call findFirstOccurrence() before iterating"
-            );
+    @Test
+    void nextThrowsWhenNoOccurrencesRemain() throws IOException {
+        ByteArrayInputStream stream = inputStream("ABC");
+        SubstringFinder finder = new SubstringFinder();
+
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
+        assertEquals(0L, finder.next());
+
+        assertThrows(NoSuchElementException.class, finder::next);
+    }
+
+    @Test
+    void iteratorCanBeUsedInForEachLoop() throws IOException {
+        ByteArrayInputStream stream = inputStream("ABCXXABC");
+        SubstringFinder finder = new SubstringFinder();
+
+        assertTrue(finder.findFirstOccurrence(stream, "ABC"));
+
+        List<Long> actual = new ArrayList<>();
+        for (Long position : finder) {
+            actual.add(position);
         }
 
-        return this;
+        assertEquals(List.of(0L, 5L), actual);
+    }
+
+    @Test
+    void canStartAnotherSearchOnSameFinder() throws IOException {
+        SubstringFinder finder = new SubstringFinder();
+
+        assertTrue(finder.findFirstOccurrence(
+                inputStream("ABCABC"), "ABC"
+        ));
+
+        assertEquals(0L, finder.next());
+        assertEquals(3L, finder.next());
+        assertFalse(finder.hasNext());
+
+        assertTrue(finder.findFirstOccurrence(
+                inputStream("XXXYZ"), "XYZ"
+        ));
+
+        assertEquals(2L, finder.next());
+        assertFalse(finder.hasNext());
+    }
+
+    @Test
+    void rejectsNullStream() {
+        SubstringFinder finder = new SubstringFinder();
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> finder.findFirstOccurrence(null, "ABC")
+        );
+    }
+
+    @Test
+    void rejectsNullSubstring() {
+        SubstringFinder finder = new SubstringFinder();
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> finder.findFirstOccurrence(inputStream("ABC"), null)
+        );
+    }
+
+    @Test
+    void rejectsEmptySubstring() {
+        SubstringFinder finder = new SubstringFinder();
+
+        assertThrows(
+                IllegalArgumentException.class,
+                () -> finder.findFirstOccurrence(inputStream("ABC"), "")
+        );
+    }
+
+    @Test
+    void rejectsIteratorUsageBeforeInitialization() {
+        SubstringFinder finder = new SubstringFinder();
+
+        assertThrows(IllegalStateException.class, finder::hasNext);
+        assertThrows(IllegalStateException.class, finder::iterator);
+    }
+
+    private static ByteArrayInputStream inputStream(String content) {
+        return new ByteArrayInputStream(
+                content.getBytes(StandardCharsets.UTF_8)
+        );
+    }
+
+    private static List<Long> collectOccurrences(Iterator<Long> iterator) {
+        List<Long> result = new ArrayList<>();
+
+        while (iterator.hasNext()) {
+            result.add(iterator.next());
+        }
+
+        return result;
     }
 }
