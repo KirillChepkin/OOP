@@ -1,6 +1,4 @@
-
 import lombok.Getter;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
@@ -9,23 +7,17 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
-
     @Getter
     private final int chunkSize = 8192;
-
     private final byte[] fileChunk = new byte[chunkSize];
-
     private InputStream stream;
     private byte[] pattern;
     private int[] failureFunction;
-
     private int occurrencePrefixLength;
     private int bufferPosition;
     private int bytesObtained;
-
     private long bytePosition;
     private long nextOccurrence;
-
     private boolean nextReady;
     private boolean exhausted;
     private boolean initialized;
@@ -38,26 +30,21 @@ public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
         if (substring == null || substring.isEmpty()) {
             throw new IllegalArgumentException("Substring must not be empty");
         }
-
         this.stream = stream;
         pattern = substring.getBytes(StandardCharsets.UTF_8);
         failureFunction = calculateFailureFunction();
-
         occurrencePrefixLength = 0;
         bufferPosition = 0;
         bytesObtained = 0;
         bytePosition = 0;
-
         nextReady = false;
         exhausted = false;
         initialized = true;
-
         return advanceToNextOccurrence();
     }
 
     private int[] calculateFailureFunction() {
         int[] failure = new int[pattern.length];
-
         for (int i = 1; i < pattern.length; i++) {
             int k = failure[i - 1];
             while (k > 0 && pattern[k] != pattern[i]) {
@@ -68,18 +55,15 @@ public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
             }
             failure[i] = k;
         }
-
         return failure;
     }
 
     private boolean advanceToNextOccurrence() throws IOException {
         nextReady = false;
-
         while (true) {
             if (bufferPosition >= bytesObtained) {
                 bytesObtained = stream.read(fileChunk);
                 bufferPosition = 0;
-
                 if (bytesObtained == -1) {
                     exhausted = true;
                     return false;
@@ -88,9 +72,7 @@ public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
                     continue;
                 }
             }
-
             byte currentByte = fileChunk[bufferPosition++];
-
             while (occurrencePrefixLength > 0
                     && currentByte != pattern[occurrencePrefixLength]) {
                 occurrencePrefixLength =
@@ -99,9 +81,7 @@ public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
             if (currentByte == pattern[occurrencePrefixLength]) {
                 occurrencePrefixLength++;
             }
-
             long currentPosition = bytePosition++;
-
             if (occurrencePrefixLength == pattern.length) {
                 nextOccurrence = currentPosition - pattern.length + 1;
                 occurrencePrefixLength =
@@ -125,7 +105,6 @@ public class SubstringFinder implements Iterable<Long>, Iterator<Long> {
         if (exhausted) {
             return false;
         }
-
         try {
             return advanceToNextOccurrence();
         } catch (IOException e) {
